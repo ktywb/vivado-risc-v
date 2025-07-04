@@ -145,6 +145,7 @@ Once all this is done, you can make the sd card without making the image:
 ## Program the FPGA flash memory
 ```
 source $XILINX_VIVADO/settings64.sh
+hw_server & # run hw_server
 make CONFIG=rocket64b2 BOARD=nexys-video flash
 ```
 Alternatively, [flash memory can be programmed using Vivado GUI](docs/vivado-flash.md).
