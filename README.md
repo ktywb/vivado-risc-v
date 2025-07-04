@@ -40,6 +40,9 @@ sudo access required.
 Alternatively, a Windows 10 machine with Ubuntu on Windows can be used to run the tools, see [Running RISC-V tools on Windows](docs/ubuntu-on-windows.md).
 
 ## Software
+
+! Use Vivado Enterprise if use vc707
+
 Download and install AMD/Xilinx
 [Vitis](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vitis.html).
 Supported Vitis versions are 2020.2, 2021.1, 2021.2, 2022.1, 2022.2, 2023.1, 2023.2, 2024.1, 2024.2, 2025.1.
@@ -53,17 +56,23 @@ If using a Digilent board, install [Vivado Board Files for Digilent FPGA Boards]
 
 ## Checkout the repository, install required packages and update submodules
 ```
+sudo apt update
 sudo apt install git make
 git clone https://github.com/eugene-tarassov/vivado-risc-v.git
 cd vivado-risc-v
 make apt-install
+sudo apt install python3-serial
+echo 'export PATH="vivado_install_path/bin:$PATH"' >> ~/.bashrc
+echo 'export XILINX_VIVADO="vivado_install_path"' >> ~/.bashrc
+echo "alias miniterm='python3 -m serial.tools.miniterm'" >> ~/.bashrc
 make update-submodules
+source ~/.bashrc
 ```
 
 ## Build FPGA bitstream
 ```
-source /opt/Xilinx/2025.1/Vivado/settings64.sh
-make CONFIG=rocket64b2 BOARD=nexys-video bitstream
+source $XILINX_VIVADO/settings64.sh
+make CONFIG=rocket64b2 BOARD=vc707 bitstream
 ```
 For KC705, use `BOARD=kc705`
 
@@ -105,6 +114,8 @@ FPGA utilization, LUTs:
 ## Prepare the SD card
 Use USB SD card reader to connect SD card to the workstation, and run:
 ```
+# Remember to modify lines 45 and 48 in ./mk-sd-image.
+# make xxx -j   ->   make xxx -jxx
 ./mk-sd-card
 ```
 The script looks for USB memory device and asks confirmation before using it.
