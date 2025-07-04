@@ -153,9 +153,9 @@ Alternatively, [flash memory can be programmed using Vivado GUI](docs/vivado-fla
 
 Host name: debian
 
-User login and password: debian debian
+User login and password: debian
 
-Root login and password: root root
+Root login and password: root root（or try ‘root’）
 
 You can login over UART console:
 ```
