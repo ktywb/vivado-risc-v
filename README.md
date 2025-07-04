@@ -61,6 +61,7 @@ sudo apt install git make
 git clone https://github.com/eugene-tarassov/vivado-risc-v.git
 cd vivado-risc-v
 make apt-install
+make apt-install-qemi
 sudo apt install python3-serial
 echo 'export PATH="vivado_install_path/bin:$PATH"' >> ~/.bashrc
 echo 'export XILINX_VIVADO="vivado_install_path"' >> ~/.bashrc
