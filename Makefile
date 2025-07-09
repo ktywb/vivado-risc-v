@@ -226,6 +226,9 @@ CHISEL_SRC_DIRS = \
 CHISEL_SRC := $(foreach path, $(CHISEL_SRC_DIRS), $(shell test -d $(path) && find $(path) -iname "*.scala" -not -name ".*"))
 FIRRTL = java -Xmx25G -Xss8M $(JAVA_OPTIONS) -cp `realpath target/scala-*/system.jar` firrtl.stage.FirrtlMain
 
+TEST-pre : clean
+TEST : TEST-pre workspace/$(CONFIG)/system.dts
+
 workspace/patch-hdl-done:
 	if [ -s patches/ethernet.patch ] ; then cd ethernet/verilog-ethernet && ( git apply -R --check ../../patches/ethernet.patch 2>/dev/null || git apply ../../patches/ethernet.patch ) ; fi
 	if [ -s patches/rocket-chip.patch ] ; then cd rocket-chip && ( git apply -R --check ../patches/rocket-chip.patch 2>/dev/null || git apply ../patches/rocket-chip.patch ) ; fi
