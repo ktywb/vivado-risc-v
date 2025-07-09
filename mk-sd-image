@@ -42,10 +42,10 @@ make debian-riscv64/initrd debian-riscv64/rootfs.tar.gz
 # --- Build BBL and Linux ---
 
 if [ ! -f workspace/boot.elf ] ; then
-  make bootloader -j
+  make bootloader -j 128
 fi
 if [ ! -f linux-stable/arch/riscv/boot/Image ] ; then
-  make linux -j
+  make linux -j 128
 fi
 
 # --- build SD card image ---

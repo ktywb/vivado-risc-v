@@ -58,7 +58,7 @@ If using a Digilent board, install [Vivado Board Files for Digilent FPGA Boards]
 ```
 sudo apt update
 sudo apt install git make
-git clone https://github.com/eugene-tarassov/vivado-risc-v.git
+git clone https://github.com/ktywb/vivado-risc-v.git
 cd vivado-risc-v
 make apt-install
 make apt-install-qemi

@@ -37,6 +37,7 @@ ifeq ($(shell test -r /etc/os-release && . /etc/os-release && echo $$VERSION_COD
 else
 	sudo apt install python
 endif
+	sudo apt install python3-serial
 
 apt-install-qemi:
 	sudo apt install qemu-system-misc opensbi u-boot-qemu qemu-utils
@@ -210,7 +211,7 @@ else
   MEMORY_ADDR_RANGE64 = 0x0 0x80000000 $(shell echo - | awk '{CPU=$(MEMORY_SIZE_CPU); DDR=$(MEMORY_SIZE); $(MEMORY_SIZE_AWK)}')
 endif
 
-SBT := java -Xmx12G -Xss8M $(JAVA_OPTIONS) -Dsbt.io.virtual=false -Dsbt.server.autostart=false -jar $(realpath sbt-launch.jar)
+SBT := java -Xmx25G -Xss8M $(JAVA_OPTIONS) -Dsbt.io.virtual=false -Dsbt.server.autostart=false -jar $(realpath sbt-launch.jar)
 
 CHISEL_SRC_DIRS = \
   src/main \
@@ -223,7 +224,7 @@ CHISEL_SRC_DIRS = \
   generators/testchipip/src/main
 
 CHISEL_SRC := $(foreach path, $(CHISEL_SRC_DIRS), $(shell test -d $(path) && find $(path) -iname "*.scala" -not -name ".*"))
-FIRRTL = java -Xmx12G -Xss8M $(JAVA_OPTIONS) -cp `realpath target/scala-*/system.jar` firrtl.stage.FirrtlMain
+FIRRTL = java -Xmx25G -Xss8M $(JAVA_OPTIONS) -cp `realpath target/scala-*/system.jar` firrtl.stage.FirrtlMain
 
 workspace/patch-hdl-done:
 	if [ -s patches/ethernet.patch ] ; then cd ethernet/verilog-ethernet && ( git apply -R --check ../../patches/ethernet.patch 2>/dev/null || git apply ../../patches/ethernet.patch ) ; fi
@@ -276,7 +277,7 @@ workspace/$(CONFIG)/rocket.vhdl: workspace/$(CONFIG)/system-$(BOARD).v
 	  -sourcepath vhdl-wrapper/src -d vhdl-wrapper/bin \
 	  -classpath vhdl-wrapper/antlr-4.8-complete.jar \
 	  vhdl-wrapper/src/net/largest/riscv/vhdl/Main.java
-	java -Xmx4G -Xss8M $(JAVA_OPTIONS) -cp \
+	java -Xmx25G -Xss8M $(JAVA_OPTIONS) -cp \
 	  vhdl-wrapper/src:vhdl-wrapper/bin:vhdl-wrapper/antlr-4.8-complete.jar \
 	  net.largest.riscv.vhdl.Main -m $(CONFIG_SCALA) \
 	  workspace/$(CONFIG)/system-$(BOARD).v >$@
@@ -320,6 +321,7 @@ workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspa
 
 vivado-tcl: workspace/$(CONFIG)/system-$(BOARD).tcl
 
+# 创建 Vivado 工程（如果还没有的话），并生成一个时间戳文件作为标记
 $(proj_time): workspace/$(CONFIG)/system-$(BOARD).tcl
 	if [ ! -e $(proj_path) ] ; then $(vivado) -source workspace/$(CONFIG)/system-$(BOARD).tcl || ( rm -rf $(proj_path) ; exit 1 ) ; fi
 	date >$@
@@ -337,9 +339,11 @@ $(synthesis): $(proj_time)
 	echo "update_compile_order -fileset sources_1" >>$(proj_path)/make-synthesis.tcl
 	echo "reset_run synth_1" >>$(proj_path)/make-synthesis.tcl
 	echo "launch_runs -jobs $(MAX_THREADS) synth_1" >>$(proj_path)/make-synthesis.tcl
+# 综合
 	echo "wait_on_run synth_1" >>$(proj_path)/make-synthesis.tcl
 	$(vivado) -source $(proj_path)/make-synthesis.tcl
-	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
+# check for errors
+	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi 
 
 $(bitstream): $(synthesis)
 	echo "set_param general.maxThreads $(MAX_THREADS)" >>$(proj_path)/make-bitstream.tcl
