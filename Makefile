@@ -53,7 +53,7 @@ update:
 	git pull --no-recurse-submodules
 	rm -rf workspace/patch-*-done
 	git submodule sync --recursive
-	git $(foreach m,$(SKIP_SUBMODULES),-c submodule.$(m).update=none) submodule update --init --force --recursive
+	git $(foreach m,$(SKIP_SUBMODULES),-c submodule.$(m).update=none) submodule update --init --force --recursive --progress
 
 update-submodules:
 	rm -rf workspace/patch-*-done
