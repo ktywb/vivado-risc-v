@@ -3,7 +3,8 @@
 set -e
 cd -P `dirname $0`
 
-SD_SIZE=1500
+SD_SIZE=5000 # 5G
+# SD_SIZE=1500
 SD_BOOT_SIZE=64
 SD_SWAP_SIZE=
 SD_IMG=debian-riscv64/debian-riscv64.sd.img
