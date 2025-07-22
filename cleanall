@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sbt clean && make clean && clear

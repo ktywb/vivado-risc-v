@@ -14,8 +14,10 @@ lazy val vivado = (project in file("."))
   .dependsOn(cde)
   .dependsOn(boom)
   .dependsOn(rocketchip)
+  // .dependsOn(rocketchip_inclusive_cache)
   .dependsOn(sifive_cache)
   .dependsOn(gemmini)
+  .dependsOn(partitionacc)
   .settings(commonSettings)
   .settings(assemblyJarName in assembly := "system.jar")
   .settings(assemblyMergeStrategy in assembly := {
@@ -40,6 +42,18 @@ lazy val rocketchip = (project in file("rocket-chip"))
     scalacOptions += "-Ywarn-unused"
   )
   .settings(libraryDependencies ++= Seq("com.lihaoyi" %% "mainargs" % "0.5.0"))
+
+lazy val rocketLibDeps = (rocketchip / Keys.libraryDependencies)
+
+lazy val partitionacc = (project in file("generators/partition-acc"))
+  .dependsOn(rocketchip, rocc_acc_utils, testchipip, targetutils)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
+  .settings(commonSettings)
+
+lazy val rocc_acc_utils = (project in file("generators/rocc-acc-utils"))
+  .dependsOn(rocketchip)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
+  .settings(commonSettings)
 
 lazy val testchipip = (project in file("generators/testchipip"))
   .dependsOn(cde)
@@ -70,6 +84,16 @@ lazy val gemmini = (project in file("generators/gemmini"))
 lazy val targetutils = (project in file("generators/targetutils"))
   .settings(commonSettings)
 
+lazy val targetutils2 = (project in file("generators/targetutils2"))
+  .settings(commonSettings)
+
 lazy val cde = (project in file("rocket-chip/cde"))
   .settings(commonSettings)
   .settings(scalaSource in Compile := baseDirectory.value / "cde/src/chipsalliance/rocketchip")
+
+// lazy val rocketchip_inclusive_cache = (project in file("generators/rocket-chip-inclusive-cache"))
+//   .settings(
+//     commonSettings,
+//     Compile / scalaSource := baseDirectory.value / "design/craft")
+//   .dependsOn(rocketchip)
+//   .settings(libraryDependencies ++= rocketLibDeps.value)

@@ -1,0 +1,4 @@
+#!/bin/bash
+# CFG=Rocket64s2gem4
+CFG=rocket64b1_partition_test
+CONFIG=$CFG make bitstream 2>&1 | tee ${CFG}_log.txt

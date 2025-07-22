@@ -1,0 +1,12 @@
+Makefile:FIRRTL = java $(SBT_BUILD_ARGS) $(JAVA_OPTIONS) -cp `realpath target/scala-*/system.jar` firrtl.stage.FirrtlMain
+Makefile:	  --custom-transforms firrtl.passes.InlineInstances \
+generators/targetutils/src/main/scala/midas/annotations.scala:import firrtl.{RenameMap}
+generators/targetutils/src/main/scala/midas/annotations.scala:import firrtl.annotations._
+generators/targetutils/src/main/scala/midas/annotations.scala:import firrtl.transforms.DontTouchAllTargets
+generators/targetutils/src/main/scala/midas/annotations.scala:    name: Option[String]) extends firrtl.annotations.Annotation {
+generators/targetutils/src/main/scala/midas/annotations.scala:  def update(renames: RenameMap): Seq[firrtl.annotations.Annotation] = {
+generators/targetutils/src/main/scala/midas/annotations.scala:    firrtl.annotations.NoTargetAnnotation {
+generators/targetutils/src/main/scala/midas/annotations.scala:    extends firrtl.annotations.Annotation with DontTouchAllTargets {
+generators/targetutils/src/main/scala/midas/annotations.scala:  def update(renames: RenameMap): Seq[firrtl.annotations.Annotation] = {
+generators/targetutils/src/main/scala/midas/annotations.scala:  def update(renames: RenameMap): Seq[firrtl.annotations.Annotation] = {
+generators/targetutils/src/main/scala/midas/annotations.scala:  def update(renames: RenameMap): Seq[firrtl.annotations.Annotation] = {

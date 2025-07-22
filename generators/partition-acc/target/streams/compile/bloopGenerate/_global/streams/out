@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0m[partitionacc] Classpath dependencies List(rocketchip, rocc_acc_utils, testchipip)[0m
+[0m[[0m[0mdebug[0m] [0m[0m[partitionacc] Dependencies from configurations List()[0m
+[0m[[0m[0mdebug[0m] [0m[0mBloop wrote the configuration of project 'partitionacc' to '/home/name/vivado_prj/vivado-risc-v/.bloop/partitionacc.json'[0m
+[0m[[0m[32msuccess[0m] [0m[0mGenerated .bloop/partitionacc.json[0m

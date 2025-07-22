@@ -9,6 +9,7 @@ import freechips.rocketchip.devices.tilelink._
 import freechips.rocketchip.tile.{BuildRoCC, OpcodeSet}
 import freechips.rocketchip.util.DontTouch
 import freechips.rocketchip.system._
+import partitionacc._
 
 class RocketSystem(implicit p: Parameters) extends RocketSubsystem
     with HasAsyncExtInterrupts
@@ -123,6 +124,32 @@ class RocketWideBusConfig extends Config(
   new WithCoherentBusTopology ++
   new WithoutTLMonitors ++
   new BaseConfig)
+
+
+/* ---------- Partition Config ---------- */
+class WithSystemBusWidth_My(val bits: Int) extends Config((site, here, up) => {
+  case SystemBusKey => up(SystemBusKey, site).copy(beatBytes = bits / 8)
+})
+
+class PartitionBaseConfig extends Config(
+  new WithPartitionAccel ++
+  new WithSystemBusWidth_My(128) ++ // 16字节 = 128位，匹配PartitionConsts.BUS_SZ_BYTES = 16
+  new WithInclusiveCache(
+    nWays = 2,
+    capacityKB = 32,
+    subBankingFactor = 2
+  ) ++
+  new WithNMemoryChannels(1)
+  )
+
+class Rocket64b1_partition extends Config(
+  new PartitionBaseConfig ++
+  new Rocket64b1)
+
+class Rocket64b1_partition_test extends Config(
+  new Rocket64b1_partition
+  )
+/* ---------- Partition Config ---------- */
 
 class Rocket64b1 extends Config(
   new WithNBreakpoints(8) ++

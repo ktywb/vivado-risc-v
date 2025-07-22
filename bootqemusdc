@@ -1,0 +1,39 @@
+for part in $(lsblk -ln -o NAME,MOUNTPOINT | grep "^sdb" | awk '$2!=""{print "/dev/"$1}'); do
+  sudo umount $part
+done
+
+for DEVICE in `ls /dev/disk/by-path/*-usb-*-scsi-*` ; do
+  case $DEVICE in
+  *-part*)
+    continue
+    ;;
+  esac
+  DEVICE=`realpath $DEVICE`
+  echo
+  echo "Found disk: $DEVICE"
+  sudo sfdisk -l $DEVICE || continue
+  read -r -p "Use this device for QEMU? [y/N] " response
+  case "$response" in
+  [yY][eE][sS]|[yY])
+    SD_DEVICE=$DEVICE
+    break
+    ;;
+  *)
+    continue
+    ;;
+  esac
+done
+
+if [ -z "$SD_DEVICE" ]; then
+  echo "No SD device selected."
+  exit 1
+fi
+
+sudo qemu-system-riscv64 -machine virt -m 8G -nographic \
+  -bios qemu/opensbi/build/platform/generic/firmware/fw_payload.bin \
+  -smp cores=1 \
+  -device virtio-net-device,netdev=net0 \
+  -netdev user,id=net0,tftp=tftp,hostfwd=tcp::2222-:22  \
+  -drive if=none,file=$SD_DEVICE,format=raw,id=mydisk \
+  -device ich9-ahci,id=ahci -device ide-hd,drive=mydisk,bus=ahci.0 \
+  -device virtio-rng-pci

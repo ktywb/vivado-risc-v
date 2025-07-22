@@ -63,6 +63,8 @@ cd vivado-risc-v
 make apt-install
 make apt-install-qemi
 sudo apt install python3-serial
+pip install pyserial
+sudo apt install minicom
 echo 'export PATH="vivado_install_path/bin:$PATH"' >> ~/.bashrc
 echo 'export XILINX_VIVADO="vivado_install_path"' >> ~/.bashrc
 echo "alias miniterm='python3 -m serial.tools.miniterm'" >> ~/.bashrc
@@ -161,6 +163,7 @@ Root login and password: root root（or try ‘root’）
 You can login over UART console:
 ```
 sudo miniterm /dev/ttyUSB0 115200
+# or minicom -D /dev/ttyUSB0 -b 115200
 ```
 or, after Linux boot, over SSH:
 ```

@@ -3,7 +3,8 @@
 set -e
 cd -P `dirname $0`
 
-SD_SIZE=1500
+# SD_SIZE=1500
+SD_SIZE=5000
 SD_BOOT_SIZE=64
 SD_SWAP_SIZE=
 SD_IMG=debian-riscv64/debian-riscv64.sd.img
@@ -39,13 +40,14 @@ KERNEL_VER=$(cd linux-stable && git describe --exact-match --abbrev=0)
 
 make debian-riscv64/initrd debian-riscv64/rootfs.tar.gz
 
+
 # --- Build BBL and Linux ---
 
 if [ ! -f workspace/boot.elf ] ; then
-  make bootloader -j 128
+  make bootloader -j 256
 fi
 if [ ! -f linux-stable/arch/riscv/boot/Image ] ; then
-  make linux -j 128
+  make linux -j 256
 fi
 
 # --- build SD card image ---
