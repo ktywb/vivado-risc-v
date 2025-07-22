@@ -1,5 +1,0 @@
-[debug] Copy resource mappings: 
-[debug] 	(/home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/resources/emptylogic.v,/home/name/vivado_prj/vivado-risc-v/generators/partition-acc/target/scala-2.13/classes/emptylogic.v)
-[debug] 	(/home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/resources/partition_modified.v,/home/name/vivado_prj/vivado-risc-v/generators/partition-acc/target/scala-2.13/classes/partition_modified.v)
-[debug] 	(/home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/resources/partition.v,/home/name/vivado_prj/vivado-risc-v/generators/partition-acc/target/scala-2.13/classes/partition.v)
-[debug] 	(/home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/resources/logic.v,/home/name/vivado_prj/vivado-risc-v/generators/partition-acc/target/scala-2.13/classes/logic.v)
