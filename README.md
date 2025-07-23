@@ -162,8 +162,8 @@ Root login and password: root root（or try ‘root’）
 
 You can login over UART console:
 ```
-sudo miniterm /dev/ttyUSB0 115200
-# or minicom -D /dev/ttyUSB0 -b 115200
+sudo miniterm /dev/ttyUSB2 115200
+# or minicom -D /dev/ttyUSB2 -b 115200
 ```
 or, after Linux boot, over SSH:
 ```

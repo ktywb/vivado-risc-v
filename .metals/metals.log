@@ -711,3 +711,766 @@ Exception in thread "pool-41-thread-1" java.lang.InterruptedException
 2025.07.22 14:13:46 INFO  time: code lens generation in 14s
 7月 22, 2025 2:20:52 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 信息: Unsupported notification method: $/setTrace
+7月 22, 2025 3:56:37 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2025.07.22 16:53:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:53:59 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala
+2025.07.22 16:53:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:53:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.22 16:54:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 08:53:20 INFO  Started: Metals version 1.6.0+78-692ad1bc-SNAPSHOT in folders '/home/name/vivado_prj/vivado-risc-v' for client Visual Studio Code 1.102.1.
+2025.07.23 08:53:23 INFO  restarted 0 presentation compilers
+2025.07.23 08:53:26 INFO  sbt 1.3.13 found for workspace.
+2025.07.23 08:53:26 WARN  Unable to start sbt bsp server. Make sure you have sbt >= 1.4.1 defined in your build.properties file.
+7月 23, 2025 11:47:00 上午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+2025.07.23 13:30:00 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:30:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:30:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:30:22 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:30:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:30:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:30:22 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 5
+2025.07.23 13:30:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:30:30 INFO  time: code lens generation in 7.56s
+2025.07.23 13:30:33 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:30:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:30:58 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:48 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:49 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:31:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:31:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:06 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:06 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:06 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:06 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:09 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:09 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:14 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-02-44-280.md")
+2025.07.23 13:34:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+Exception in thread "pool-31-thread-1" java.lang.InterruptedException
+	at scala.meta.internal.metals.FutureCancelToken.checkCanceled(FutureCancelToken.scala:29)
+	at scala.meta.internal.pc.CompilerAccess.onCompilerJobQueue$$anonfun$1(CompilerAccess.scala:244)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:153)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2025.07.23 13:34:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:16 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-02-44-280.md")
+2025.07.23 13:34:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:56 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:56 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:56 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:34:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:06 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:06 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:07 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:07 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:33 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:34 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:50 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/build.sbt
+2025.07.23 13:35:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:35:50 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 108
+2025.07.23 13:35:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:56 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:35:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:04 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:04 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:04 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:04 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:05 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:06 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:06 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-04-21-253.md")
+2025.07.23 13:36:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:28 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/rocc-acc-utils/src/main/scala/roccaccutils/StreamingCommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:28 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/rocc-acc-utils/src/main/scala/roccaccutils/StreamingCommandRouter.scala
+2025.07.23 13:36:28 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/rocc-acc-utils/src/main/scala/roccaccutils/StreamingCommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:28 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/rocc-acc-utils/src/main/scala/roccaccutils/StreamingCommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:28 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:28 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/rocc-acc-utils/src/main/scala/roccaccutils/StreamingCommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/rocc-acc-utils/src/main/scala/roccaccutils/StreamingCommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:30 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/build.sbt
+2025.07.23 13:36:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/rocket-chip/macros/src/main/scala/ValName.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/rocket-chip/macros/src/main/scala/ValName.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:47 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/rocket-chip/macros/src/main/scala/ValName.scala
+2025.07.23 13:36:48 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/rocket-chip/macros/src/main/scala/ValName.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:36:48 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 158
+2025.07.23 13:36:48 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:48 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/rocket-chip/macros/src/main/scala/ValName.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/rocket-chip/macros/src/main/scala/ValName.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/rocket-chip/macros/src/main/scala/ValName.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:50 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/build.sbt
+2025.07.23 13:36:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:36:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:46 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:37:46 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:46 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:37:52 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 193
+7月 23, 2025 1:37:52 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 192
+2025.07.23 13:37:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:53 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:53 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:53 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:53 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:53 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:54 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-04-21-253.md")
+2025.07.23 13:37:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:54 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:37:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:37:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:02 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:29 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/build.sbt
+2025.07.23 13:38:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:37 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:46 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:46 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:48 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:48 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:38:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/build.sbt. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:10 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala
+2025.07.23 13:39:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:18 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:39:18 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:18 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:18 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:18 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:18 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:21 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:21 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:25 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:25 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:25 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:34 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:39:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:14 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:41:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:16 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala
+2025.07.23 13:41:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:57 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:41:57 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 342
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:41:57 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 343
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:41:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:42:15 INFO  Shutting down server
+2025.07.23 13:42:15 INFO  shutting down Metals
+2025.07.23 13:44:11 INFO  Started: Metals version 1.6.0+78-692ad1bc-SNAPSHOT in folders '/home/name/vivado_prj/vivado-risc-v' for client Visual Studio Code 1.102.1.
+2025.07.23 13:44:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:44:19 INFO  sbt 1.3.13 found for workspace.
+2025.07.23 13:44:19 WARN  Unable to start sbt bsp server. Make sure you have sbt >= 1.4.1 defined in your build.properties file.
+2025.07.23 13:44:19 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala
+2025.07.23 13:44:19 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:44:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:44:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:44:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:44:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:44:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:44:24 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:44:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:44:32 INFO  time: code lens generation in 8.9s
+2025.07.23 13:44:32 INFO  time: code lens generation in 8.13s
+2025.07.23 13:44:32 INFO  time: code lens generation in 9.82s
+2025.07.23 13:44:34 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:45:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:45:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:45:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:45:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:45:24 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:55 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:55 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:55 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:55 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:46:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:01 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:01 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:47:01 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:01 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:09 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:12 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala
+2025.07.23 13:47:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:15 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:47:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Partition.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Partition.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:16 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Partition.scala
+2025.07.23 13:47:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Partition.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:17 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala
+2025.07.23 13:47:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:20 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:47:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:24 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:24 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:24 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:25 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:25 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:27 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:27 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:29 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala
+2025.07.23 13:47:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:47:36 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 158
+2025.07.23 13:47:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Top.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Partition.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:39 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Partition.scala
+2025.07.23 13:47:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Partition.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:40 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:47:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:42 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala
+2025.07.23 13:47:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Configs.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Common.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala
+2025.07.23 13:47:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:48 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:55 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:55 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:55 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-34-28-463.md")
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:57 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:58 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-02-44-280.md")
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:57 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:47:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:05 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:25 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:25 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:28 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:29 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala
+2025.07.23 13:48:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:29 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:39 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:48:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:47 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-02-44-280.md")
+2025.07.23 13:48:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:56 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:56 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:56 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:56 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:58 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:58 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:58 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:58 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:48:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:04 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:04 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:49:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:50:37 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:50:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:50:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:16 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:51:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:26 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:26 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:51:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:48 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:52:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:10 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:14 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:15 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:17 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:18 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:18 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:22 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:23 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:25 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:26 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:27 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:27 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:30 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:32 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-02-44-280.md")
+2025.07.23 13:53:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:33 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:33 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:33 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:34 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:34 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:33 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:33 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:34 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:34 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:35 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:35 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:34 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:35 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:35 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:36 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:36 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:36 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:37 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:37 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:37 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:37 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:38 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:40 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:41 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:41 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-02-44-280.md")
+2025.07.23 13:53:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:42 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:53:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:43 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:46 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:46 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:47 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:53:49 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:03 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:08 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala
+2025.07.23 13:54:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/CommandRouter.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:11 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:11 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:54:12 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 649
+2025.07.23 13:54:16 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:18 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 1:54:18 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 661
+2025.07.23 13:54:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:19 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:20 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:32 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:54:39 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:55:31 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:56:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:56:00 INFO  empty definition using pc, found symbol in pc: `<none>`. (full report at: "/home/name/vivado_prj/vivado-risc-v/.metals/.reports/metals-full/2025-07-16/r_empty-definition_10-02-44-280.md")
+2025.07.23 13:56:00 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:56:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:56:21 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:56:33 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:56:36 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:56:44 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:56:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:57:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:57:42 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:57:45 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:08 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:12 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:13 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:50 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:51 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:53 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:52 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:54 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:55 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala
+2025.07.23 13:59:55 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 13:59:55 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 14:00:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 14:00:59 WARN  no build target for: /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala
+2025.07.23 14:00:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/partition-acc/src/main/scala/Logger.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 14:00:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+2025.07.23 14:00:59 INFO  no build target found for /home/name/vivado_prj/vivado-risc-v/generators/targetutils/src/main/scala/midas/annotations.scala. Using presentation compiler with project's scala-library version: 3.3.6
+7月 23, 2025 2:11:55 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+7月 23, 2025 2:11:55 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+7月 23, 2025 2:12:05 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
