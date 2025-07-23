@@ -1474,3 +1474,5 @@ Exception in thread "pool-31-thread-1" java.lang.InterruptedException
 信息: Unsupported notification method: $/setTrace
 7月 23, 2025 2:12:05 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 信息: Unsupported notification method: $/setTrace
+7月 23, 2025 2:12:27 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
