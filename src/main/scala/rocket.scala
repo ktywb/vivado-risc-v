@@ -149,7 +149,14 @@ class Rocket64b1_partition extends Config(
 class Rocket64b1_partition_test extends Config(
   new Rocket64b1_partition
   )
+
+
+
 /* ---------- Partition Config ---------- */
+class Rocket64m1 extends Config(
+  new WithNBreakpoints(8) ++
+  new WithNMedCores(1)  ++
+  new RocketBaseConfig)
 
 class Rocket64b1 extends Config(
   new WithNBreakpoints(8) ++
