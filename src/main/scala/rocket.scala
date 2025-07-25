@@ -1,4 +1,5 @@
 package Vivado
+import partitionacc.{PartitionConsts}
 
 import Chisel._
 import org.chipsalliance.cde.config.{Config, Parameters}
@@ -133,11 +134,11 @@ class WithSystemBusWidth_My(val bits: Int) extends Config((site, here, up) => {
 
 class PartitionBaseConfig extends Config(
   new WithPartitionAccel ++
-  new WithSystemBusWidth_My(128) ++ // 16字节 = 128位，匹配PartitionConsts.BUS_SZ_BYTES = 16
+  new WithSystemBusWidth_My(PartitionConsts.InputWidth) ++ // 16字节 = 128位，匹配PartitionConsts.BUS_SZ_BYTES = 16
   new WithInclusiveCache(
-    nWays = 2,
-    capacityKB = 32,
-    subBankingFactor = 2
+    // nWays = 2,
+    // capacityKB = 32,
+    // subBankingFactor = 2
   ) ++
   new WithNMemoryChannels(1)
   )
