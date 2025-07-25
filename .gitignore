@@ -19,3 +19,4 @@
 /.Xilinx/
 /generators/partition-acc/
 /*.v
+/.metals/
