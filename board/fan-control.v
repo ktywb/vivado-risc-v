@@ -1,7 +1,7 @@
 module fan_control #(
-    parameter real temperature = 50.0, // Celsius
-    parameter real fan_min  = 25.0, // Power %
-    parameter real fan_norm = 45.0  // Power %
+    parameter real temperature = 40.0, // Celsius
+    parameter real fan_min  = 35.0, // Power %
+    parameter real fan_norm = 55.0  // Power %
 ) (
     (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 async_resetn RST" *)
     (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)

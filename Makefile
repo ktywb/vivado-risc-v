@@ -78,6 +78,9 @@ clean-sbt:
 clean:
 	rm -rf workspace/patch-*-done
 	git submodule foreach --recursive git clean -xfdq
+# 	git rm --cached generators/testchipip2
+# 	git rm --cached qemu/opensbi
+# 	git rm --cached qemu/u-boot
 	sudo rm -rf target project/target project/project/target generators/targetutils/target generators/targetutils2/target vhdl-wrapper/bin
 # 	sudo rm -rf debian-riscv64 target project/target project/project/target generators/targetutils/target generators/targetutils2/target vhdl-wrapper/bin
 
@@ -306,8 +309,8 @@ workspace/$(CONFIG)/system-$(BOARD).sv: workspace/$(CONFIG)/system-$(BOARD)/Rock
 		fi \
 	done
 
-# TEST: workspace/$(CONFIG)/system-$(BOARD).sv
-# Generate Rocket SoC wrapper for Vivado
+sv: workspace/$(CONFIG)/system-$(BOARD).sv
+
 workspace/$(CONFIG)/rocket.vhdl: workspace/$(CONFIG)/system-$(BOARD).sv
 	@$(call print_log,rocket-vhdl)
 	mkdir -p vhdl-wrapper/bin
@@ -319,6 +322,18 @@ workspace/$(CONFIG)/rocket.vhdl: workspace/$(CONFIG)/system-$(BOARD).sv
 	  vhdl-wrapper/src:vhdl-wrapper/bin:vhdl-wrapper/antlr-4.8-complete.jar \
 	  net.largest.riscv.vhdl.Main -m $(CONFIG_SCALA) \
 	  workspace/$(CONFIG)/system-$(BOARD).sv >$@
+
+vhdl:
+	@$(call print_log,rocket-vhdl)
+	mkdir -p vhdl-wrapper/bin
+	javac -g -nowarn \
+	  -sourcepath vhdl-wrapper/src -d vhdl-wrapper/bin \
+	  -classpath vhdl-wrapper/antlr-4.8-complete.jar \
+	  vhdl-wrapper/src/net/largest/riscv/vhdl/Main.java
+	java $(SBT_BUILD_ARGS) $(JAVA_OPTIONS) -cp \
+	  vhdl-wrapper/src:vhdl-wrapper/bin:vhdl-wrapper/antlr-4.8-complete.jar \
+	  net.largest.riscv.vhdl.Main -m $(CONFIG_SCALA) \
+	  workspace/$(CONFIG)/system-$(BOARD).sv >$@	
 
 # --- utility make targets to run SBT command line ---
 

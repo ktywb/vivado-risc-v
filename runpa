@@ -1,8 +1,10 @@
 #!/bin/bash
 # CFG=Rocket64s2gem4
 B=vc707
-CFG=rocket64b1_partition_test
-FREQ=80
+# CFG=Rocket64b1_partition_test
+CFG=Rocket64b1_partition_e
+FREQ=50.0
 MT=4
 
 BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make bitstream 2>&1 | tee ${CFG}_log.txt
+# BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make vivado-project 2>&1 | tee ${CFG}_log.txt
