@@ -3613,3 +3613,132 @@ Phase 5 Delay and Skew Optimization
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 16a7fc13f
+
+Time (s): cpu = 00:26:11 ; elapsed = 00:11:00 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2643 ; free virtual = 30613
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-70.805| TNS=-350475.748| WHS=N/A    | THS=N/A    |
+
+ Number of Nodes with overlaps = 0
+Phase 5.1 Delay CleanUp | Checksum: 16d93403b
+
+Time (s): cpu = 00:26:23 ; elapsed = 00:11:04 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2747 ; free virtual = 30653
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 16d93403b
+
+Time (s): cpu = 00:26:23 ; elapsed = 00:11:05 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2751 ; free virtual = 30657
+Phase 5 Delay and Skew Optimization | Checksum: 16d93403b
+
+Time (s): cpu = 00:26:24 ; elapsed = 00:11:06 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2751 ; free virtual = 30657
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 127b39aa1
+
+Time (s): cpu = 00:27:33 ; elapsed = 00:11:28 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2784 ; free virtual = 30690
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-70.802| TNS=-332411.466| WHS=0.036  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 1a009c429
+
+Time (s): cpu = 00:27:35 ; elapsed = 00:11:29 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2771 ; free virtual = 30677
+Phase 6 Post Hold Fix | Checksum: 1a009c429
+
+Time (s): cpu = 00:27:36 ; elapsed = 00:11:30 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2771 ; free virtual = 30677
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 18.8913 %
+  Global Horizontal Routing Utilization  = 19.9129 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Congestion Report
+North Dir 1x1 Area, Max Cong = 97.2973%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X118Y326 -> INT_L_X118Y326
+   INT_L_X122Y296 -> INT_L_X122Y296
+   INT_R_X119Y294 -> INT_R_X119Y294
+   INT_R_X119Y254 -> INT_R_X119Y254
+   INT_L_X122Y246 -> INT_L_X122Y246
+South Dir 1x1 Area, Max Cong = 95.4955%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X116Y317 -> INT_L_X116Y317
+   INT_L_X118Y315 -> INT_L_X118Y315
+   INT_L_X120Y229 -> INT_L_X120Y229
+   INT_R_X29Y28 -> INT_R_X29Y28
+   INT_R_X29Y25 -> INT_R_X29Y25
+East Dir 1x1 Area, Max Cong = 86.7647%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_R_X95Y227 -> INT_R_X95Y227
+   INT_R_X113Y57 -> INT_R_X113Y57
+   INT_R_X97Y41 -> INT_R_X97Y41
+   INT_L_X98Y40 -> INT_L_X98Y40
+   INT_R_X95Y35 -> INT_R_X95Y35
+West Dir 1x1 Area, Max Cong = 94.1176%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X16Y325 -> INT_L_X16Y325
+   INT_R_X7Y322 -> INT_R_X7Y322
+   INT_R_X113Y278 -> INT_R_X113Y278
+   INT_L_X124Y272 -> INT_L_X124Y272
+   INT_R_X119Y36 -> INT_R_X119Y36
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 1 Aspect Ratio: 0.666667 Sparse Ratio: 1
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 1
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 1
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 1
+
+Phase 7 Route finalize | Checksum: 1c16e2c58
+
+Time (s): cpu = 00:27:39 ; elapsed = 00:11:32 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2775 ; free virtual = 30681
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 1c16e2c58
+
+Time (s): cpu = 00:27:40 ; elapsed = 00:11:33 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2775 ; free virtual = 30681
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 1c3a81e56
+
+Time (s): cpu = 00:28:08 ; elapsed = 00:11:50 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2724 ; free virtual = 30632
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-70.802| TNS=-332411.466| WHS=0.036  | THS=0.000  |
+
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 10 Post Router Timing | Checksum: 1c3a81e56
+
+Time (s): cpu = 00:29:10 ; elapsed = 00:12:05 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 2726 ; free virtual = 30634
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:29:11 ; elapsed = 00:12:05 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 3049 ; free virtual = 30958
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+1687 Infos, 10 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:29:36 ; elapsed = 00:12:19 . Memory (MB): peak = 6296.105 ; gain = 0.000 ; free physical = 3049 ; free virtual = 30958
+INFO: [Timing 38-480] Writing timing data to binary archive.
