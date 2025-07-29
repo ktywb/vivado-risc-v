@@ -25,4 +25,6 @@
 /generators/testchipip2/
 /generators/targetutils2/
 /generators/rocket-chip2/
-/generators/rocket-chip-inclusive-cache/
+/generators/rocket-chip-inclusive-cache/*.log
+*_log.txt
+.metals/
