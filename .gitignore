@@ -28,3 +28,5 @@
 /generators/rocket-chip-inclusive-cache/*.log
 *_log.txt
 .metals/
+.metals/metals.mv.db
+.metals/metals.log
