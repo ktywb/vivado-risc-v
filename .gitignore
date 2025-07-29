@@ -20,3 +20,9 @@
 /generators/partition-acc/
 /*.v
 /.metals/
+/qemu/opensbi/
+/qemu/u-boot/
+/generators/testchipip2/
+/generators/targetutils2/
+/generators/rocket-chip2/
+/generators/rocket-chip-inclusive-cache/
