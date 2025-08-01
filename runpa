@@ -1,10 +1,46 @@
 #!/bin/bash
 # CFG=Rocket64s2gem4
 B=vc707
-# CFG=Rocket64b1_partition_test
-CFG=Rocket64b1_partition_test
-FREQ=50.0
+# CFG=rocket64b1_partition_test
+# CFG=rocket64b1_partition_e
+CFG=rocket64b1_partition_debug
+FREQ=62.5
+# FREQ=31.25
 MT=4
 
-BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make bitstream 2>&1 | tee ${CFG}_log.txt
-# BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make vivado-project 2>&1 | tee ${CFG}_log.txt
+if [ "$1" = "flash" ]; then
+    hw_server 2>&1 &
+    sleep 2
+    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make flash-skip 
+    sleep 2
+    PIDS=$(pgrep -x hw_server)
+    if [ -z "$PIDS" ]; then
+        echo "[INFO] No hw_server process running."
+        exit 0
+    fi
+
+    echo -e "[INFO] Found hw_server PIDs: \n$PIDS"
+    sleep 2
+    kill $PIDS
+    echo -e "[INFO] Killed"
+elif [ "$1" = "reset" ]; then
+    hw_server 2>&1 &
+    sleep 2
+    make reset
+    sleep 2
+    PIDS=$(pgrep -x hw_server)
+    if [ -z "$PIDS" ]; then
+        echo "[INFO] No hw_server process running."
+        exit 0
+    fi
+
+    echo -e "[INFO] Found hw_server PIDs: \n$PIDS"
+    sleep 2
+    kill $PIDS
+    echo -e "[INFO] Killed"
+elif [ -z "$1" ]; then
+    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make bitstream 2>&1 | tee ${CFG}_log.txt
+    # BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make vivado-project 2>&1 | tee ${CFG}_log.txt
+else
+    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make $1 2>&1 | tee ${CFG}_log.txt
+fi

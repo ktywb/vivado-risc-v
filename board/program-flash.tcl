@@ -18,3 +18,4 @@ create_hw_bitstream -hw_device [current_hw_device] [get_property PROGRAM.HW_CFGM
 program_hw_devices [current_hw_device]
 refresh_hw_device [current_hw_device]
 program_hw_cfgmem -hw_cfgmem [current_hw_cfgmem]
+boot_hw_device [current_hw_device]

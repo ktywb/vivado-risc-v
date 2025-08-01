@@ -58,7 +58,18 @@ set files [list \
  [file normalize ../../board/${vivado_board_name}/sdc.xdc] \
  [file normalize ../../board/${vivado_board_name}/uart.xdc] \
 ]
+if {[info exists debug_xdc_files] && [llength $debug_xdc_files] > 0} {
+    foreach xdc_file $debug_xdc_files {
+        if {[file exists $xdc_file]} {
+            lappend files [file normalize $xdc_file]
+            puts "Added debug constraint file: $xdc_file"
+        } else {
+            puts "Warning: Debug constraint file not found: $xdc_file"
+        }
+    }
+}
 add_files -norecurse -fileset $constraint_fileset $files
+
 
 set block_design_ver [split [version -short] .]
 set block_design_tcl "riscv-[lindex $block_design_ver 0].[lindex $block_design_ver 1].tcl"

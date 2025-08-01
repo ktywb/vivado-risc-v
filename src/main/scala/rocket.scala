@@ -142,8 +142,8 @@ class PartitionBaseConfig extends Config(
   //   subBankingFactor = 2
   // ) 
   ++
-  new WithNMemoryChannels(1) ++
-  new WithClockGateModel                          // 时钟门控模型
+  new WithNMemoryChannels(1) 
+  // ++ new WithClockGateModel                          // 时钟门控模型
   )
 
 class Rocket64b1_partition extends Config(
@@ -155,8 +155,11 @@ class Rocket64b1_partition_test extends Config(
   )
 
 class Rocket64b1_partition_e extends Config(
-  new Rocket64b1_partition 
-  // ++ new WithExtMemSize(0x3f80000000L)
+  new Rocket64b1_partition
+  )
+
+class Rocket64b1_partition_debug extends Config(
+  new Rocket64b1_partition
   )
 
 
