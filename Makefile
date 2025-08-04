@@ -366,9 +366,11 @@ bitstream   = $(proj_path)/$(proj_name).runs/impl_$(PRJ_NUM)/$(FPGA_FNM)
 cfgmem_file = workspace/$(CONFIG)/$(proj_name).$(CFG_FORMAT)
 prm_file    = workspace/$(CONFIG)/$(proj_name).prm
 vivado      = env XILINX_LOCAL_USER_DATA=no vivado -mode batch -nojournal -nolog -notrace -quiet
+dbg_xdc     = board/$(BOARD)/debug_constraints.xdc
 
 workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspace/$(CONFIG)/system-$(BOARD).sv
 	@$(call print_log,vivado-tcl)
+	rm -f $(dbg_xdc) ; \
 	echo "set vivado_board_name $(BOARD)" >$@
 	if [ "$(BOARD_PART)" != "" -a "$(BOARD_PART)" != "NONE" ] ; then echo "set vivado_board_part $(BOARD_PART)" >>$@ ; fi
 	if [ "$(BOARD_CONFIG)" != "" ] ; then echo "set board_config $(BOARD_CONFIG)" >>$@ ; fi
@@ -377,9 +379,15 @@ workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspa
 	echo "set riscv_clock_frequency $(ROCKET_FREQ_MHZ)" >>$@
 	echo "set memory_size $(MEMORY_SIZE)" >>$@
 
-	echo "set debug_xdc_files {}" >>$@
-	if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
-		echo "lappend debug_xdc_files [file normalize \"board/debug_partition.xdc\"]" >>$@ ; \
+# 	echo "set debug_xdc_files {}" >>$@
+# 	if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+# 		echo "lappend debug_xdc_files [file normalize \"board/debug_partition.xdc\"]" >>$@ ; \
+# 	fi
+	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+		echo "set usedebug = 1" >>$@ ; \
+		touch $(dbg_xdc) ; \
+	else \
+		echo "set usedebug = 0" >>$@ ; \
 	fi
 
 	# Generate list of additional Verilog files
@@ -409,14 +417,14 @@ MAX_THREADS ?= 1
 
 $(synthesis): $(proj_time)
 	@$(call print_log,synthesis)
-	echo "set_param general.maxThreads $(MAX_THREADS)" >$(proj_path)/make-synthesis.tcl
-	echo "open_project $(proj_file)" >>$(proj_path)/make-synthesis.tcl
+	echo "set_param general.maxThreads $(MAX_THREADS)" >>$(proj_path)/make-synthesis.tcl
+	echo "open_project $(proj_file)" >$(proj_path)/make-synthesis.tcl
 	echo "update_compile_order -fileset sources_$(PRJ_NUM)" >>$(proj_path)/make-synthesis.tcl
 	echo "reset_run synth_$(PRJ_NUM)" >>$(proj_path)/make-synthesis.tcl
 	echo "launch_runs -jobs $(MAX_THREADS) synth_$(PRJ_NUM)" >>$(proj_path)/make-synthesis.tcl
 # 综合
 	echo "wait_on_run synth_$(PRJ_NUM)" >>$(proj_path)/make-synthesis.tcl
-	echo "exit" >> $(proj_path)/make-synthesis.tcl
+# 	echo "exit" >> $(proj_path)/make-synthesis.tcl
 	$(vivado) -source $(proj_path)/make-synthesis.tcl
 # check for errors
 	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi 
@@ -424,32 +432,31 @@ $(synthesis): $(proj_time)
 synthesis-test: $(synthesis)
 bitstream-test: $(bitstream)
 
+# 		echo "if {[llength [get_debug_cores]] > 0} {write_xdc -force [file join [get_property DIRECTORY [current_project]] board/$(BOARD)/debug_constraints.xdc] -debug ;puts "INFO: Debug constraints written to debug_constraints.xdc" ;}"  >> $(proj_path)/make-insert-ila.tcl 
 insert_ila: $(synthesis)
 	@$(call print_log,insert_ila)
-	if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
-		echo "set_param general.maxThreads $(MAX_THREADS)" > $(proj_path)/make-insert-ila.tcl ; \
-		echo "open_project $(proj_file)"                  >> $(proj_path)/make-insert-ila.tcl ; \
+	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+		echo "insert_ila" ; \
+		echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "open_project $(proj_file)"                  > $(proj_path)/make-insert-ila.tcl ; \
 		echo "open_run synth_$(PRJ_NUM)"                  >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "source board/insert_ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "opt_design"                                 >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_project_as $(proj_file)"                               >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "report_debug_core             > debug_core.log" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_project_as $(proj_path) -force" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "implement_debug_core [get_debug_cores]" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "opt_design"                                >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "report_debug_core             > $(proj_path)/debug_core.log" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "write_debug_probes   -force $(proj_path)/debug_nets.ltx" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "write_checkpoint     -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_project_as $(proj_file)"                               >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "close_project"                              >> $(proj_path)/make-insert-ila.tcl ; \
 		$(vivado) -source $(proj_path)/make-insert-ila.tcl ; \
 		if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi ; \
 	else \
 		echo "skip insert_ila" ; \
 	fi
 
-
-$(bitstream): insert_ila
+bitstream-force: 
 	@$(call print_log,bitstream)
-	echo "set_param general.maxThreads $(MAX_THREADS)" > $(proj_path)/make-bitstream.tcl
-	echo "open_project $(proj_file)" >> $(proj_path)/make-bitstream.tcl
+	echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-bitstream.tcl
+	echo "open_project $(proj_file)" > $(proj_path)/make-bitstream.tcl
 	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	
 # 	echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-bitstream.tcl
@@ -459,7 +466,25 @@ $(bitstream): insert_ila
 	echo "reset_run impl_$(PRJ_NUM)" >> $(proj_path)/make-bitstream.tcl
 	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
 	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
-	echo "exit"                                         >> $(proj_path)/make-bitstream.tcl
+# 	echo "exit"                                     >> $(proj_path)/make-bitstream.tcl
+	$(vivado) -source $(proj_path)/make-bitstream.tcl
+	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
+
+
+$(bitstream): insert_ila
+	@$(call print_log,bitstream)
+	echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-bitstream.tcl
+	echo "open_project $(proj_file)" > $(proj_path)/make-bitstream.tcl
+	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	
+# 	echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-bitstream.tcl
+# 	echo "report_debug_core             > debug_core.log" >> $(proj_path)/make-bitstream.tcl
+# 	echo "write_debug_probes            debug_nets.ltx" >> $(proj_path)/make-bitstream.tcl
+
+	echo "reset_run impl_$(PRJ_NUM)" >> $(proj_path)/make-bitstream.tcl
+	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
+	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
+# 	echo "exit"                                     >> $(proj_path)/make-bitstream.tcl
 	$(vivado) -source $(proj_path)/make-bitstream.tcl
 	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
 

@@ -6,6 +6,7 @@ set_property ALL_PROBE_SAME_MU   true  [get_debug_cores u_ila_0]
 set_property ALL_PROBE_SAME_MU_CNT 4   [get_debug_cores u_ila_0]
 
 set ila_ [get_debug_cores u_ila_0]       ;
+set hub_ [get_debug_cores dbg_hub]       ;
 puts "INFO: Created ILA core: $ila_"
 report_property $ila_                    ;
 
@@ -15,14 +16,14 @@ if {[llength $sys_clk_net] == 0} {
     puts "WARNING: no net matches *sys_clock*; skip clk binding."
 } else {
     puts "INFO: got sys_clk_net: $sys_clk_net."
-    # set_property PORT_WIDTH 1 [get_debug_ports u_ila_0/clk]
-    # set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/clk]
     connect_debug_port u_ila_0/clk $sys_clk_net
+    connect_debug_port dbg_hub/clk $sys_clk_net
 }
+
 
 set debug_nets [get_nets -hier -filter {NAME =~ "*DebugTag_*_DebugTag*"}]
 if {[llength $debug_nets] == 0} {
-    puts "WARNING: no *DebugTag_* nets found; ILA will have 0 probes."
+    puts "WARNING: no DebugTag_* nets found; ILA will have 0 probes."
 } else {
     set len [llength $debug_nets]
     puts "INFO: got $len debug_nets."
@@ -35,6 +36,12 @@ if {[llength $debug_nets] == 0} {
     }
 }
 delete_debug_port [get_debug_ports u_ila_0/probe0]
+
+puts "INFO: insert_ila.tcl END"
+
+# foreach ip [get_ips -filter {STATUS =~ *STALE*}] {refresh_module_reference $ip}
+# generate_target {all} [get_ips -filter {STATUS =~ *STALE*}]
+# save_project_as [get_property NAME [current_project]] . -force
 
 # foreach n $debug_nets {
 #     connect_debug_port u_ila_0 [get_debug_ports u_ila_0/PROBE*] $n

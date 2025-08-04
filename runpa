@@ -39,8 +39,10 @@ elif [ "$1" = "reset" ]; then
     kill $PIDS
     echo -e "[INFO] Killed"
 elif [ -z "$1" ]; then
+    cp ${CFG}_log.bak.txt ${CFG}_log.bak.bak.txt && cp ${CFG}_log.txt ${CFG}_log.bak.txt
     BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make bitstream 2>&1 | tee ${CFG}_log.txt
     # BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make vivado-project 2>&1 | tee ${CFG}_log.txt
 else
+    cp ${CFG}_log.bak.txt ${CFG}_log.bak.bak.txt && cp ${CFG}_log.txt ${CFG}_log.bak.txt
     BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make $1 2>&1 | tee ${CFG}_log.txt
 fi

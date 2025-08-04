@@ -58,16 +58,7 @@ set files [list \
  [file normalize ../../board/${vivado_board_name}/sdc.xdc] \
  [file normalize ../../board/${vivado_board_name}/uart.xdc] \
 ]
-if {[info exists debug_xdc_files] && [llength $debug_xdc_files] > 0} {
-    foreach xdc_file $debug_xdc_files {
-        if {[file exists $xdc_file]} {
-            lappend files [file normalize $xdc_file]
-            puts "Added debug constraint file: $xdc_file"
-        } else {
-            puts "Warning: Debug constraint file not found: $xdc_file"
-        }
-    }
-}
+
 add_files -norecurse -fileset $constraint_fileset $files
 
 
@@ -75,6 +66,14 @@ set block_design_ver [split [version -short] .]
 set block_design_tcl "riscv-[lindex $block_design_ver 0].[lindex $block_design_ver 1].tcl"
 
 source ../../board/${vivado_board_name}/ethernet-${vivado_board_name}.tcl
+
+if {$usedebug == 1} {
+  set debug_xdc_files [list \
+      ../../board/${vivado_board_name}/debug_constraints.xdc \
+  ]
+  add_files -norecurse -fileset $constraint_fileset $debug_xdc_files
+}
+
 
 # Note: timing-constraints.tcl must be last
 add_files -norecurse -fileset $constraint_fileset [file normalize ../../board/timing-constraints.tcl]
