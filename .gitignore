@@ -27,8 +27,11 @@
 /generators/rocket-chip2/
 /generators/rocket-chip-inclusive-cache/*.log
 *_log.txt
+*_log.bak.txt
+*_log.bak.bak.txt
 .metals/
 .vscode/
 *.log
 *log.txt
 /..*
+/linux/*
