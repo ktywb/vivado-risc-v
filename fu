@@ -1,0 +1,7 @@
+# python3 -m serial.tools.miniterm /dev/ttyUSB0 115200
+
+if [ -z "$1" ]; then
+    minicom -D /dev/ttyUSB0 -b 115200
+else
+    minicom -D /dev/ttyUSB$1 -b 115200
+fi

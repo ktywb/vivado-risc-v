@@ -1,17 +1,22 @@
 #!/bin/bash
 # CFG=Rocket64s2gem4
 B=vc707
+# CFG=rocket64b1
 # CFG=rocket64b1_partition_test
+# CFG=rocket64b1_partition_testwb
 # CFG=rocket64b1_partition_e
 CFG=rocket64b1_partition_debug
-FREQ=62.5
+# FREQ=62.5
+FREQ=50
 # FREQ=31.25
-MT=4
+MT=8
+
+J=32
 
 if [ "$1" = "flash" ]; then
     hw_server 2>&1 &
     sleep 2
-    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make flash-skip 
+    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make flash-skip -j$J
     sleep 2
     PIDS=$(pgrep -x hw_server)
     if [ -z "$PIDS" ]; then
@@ -40,9 +45,9 @@ elif [ "$1" = "reset" ]; then
     echo -e "[INFO] Killed"
 elif [ -z "$1" ]; then
     cp ${CFG}_log.bak.txt ${CFG}_log.bak.bak.txt && cp ${CFG}_log.txt ${CFG}_log.bak.txt
-    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make bitstream 2>&1 | tee ${CFG}_log.txt
-    # BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make vivado-project 2>&1 | tee ${CFG}_log.txt
+    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make bitstream  -j$J 2>&1 | tee ${CFG}_log.txt 
+    # BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make vivado-project -j$J 2>&1 | tee ${CFG}_log.txt
 else
     cp ${CFG}_log.bak.txt ${CFG}_log.bak.bak.txt && cp ${CFG}_log.txt ${CFG}_log.bak.txt
-    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make $1 2>&1 | tee ${CFG}_log.txt
+    BOARD=$B CONFIG=$CFG ROCKET_FREQ_MHZ=$FREQ MAX_THREADS=$MT make $1 -j$J 2>&1 | tee ${CFG}_log.txt
 fi

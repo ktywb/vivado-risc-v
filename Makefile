@@ -10,7 +10,7 @@ HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?= 
 CFG_FORMAT ?= mcs
 
-JVM_XMX ?= 25G
+JVM_XMX ?= 30G
 JVM_XSS ?= 8M
 SBT_BUILD_ARGS = -Xmx$(JVM_XMX) -Xss$(JVM_XSS)
 
@@ -250,7 +250,7 @@ CHISEL_SRC_DIRS = \
   generators/testchipip/src/main
 
 CHISEL_SRC := $(foreach path, $(CHISEL_SRC_DIRS), $(shell test -d $(path) && find $(path) -iname "*.scala" -not -name ".*"))
-FIRRTL = java $(SBT_BUILD_ARGS) $(JAVA_OPTIONS) -cp `realpath target/scala-*/system.jar` firrtl.stage.FirrtlMain
+FIRRTL = java $(SBT_BUILD_ARGS) $(JAVA_OPTIONS) $(SBT_EXTRA_ARGS) -cp `realpath target/scala-*/system.jar` firrtl.stage.FirrtlMain
 
 
 workspace/patch-hdl-done:
@@ -264,6 +264,18 @@ workspace/patch-hdl-done:
 # test: workspace/patch-hdl-done
 # Generate default device tree - not including peripheral devices or board specific data
 # 生成设备树
+
+test-compile: $(CHISEL_SRC) rocket-chip/bootrom/bootrom.img workspace/patch-hdl-done
+	@$(call print_log,test-compile)
+	@start_time=$$(date +%s); \
+	rm -rf workspace/test; \
+	mkdir -p workspace/test; \
+	cp rocket-chip/bootrom/bootrom.img workspace/bootrom.img; \
+	$(SBT) "runMain freechips.rocketchip.diplomacy.Main --dir `realpath workspace/test` --top Vivado.RocketSystem --config Vivado.Rocket64b1_partition_test"; \
+	rm workspace/bootrom.img; \
+	end_time=$$(date +%s); \
+	echo "测试编译耗时: $$((end_time - start_time)) 秒"
+
 workspace/$(CONFIG)/system.dts: $(CHISEL_SRC) rocket-chip/bootrom/bootrom.img workspace/patch-hdl-done
 	@$(call print_log,rocket-dts)
 	rm -rf workspace/$(CONFIG)/tmp
@@ -320,7 +332,7 @@ workspace/$(CONFIG)/rocket.vhdl: workspace/$(CONFIG)/system-$(BOARD).sv
 	  -sourcepath vhdl-wrapper/src -d vhdl-wrapper/bin \
 	  -classpath vhdl-wrapper/antlr-4.8-complete.jar \
 	  vhdl-wrapper/src/net/largest/riscv/vhdl/Main.java
-	java $(SBT_BUILD_ARGS) $(JAVA_OPTIONS) -cp \
+	java $(SBT_BUILD_ARGS) $(JAVA_OPTIONS) $(SBT_EXTRA_ARGS) -cp \
 	  vhdl-wrapper/src:vhdl-wrapper/bin:vhdl-wrapper/antlr-4.8-complete.jar \
 	  net.largest.riscv.vhdl.Main -m $(CONFIG_SCALA) \
 	  workspace/$(CONFIG)/system-$(BOARD).sv >$@
@@ -384,10 +396,10 @@ workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspa
 # 		echo "lappend debug_xdc_files [file normalize \"board/debug_partition.xdc\"]" >>$@ ; \
 # 	fi
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
-		echo "set usedebug = 1" >>$@ ; \
+		echo "set usedebug 1" >>$@ ; \
 		touch $(dbg_xdc) ; \
 	else \
-		echo "set usedebug = 0" >>$@ ; \
+		echo "set usedebug 0" >>$@ ; \
 	fi
 
 	# Generate list of additional Verilog files
@@ -401,6 +413,8 @@ workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspa
 	echo 'source ../../vivado.tcl' >>$@
 
 vivado-tcl: workspace/$(CONFIG)/system-$(BOARD).tcl
+
+
 
 # 创建 Vivado 工程（如果还没有的话），并生成一个时间戳文件作为标记
 $(proj_time): workspace/$(CONFIG)/system-$(BOARD).tcl
@@ -441,23 +455,37 @@ insert_ila: $(synthesis)
 		echo "open_project $(proj_file)"                  > $(proj_path)/make-insert-ila.tcl ; \
 		echo "open_run synth_$(PRJ_NUM)"                  >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "source board/insert_ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_project_as $(proj_path) -force" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "implement_debug_core [get_debug_cores]" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "opt_design"                                >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "report_debug_core             > $(proj_path)/debug_core.log" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "write_debug_probes   -force $(proj_path)/debug_nets.ltx" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "write_checkpoint     -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
 		$(vivado) -source $(proj_path)/make-insert-ila.tcl ; \
 		if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi ; \
 	else \
 		echo "skip insert_ila" ; \
 	fi
+#save_constraints
+
+prj_path:
+	@echo "proj_path : ${proj_path}"
+	@echo "proj_file : ${proj_file}"
+	@echo "report_debug_core > /home/name/vivado_prj/vivado-risc-v/$(proj_path)/debug_core.log"
+	@echo "write_debug_probes -force /home/name/vivado_prj/vivado-risc-v/$(proj_path)/debug_nets.ltx"
+	@echo "write_checkpoint -force /home/name/vivado_prj/vivado-risc-v/$(proj_path)/synth_dbg.dcp"
+	@echo "set_property INCREMENTAL_CHECKPOINT /home/name/vivado_prj/vivado-risc-v/$(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]"
+	@echo "CFG_BOOT : ${CFG_BOOT}"
+	@echo "write_cfgmem -format $(CFG_FORMAT) -interface $(CFG_DEVICE) -loadbit {up 0x0 /home/name/vivado_prj/vivado-risc-v/$(bitstream)} $(CFG_BOOT) -file /home/name/vivado_prj/vivado-risc-v/$(cfgmem_file) -force"
+	
 
 bitstream-force: 
 	@$(call print_log,bitstream)
 	echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-bitstream.tcl
 	echo "open_project $(proj_file)" > $(proj_path)/make-bitstream.tcl
-	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$( )]" >> $(proj_path)/make-bitstream.tcl
 	
 # 	echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-bitstream.tcl
 # 	echo "report_debug_core             > debug_core.log" >> $(proj_path)/make-bitstream.tcl
@@ -475,13 +503,20 @@ $(bitstream): insert_ila
 	@$(call print_log,bitstream)
 	echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-bitstream.tcl
 	echo "open_project $(proj_file)" > $(proj_path)/make-bitstream.tcl
-	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+#   @if echo "$(CONFIG)" | grep -q 'debug$$' ; then echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl ; fi
 	
 # 	echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-bitstream.tcl
 # 	echo "report_debug_core             > debug_core.log" >> $(proj_path)/make-bitstream.tcl
 # 	echo "write_debug_probes            debug_nets.ltx" >> $(proj_path)/make-bitstream.tcl
 
 	echo "reset_run impl_$(PRJ_NUM)" >> $(proj_path)/make-bitstream.tcl
+
+	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.ARGS.DIRECTIVE AggressiveFanoutOpt [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+
 	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
 	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
 # 	echo "exit"                                     >> $(proj_path)/make-bitstream.tcl
@@ -550,8 +585,8 @@ bitstream: print-freq $(bitstream) $(cfgmem_file)
 
 # --- reset FPGA ---
 reset:
-	env HW_SERVER_URL=tcp:$(HW_SERVER_ADDR) \
-	 xsdb -quiet board/jtag-freq.tcl
+# 	env HW_SERVER_URL=tcp:$(HW_SERVER_ADDR) \
+# 	 xsdb -quiet board/jtag-freq.tcl
 	env HW_SERVER_ADDR=$(HW_SERVER_ADDR) \
 	 $(vivado) -source board/reset-fpga.tcl
 

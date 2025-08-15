@@ -2,15 +2,21 @@ package Vivado
 import partitionacc.{PartitionConsts}
 
 import Chisel._
-import org.chipsalliance.cde.config.{Config, Parameters}
+import org.chipsalliance.cde.config._
 import freechips.rocketchip.devices.debug.DebugModuleKey
 import freechips.rocketchip.diplomacy._
 import freechips.rocketchip.subsystem._
 import freechips.rocketchip.devices.tilelink._
-import freechips.rocketchip.tile.{BuildRoCC, OpcodeSet}
-import freechips.rocketchip.util.DontTouch
+// import freechips.rocketchip.tile.{BuildRoCC, OpcodeSet}
+// import freechips.rocketchip.util.DontTouch
 import freechips.rocketchip.system._
 import partitionacc._
+
+
+import freechips.rocketchip.devices.debug._
+import freechips.rocketchip.rocket._
+import freechips.rocketchip.tile._
+import freechips.rocketchip.util._
 
 class RocketSystem(implicit p: Parameters) extends RocketSubsystem
     with HasAsyncExtInterrupts
@@ -132,8 +138,22 @@ class WithSystemBusWidth_My(val bits: Int) extends Config((site, here, up) => {
   case SystemBusKey => up(SystemBusKey).copy(beatBytes = bits / 8)
 })
 
+class WithDebugPrintConfig extends Config((site, here, up) => {
+  case PgLevels => {
+    val pgLevels = up(PgLevels, site)
+    val xLen = site(XLen)
+    println(s"=== CONFIG DEBUG ===")
+    println(s"XLen: $xLen")
+    println(s"PgLevels: $pgLevels")
+    println(s"Virtual Memory: ${if (xLen == 64) "Sv39" else "Sv32"}")
+    println(s"==================")
+    pgLevels
+  }
+})
+
 class PartitionBaseConfig extends Config(
   new WithPartitionAccel ++
+  // new WithDebugPrintConfig ++
   new WithSystemBusWidth_My(PartitionConsts.InputWidth) ++ // 16字节 = 128位，匹配PartitionConsts.BUS_SZ_BYTES = 16
   new WithInclusiveCache
   // (
@@ -148,7 +168,8 @@ class PartitionBaseConfig extends Config(
 
 class Rocket64b1_partition extends Config(
   new PartitionBaseConfig ++
-  new Rocket64b1)
+  new Rocket64b1
+  )
 
 class Rocket64b1_partition_test extends Config(
   new Rocket64b1_partition
@@ -161,10 +182,9 @@ class Rocket64b1_partition_e extends Config(
 class Rocket64b1_partition_debug extends Config(
   new Rocket64b1_partition
   )
-
-
-
 /* ---------- Partition Config ---------- */
+
+
 class Rocket64m1 extends Config(
   new WithNBreakpoints(8) ++
   new WithNMedCores(1)  ++

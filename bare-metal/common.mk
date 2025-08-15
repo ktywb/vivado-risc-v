@@ -1,7 +1,8 @@
 # define FPGA CPU clock frequency in MHz
-FPGA_CPU_CLK_FREQ = 100
+FPGA_CPU_CLK_FREQ = 62.5
+# FPGA_CPU_CLK_FREQ = 50
 
-CROSS_COMPILE = ../../workspace/gcc/riscv/bin/riscv64-unknown-elf-
+CROSS_COMPILE = ../../workspace/gcc2/riscv/bin/riscv64-unknown-elf-
 
 CC=$(CROSS_COMPILE)gcc
 OBJCOPY=$(CROSS_COMPILE)objcopy
@@ -30,3 +31,6 @@ boot.elf: $(SRCS)
 
 clean:
 	rm -f *.elf
+
+gcc-version:
+	$(CROSS_COMPILE)gcc --version
