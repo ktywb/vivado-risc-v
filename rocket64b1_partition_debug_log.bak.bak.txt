@@ -1,7 +1,195 @@
-proj_path : workspace/rocket64b1_partition_debug/vivado-vc707-riscv
-proj_file : workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.xpr
-report_debug_core > /home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/debug_core.log
-write_debug_probes -force /home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/debug_nets.ltx
-write_checkpoint -force /home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/synth_dbg.dcp
-CFG_BOOT : 
-write_cfgmem -format mcs -interface BPIx16 -size 32 -loadbit {up 0x0 /home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.runs/impl_1/riscv_wrapper.bit}  -file /home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vc707-riscv.mcs -force
+[1;34m[Make state] bitstream-force [0m
+echo "set_param general.maxThreads 8" >> workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "open_project workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.xpr" > workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "set_property INCREMENTAL_CHECKPOINT workspace/rocket64b1_partition_debug/vivado-vc707-riscv/synth_dbg.dcp [get_runs impl_1]" >> workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "reset_run impl_1" >> workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_1]" >> workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_1]" >> workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_1]" >> workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_1]" >> workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "launch_runs -to_step write_bitstream -jobs 8 impl_1" >>workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+echo "wait_on_run impl_1" >>workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+env XILINX_LOCAL_USER_DATA=no LD_PRELOAD= vivado -mode batch -nojournal -nolog -notrace -quiet -source workspace/rocket64b1_partition_debug/vivado-vc707-riscv/make-bitstream.tcl
+INFO: [Common 17-1239] XILINX_LOCAL_USER_DATA is set to 'no'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/name/tools/Xilinx/Vivado/2022.2/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1327.074 ; gain = 60.969 ; free physical = 8789 ; free virtual = 35060
+[Fri Aug 15 17:53:24 2025] Launched impl_1...
+Run output will be captured here: /home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:46 ; elapsed = 00:00:20 . Memory (MB): peak = 1535.176 ; gain = 208.102 ; free physical = 8427 ; free virtual = 34724
+[Fri Aug 15 17:53:24 2025] Waiting for impl_1 to finish...
+
+*** Running vivado
+    with args -log riscv_wrapper.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source riscv_wrapper.tcl -notrace
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-1239] XILINX_LOCAL_USER_DATA is set to 'no'.
+source riscv_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/name/tools/Xilinx/Vivado/2022.2/data/ip'.
+add_files: Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 1489.219 ; gain = 220.117 ; free physical = 8281 ; free virtual = 34596
+Command: link_design -top riscv_wrapper -part xc7vx485tffg1761-2
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7vx485tffg1761-2
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_RocketChip_0/riscv_RocketChip_0.dcp' for cell 'riscv_i/RocketChip'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_clk_wiz_0_0/riscv_clk_wiz_0_0.dcp' for cell 'riscv_i/clk_wiz_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_sys_diff_clock_buf_0/riscv_sys_diff_clock_buf_0.dcp' for cell 'riscv_i/sys_diff_clock_buf'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/riscv_axi_smc_1_0.dcp' for cell 'riscv_i/DDR/axi_smc_1'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_mem_reset_control_0_0/riscv_mem_reset_control_0_0.dcp' for cell 'riscv_i/DDR/mem_reset_control_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_mig_7series_0_0/riscv_mig_7series_0_0.dcp' for cell 'riscv_i/DDR/mig_7series_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_Ethernet_0/riscv_Ethernet_0.dcp' for cell 'riscv_i/IO/Ethernet'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_SD_0/riscv_SD_0.dcp' for cell 'riscv_i/IO/SD'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_UART_0/riscv_UART_0.dcp' for cell 'riscv_i/IO/UART'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_XADC_0/riscv_XADC_0.dcp' for cell 'riscv_i/IO/XADC'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/riscv_io_axi_m_0.dcp' for cell 'riscv_i/IO/io_axi_m'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/riscv_io_axi_s_0.dcp' for cell 'riscv_i/IO/io_axi_s'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_ethernet_stream_0_0/riscv_ethernet_stream_0_0.dcp' for cell 'riscv_i/IO/EthernetVC707/ethernet_stream_0'
+INFO: [Project 1-454] Reading design checkpoint '/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_gig_ethernet_pcs_pma_0_0/riscv_gig_ethernet_pcs_pma_0_0.dcp' for cell 'riscv_i/IO/EthernetVC707/gig_ethernet_pcs_pma_0'
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 2254.242 ; gain = 0.000 ; free physical = 7501 ; free virtual = 33826
+INFO: [Netlist 29-17] Analyzing 34343 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 7 CPU seconds
+WARNING: [Netlist 29-1115] Found multi-term driver net: riscv_i/sys_diff_clock_buf/U0/<const0>.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-550] Could not create 'DIFF_TERM' constraint because net 'riscv_i/sys_diff_clock_buf/IBUF_OUT[0]' is not directly connected to top level port. Synthesis is ignored for DIFF_TERM but preserved for implementation.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'riscv_i/sys_diff_clock_buf/IBUF_OUT[0]' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_3/bd_9c60_psr_aclk1_0_board.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_3/bd_9c60_psr_aclk1_0_board.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_sys_diff_clock_buf_0/riscv_sys_diff_clock_buf_0_board.xdc] for cell 'riscv_i/sys_diff_clock_buf/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_sys_diff_clock_buf_0/riscv_sys_diff_clock_buf_0_board.xdc] for cell 'riscv_i/sys_diff_clock_buf/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_clk_wiz_0_0/riscv_clk_wiz_0_0.xdc] for cell 'riscv_i/clk_wiz_0/inst'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_clk_wiz_0_0/riscv_clk_wiz_0_0.xdc] for cell 'riscv_i/clk_wiz_0/inst'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_clk_wiz_0_0/riscv_clk_wiz_0_0_board.xdc] for cell 'riscv_i/clk_wiz_0/inst'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_clk_wiz_0_0/riscv_clk_wiz_0_0_board.xdc] for cell 'riscv_i/clk_wiz_0/inst'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_4/bd_9a00_psr_aclk2_0.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk2/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_4/bd_9a00_psr_aclk2_0.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk2/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_4/bd_9a00_psr_aclk2_0_board.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk2/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_4/bd_9a00_psr_aclk2_0_board.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk2/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_3/bd_9a00_psr_aclk1_0.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_3/bd_9a00_psr_aclk1_0.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_3/bd_9a00_psr_aclk1_0_board.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_3/bd_9a00_psr_aclk1_0_board.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_2/bd_9a00_psr_aclk_0.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_2/bd_9a00_psr_aclk_0.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_2/bd_9a00_psr_aclk_0_board.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_2/bd_9a00_psr_aclk_0_board.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_1/bd_9a00_psr0_0.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_1/bd_9a00_psr0_0.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_1/bd_9a00_psr0_0_board.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_s_0/bd_0/ip/ip_1/bd_9a00_psr0_0_board.xdc] for cell 'riscv_i/IO/io_axi_s/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_4/bd_9c60_psr_aclk2_0.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk2/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_4/bd_9c60_psr_aclk2_0.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk2/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_4/bd_9c60_psr_aclk2_0_board.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk2/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_4/bd_9c60_psr_aclk2_0_board.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk2/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_3/bd_9c60_psr_aclk1_0.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_3/bd_9c60_psr_aclk1_0.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_1/bd_fe52_psr0_0_board.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_1/bd_fe52_psr0_0_board.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_2/bd_9c60_psr_aclk_0.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_2/bd_9c60_psr_aclk_0.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_2/bd_9c60_psr_aclk_0_board.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_2/bd_9c60_psr_aclk_0_board.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_1/bd_9c60_psr0_0.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_1/bd_9c60_psr0_0.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_1/bd_9c60_psr0_0_board.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_io_axi_m_0/bd_0/ip/ip_1/bd_9c60_psr0_0_board.xdc] for cell 'riscv_i/IO/io_axi_m/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_XADC_0/riscv_XADC_0.xdc] for cell 'riscv_i/IO/XADC/inst'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_XADC_0/riscv_XADC_0.xdc] for cell 'riscv_i/IO/XADC/inst'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_gig_ethernet_pcs_pma_0_0/synth/riscv_gig_ethernet_pcs_pma_0_0.xdc] for cell 'riscv_i/IO/EthernetVC707/gig_ethernet_pcs_pma_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_gig_ethernet_pcs_pma_0_0/synth/riscv_gig_ethernet_pcs_pma_0_0.xdc:42]
+INFO: [Timing 38-2] Deriving generated clocks [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_gig_ethernet_pcs_pma_0_0/synth/riscv_gig_ethernet_pcs_pma_0_0.xdc:42]
+get_clocks: Time (s): cpu = 00:00:27 ; elapsed = 00:00:16 . Memory (MB): peak = 3793.504 ; gain = 953.945 ; free physical = 6077 ; free virtual = 32403
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_gig_ethernet_pcs_pma_0_0/synth/riscv_gig_ethernet_pcs_pma_0_0.xdc] for cell 'riscv_i/IO/EthernetVC707/gig_ethernet_pcs_pma_0/inst'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_gig_ethernet_pcs_pma_0_0/riscv_gig_ethernet_pcs_pma_0_0_board.xdc] for cell 'riscv_i/IO/EthernetVC707/gig_ethernet_pcs_pma_0/inst'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_gig_ethernet_pcs_pma_0_0/riscv_gig_ethernet_pcs_pma_0_0_board.xdc] for cell 'riscv_i/IO/EthernetVC707/gig_ethernet_pcs_pma_0/inst'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_mig_7series_0_0/riscv_mig_7series_0_0/user_design/constraints/riscv_mig_7series_0_0.xdc] for cell 'riscv_i/DDR/mig_7series_0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_mig_7series_0_0/riscv_mig_7series_0_0/user_design/constraints/riscv_mig_7series_0_0.xdc] for cell 'riscv_i/DDR/mig_7series_0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_3/bd_fe52_psr_aclk1_0.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_3/bd_fe52_psr_aclk1_0.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_3/bd_fe52_psr_aclk1_0_board.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_3/bd_fe52_psr_aclk1_0_board.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_2/bd_fe52_psr_aclk_0.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_2/bd_fe52_psr_aclk_0.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_2/bd_fe52_psr_aclk_0_board.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_2/bd_fe52_psr_aclk_0_board.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_1/bd_fe52_psr0_0.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_axi_smc_1_0/bd_0/ip/ip_1/bd_fe52_psr0_0.xdc] for cell 'riscv_i/DDR/axi_smc_1/inst/clk_map/psr0/U0'
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/top.xdc]
+INFO: [Vivado 12-4777] Setting CLOCK_DEDICATED_ROUTE constraint on the PARENT net instead of the specified net segment (net name: riscv_i/sys_clock). Placer only honors CLOCK_DEDICATED_ROUTE when set on the PARENT net, e.g. net segment directly connected to the driver. To eliminate this message, please update your constraint to specify the PARENT net instead. [/home/name/vivado_prj/vivado-risc-v/board/vc707/top.xdc:12]
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/top.xdc]
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/sdc.xdc]
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/sdc.xdc]
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/uart.xdc]
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/uart.xdc]
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/ethernet.xdc]
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/ethernet.xdc]
+Sourcing Tcl File [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/lib/axis/syn/vivado/sync_reset.tcl]
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {(ORIG_REF_NAME == sync_reset || REF_NAME == sync_reset)}'. [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/lib/axis/syn/vivado/sync_reset.tcl:23]
+Finished Sourcing Tcl File [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/lib/axis/syn/vivado/sync_reset.tcl]
+Sourcing Tcl File [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/lib/axis/syn/vivado/axis_async_fifo.tcl]
+Inserting timing constraints for axis_async_fifo instance riscv_i/IO/EthernetVC707/ethernet_stream_0/inst/eth_mac_inst/rx_fifo/fifo_inst
+INFO: [Timing 38-2] Deriving generated clocks [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/lib/axis/syn/vivado/axis_async_fifo.tcl:23]
+get_clocks: Time (s): cpu = 00:00:23 ; elapsed = 00:00:06 . Memory (MB): peak = 3869.465 ; gain = 0.000 ; free physical = 6039 ; free virtual = 32366
+Inserting timing constraints for axis_async_fifo instance riscv_i/IO/EthernetVC707/ethernet_stream_0/inst/eth_mac_inst/tx_fifo/fifo_inst
+Finished Sourcing Tcl File [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/lib/axis/syn/vivado/axis_async_fifo.tcl]
+Sourcing Tcl File [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/syn/vivado/eth_mac_fifo.tcl]
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -regexp -filter {(ORIG_REF_NAME =~ "eth_mac_(10g|1g_(gmii|rgmii)|mii)_fifo(__\w+__\d+)?" ||
+REF_NAME =~ "eth_mac_(10g|1g_(gmii|rgmii)|mii)_fifo(__\w+__\d+)?")}'. [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/syn/vivado/eth_mac_fifo.tcl:23]
+Finished Sourcing Tcl File [/home/name/vivado_prj/vivado-risc-v/ethernet/verilog-ethernet/syn/vivado/eth_mac_fifo.tcl]
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/debug_constraints.xdc]
+WARNING: [Vivado 12-507] No nets matched 'u_ila_0_AXI_clock'. [/home/name/vivado_prj/vivado-risc-v/board/vc707/debug_constraints.xdc:11]
+CRITICAL WARNING: [Common 17-162] Invalid option value specified for '-nets'. [/home/name/vivado_prj/vivado-risc-v/board/vc707/debug_constraints.xdc:11]
+WARNING: [Vivado 12-507] No nets matched 'u_ila_0_AXI_clock'. [/home/name/vivado_prj/vivado-risc-v/board/vc707/debug_constraints.xdc:66]
+CRITICAL WARNING: [Common 17-162] Invalid option value specified for '-nets'. [/home/name/vivado_prj/vivado-risc-v/board/vc707/debug_constraints.xdc:66]
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/board/vc707/debug_constraints.xdc]
+Sourcing Tcl File [/home/name/vivado_prj/vivado-risc-v/board/timing-constraints.tcl]
+Finished Sourcing Tcl File [/home/name/vivado_prj/vivado-risc-v/board/timing-constraints.tcl]
+Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_clk_wiz_0_0/riscv_clk_wiz_0_0_late.xdc] for cell 'riscv_i/clk_wiz_0/inst'
+Finished Parsing XDC File [/home/name/vivado_prj/vivado-risc-v/workspace/rocket64b1_partition_debug/vivado-vc707-riscv/vc707-riscv.gen/sources_1/bd/riscv/ip/riscv_clk_wiz_0_0/riscv_clk_wiz_0_0_late.xdc] for cell 'riscv_i/clk_wiz_0/inst'
+INFO: [Project 1-1714] 217 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+WARNING: [Constraints 18-5573] Port sdio_dat[0] has IOB constraint set, However, the instance riscv_i/IO/SD/inst/sd_dat_reg_t_reg connected to it does not seem to have valid I/O connection to be placed into I/O. The constraint on the port will be ignored.
+WARNING: [Constraints 18-5573] Port sdio_dat[1] has IOB constraint set, However, the instance riscv_i/IO/SD/inst/sd_dat_reg_t_reg connected to it does not seem to have valid I/O connection to be placed into I/O. The constraint on the port will be ignored.
+WARNING: [Constraints 18-5573] Port sdio_dat[2] has IOB constraint set, However, the instance riscv_i/IO/SD/inst/sd_dat_reg_t_reg connected to it does not seem to have valid I/O connection to be placed into I/O. The constraint on the port will be ignored.
+WARNING: [Constraints 18-5573] Port sdio_dat[3] has IOB constraint set, However, the instance riscv_i/IO/SD/inst/sd_dat_reg_t_reg connected to it does not seem to have valid I/O connection to be placed into I/O. The constraint on the port will be ignored.
+INFO: [Project 1-1687] 6 scoped IP constraints or related sub-commands were skipped due to synthesis logic optimizations usually triggered by constant connectivity or unconnected output pins. To review the skipped constraints and messages, run the command 'set_param netlist.IPMsgFiltering false' before opening the design.
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3869.465 ; gain = 0.000 ; free physical = 6204 ; free virtual = 32637
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 10277 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 6 instances
+  IOBUFDS_DIFF_OUT_DCIEN => IOBUFDS_DIFF_OUT_DCIEN (IBUFDS_IBUFDISABLE_INT(x2), INV, OBUFTDS_DCIEN(x2)): 8 instances
+  IOBUF_DCIEN => IOBUF_DCIEN (IBUF_IBUFDISABLE, OBUFT_DCIEN): 64 instances
+  OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS(x2)): 1 instance 
+  RAM128X1D => RAM128X1D (MUXF7(x2), RAMD64E(x4)): 4 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 330 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 9376 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 253 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 230 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 5 instances
+
+30 Infos, 11 Warnings, 2 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:02:15 ; elapsed = 00:01:40 . Memory (MB): peak = 3869.465 ; gain = 2380.246 ; free physical = 6204 ; free virtual = 32637
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7vx485t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7vx485t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 3941.500 ; gain = 64.031 ; free physical = 6169 ; free virtual = 32601
+
+Starting Cache Timing Information Task

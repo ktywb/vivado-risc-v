@@ -132,8 +132,8 @@ workspace/patch-linux-done: patches/linux.patch patches/fpga-axi-sdc.c patches/f
 	mkdir -p workspace && touch workspace/patch-linux-done
 
 linux-stable/arch/riscv/boot/Image: workspace/patch-linux-done
-	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) oldconfig
-	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) all
+	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) oldconfig $(MAKEFLAGS)
+	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) all $(MAKEFLAGS)
 
 
 # --- build U-Boot ---
@@ -169,13 +169,14 @@ workspace/patch-u-boot-done: u-boot/configs/vivado_riscv64_defconfig
 	mkdir -p workspace && touch workspace/patch-u-boot-done
 
 u-boot/u-boot-nodtb.bin: workspace/patch-u-boot-done $(U_BOOT_SRC)
-	make -C u-boot CROSS_COMPILE=$(CROSS_COMPILE_LINUX) BOARD=vivado_riscv64 vivado_riscv64_config
+	make -C u-boot CROSS_COMPILE=$(CROSS_COMPILE_LINUX) BOARD=vivado_riscv64 vivado_riscv64_config $(MAKEFLAGS)
 	make -C u-boot \
 	  BOARD=vivado_riscv64 \
 	  CC=$(CROSS_COMPILE_LINUX)gcc \
 	  CROSS_COMPILE=$(CROSS_COMPILE_LINUX) \
 	  KCFLAGS='-O1 -gno-column-info' \
-	  u-boot-nodtb.bin
+	  u-boot-nodtb.bin \
+	  $(MAKEFLAGS)
 
 u-boot-qemu:
 	cd qemu/ && if [ ! -d u-boot ]; then git clone ../u-boot; fi && cd u-boot && git checkout v2022.01
@@ -193,11 +194,12 @@ opensbi/build/platform/vivado-risc-v/firmware/fw_payload.elf: $(wildcard patches
 	mkdir -p opensbi/platform/vivado-risc-v
 	cp -p -r patches/opensbi/* opensbi/platform/vivado-risc-v
 	make -C opensbi CROSS_COMPILE=$(CROSS_COMPILE_LINUX) PLATFORM=vivado-risc-v \
-	 FW_PAYLOAD_PATH=`realpath u-boot/u-boot-nodtb.bin`
+	 FW_PAYLOAD_PATH=`realpath u-boot/u-boot-nodtb.bin` \
+	 $(MAKEFLAGS)
 
 opensbi-qemu:
 	cd qemu && if [ ! -d opensbi ]; then git clone ../opensbi; fi
-	cd qemu && make -C opensbi clean && make -C opensbi PLATFORM=generic CROSS_COMPILE=$(CROSS_COMPILE_LINUX) FW_PAYLOAD_PATH=../u-boot/u-boot.bin
+	cd qemu && make -C opensbi clean $(MAKEFLAGS) && make -C opensbi PLATFORM=generic CROSS_COMPILE=$(CROSS_COMPILE_LINUX) FW_PAYLOAD_PATH=../u-boot/u-boot.bin $(MAKEFLAGS)
 
 # --- generate HDL ---
 
@@ -301,7 +303,7 @@ workspace/$(CONFIG)/system-$(BOARD)/RocketSystem.fir: workspace/$(CONFIG)/system
 	if [ ! -z "$(ETHER_PHY)" ] ; then sed -i "s#phy-mode = \".*\"#phy-mode = \"$(ETHER_PHY)\"#g" bootrom/system.dts ; fi
 	sed -i "/interrupts-extended = <&.* 65535>;/d" bootrom/system.dts
 	
-	make -C bootrom CROSS_COMPILE="$(CROSS_COMPILE_NO_OS_TOOLS)" CFLAGS="$(CROSS_COMPILE_NO_OS_FLAGS)" BOARD=$(BOARD) clean bootrom.img
+	make -C bootrom CROSS_COMPILE="$(CROSS_COMPILE_NO_OS_TOOLS)" CFLAGS="$(CROSS_COMPILE_NO_OS_FLAGS)" BOARD=$(BOARD) clean bootrom.img $(MAKEFLAGS)
 	mv bootrom/system.dts workspace/$(CONFIG)/system-$(BOARD).dts
 	mv bootrom/bootrom.img workspace/bootrom.img
 	$(SBT) "runMain freechips.rocketchip.diplomacy.Main --dir `realpath workspace/$(CONFIG)/system-$(BOARD)` --top Vivado.RocketSystem --config Vivado.$(CONFIG_SCALA)"
@@ -377,7 +379,13 @@ synthesis   = $(proj_path)/$(proj_name).runs/synth_$(PRJ_NUM)/riscv_wrapper.dcp
 bitstream   = $(proj_path)/$(proj_name).runs/impl_$(PRJ_NUM)/$(FPGA_FNM)
 cfgmem_file = workspace/$(CONFIG)/$(proj_name).$(CFG_FORMAT)
 prm_file    = workspace/$(CONFIG)/$(proj_name).prm
-vivado      = env XILINX_LOCAL_USER_DATA=no vivado -mode batch -nojournal -nolog -notrace -quiet
+ifeq ($(shell hostname),xs)
+    LD_PRELOAD ?= /lib/x86_64-linux-gnu/libudev.so.1:/lib/x86_64-linux-gnu/libselinux.so.1 
+else
+    LD_PRELOAD ?= 
+endif
+
+vivado      = env XILINX_LOCAL_USER_DATA=no LD_PRELOAD=$(LD_PRELOAD) vivado -mode batch -nojournal -nolog -notrace -quiet
 dbg_xdc     = board/$(BOARD)/debug_constraints.xdc
 
 workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspace/$(CONFIG)/system-$(BOARD).sv
@@ -447,10 +455,10 @@ synthesis-test: $(synthesis)
 bitstream-test: $(bitstream)
 
 # 		echo "if {[llength [get_debug_cores]] > 0} {write_xdc -force [file join [get_property DIRECTORY [current_project]] board/$(BOARD)/debug_constraints.xdc] -debug ;puts "INFO: Debug constraints written to debug_constraints.xdc" ;}"  >> $(proj_path)/make-insert-ila.tcl 
-insert_ila: $(synthesis)
-	@$(call print_log,insert_ila)
+insert-ila: $(synthesis)
+	@$(call print_log,insert-ila)
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
-		echo "insert_ila" ; \
+		echo "insert-ila" ; \
 		echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "open_project $(proj_file)"                  > $(proj_path)/make-insert-ila.tcl ; \
 		echo "open_run synth_$(PRJ_NUM)"                  >> $(proj_path)/make-insert-ila.tcl ; \
@@ -464,11 +472,33 @@ insert_ila: $(synthesis)
 		echo "write_checkpoint     -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
 		$(vivado) -source $(proj_path)/make-insert-ila.tcl ; \
-		if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi ; \
 	else \
-		echo "skip insert_ila" ; \
+		echo "skip insert-ila" ; \
 	fi
-#save_constraints
+	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
+
+insert-ila-force:
+	@$(call print_log,insert-ila-force)
+	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+		echo "insert-ila" ; \
+		echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "open_project $(proj_file)"                  > $(proj_path)/make-insert-ila.tcl ; \
+		echo "open_run synth_$(PRJ_NUM)"                  >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "source board/insert_ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "implement_debug_core [get_debug_cores]" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "opt_design"                                >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "report_debug_core             > $(proj_path)/debug_core.log" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "write_debug_probes   -force $(proj_path)/debug_nets.ltx" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "write_checkpoint     -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
+		$(vivado) -source $(proj_path)/make-insert-ila.tcl ; \
+	else \
+		echo "skip insert-ila" ; \
+	fi
+	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
+
 
 prj_path:
 	@echo "proj_path : ${proj_path}"
@@ -482,16 +512,21 @@ prj_path:
 	
 
 bitstream-force: 
-	@$(call print_log,bitstream)
+	@$(call print_log,bitstream-force)
 	echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-bitstream.tcl
 	echo "open_project $(proj_file)" > $(proj_path)/make-bitstream.tcl
-	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$( )]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	
 # 	echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-bitstream.tcl
 # 	echo "report_debug_core             > debug_core.log" >> $(proj_path)/make-bitstream.tcl
 # 	echo "write_debug_probes            debug_nets.ltx" >> $(proj_path)/make-bitstream.tcl
 
 	echo "reset_run impl_$(PRJ_NUM)" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	
 	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
 	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
 # 	echo "exit"                                     >> $(proj_path)/make-bitstream.tcl
@@ -499,10 +534,12 @@ bitstream-force:
 	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
 
 
-$(bitstream): insert_ila
+$(bitstream): insert-ila
 	@$(call print_log,bitstream)
 	echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-bitstream.tcl
 	echo "open_project $(proj_file)" > $(proj_path)/make-bitstream.tcl
+	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+
 #   @if echo "$(CONFIG)" | grep -q 'debug$$' ; then echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl ; fi
 	
 # 	echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-bitstream.tcl
@@ -515,7 +552,7 @@ $(bitstream): insert_ila
 	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.ARGS.DIRECTIVE AggressiveFanoutOpt [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "opt_design" >> $(proj_path)/make-bitstream.tcl
 
 	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
 	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
