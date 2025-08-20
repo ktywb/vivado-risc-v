@@ -2,15 +2,24 @@
 # CFG=Rocket64s2gem4
 B=vc707
 # CFG=rocket64b1
-# CFG=rocket64b1_partition_test
+CFG=rocket64b1_partition_test
 # CFG=rocket64b1_partition_testwb
 # CFG=rocket64b1_partition_e
-CFG=rocket64b1_partition_debug
-# FREQ=62.5
-FREQ=50
-# FREQ=31.25
-MT=8
+# CFG=rocket64b1_partition_debug
 
+# vc707         Rocket.*parti.*   20
+# vc707         Rocket.*gem.*     31.25
+# vc707         Rocket64x1        50.0
+# vc707         Rocket64[xyz].*   31.25
+# vc707         Rocket.*l2w?      62.5
+# vc707         Rocket.*b[7-9].*  62.5
+# vc707         Rocket.*b[4-9].*  80.0
+# vc707         Rocket.*          100.0
+FREQ=62.5
+# FREQ=50
+# FREQ=31.25
+
+MT=8
 J=32
 
 if [ "$1" = "flash" ]; then

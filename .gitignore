@@ -17,7 +17,7 @@
 /.ivy2/
 /.sbt/
 /.Xilinx/
-/generators/partition-acc/
+/generators/partition-acc*/
 /*.v
 /.metals/
 /qemu/opensbi/

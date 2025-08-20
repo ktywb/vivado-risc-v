@@ -10,11 +10,18 @@ HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?= 
 CFG_FORMAT ?= mcs
 
-JVM_XMX ?= 30G
+ifeq ($(IDENTITY_NAME),orbstack_xs)
+    JVM_XMX ?= 13G
+	SBT_EXTRA_ARGS ?= -Dsbt.task.system=4 -Dsbt.task.cores=2
+else
+    JVM_XMX ?= 30G
+	SBT_EXTRA_ARGS ?= -Dsbt.task.system=8 -Dsbt.task.cores=4
+endif
+
 JVM_XSS ?= 8M
 SBT_BUILD_ARGS = -Xmx$(JVM_XMX) -Xss$(JVM_XSS)
 
-SBT_EXTRA_ARGS ?= -Dsbt.task.system=8 -Dsbt.task.cores=4
+
 
 include board/$(BOARD)/Makefile.inc
 
@@ -302,8 +309,14 @@ workspace/$(CONFIG)/system-$(BOARD)/RocketSystem.fir: workspace/$(CONFIG)/system
 	if [ ! -z "$(ETHER_MAC)" ] ; then sed -i "s#local-mac-address = \[.*\]#local-mac-address = [$(ETHER_MAC)]#g" bootrom/system.dts ; fi
 	if [ ! -z "$(ETHER_PHY)" ] ; then sed -i "s#phy-mode = \".*\"#phy-mode = \"$(ETHER_PHY)\"#g" bootrom/system.dts ; fi
 	sed -i "/interrupts-extended = <&.* 65535>;/d" bootrom/system.dts
+
+	sleep 5
 	
-	make -C bootrom CROSS_COMPILE="$(CROSS_COMPILE_NO_OS_TOOLS)" CFLAGS="$(CROSS_COMPILE_NO_OS_FLAGS)" BOARD=$(BOARD) clean bootrom.img $(MAKEFLAGS)
+# 	make -C bootrom CROSS_COMPILE="$(CROSS_COMPILE_NO_OS_TOOLS)" CFLAGS="$(CROSS_COMPILE_NO_OS_FLAGS)" BOARD=$(BOARD) clean bootrom.img $(MAKEFLAGS)
+	make -C bootrom CROSS_COMPILE="$(CROSS_COMPILE_NO_OS_TOOLS)" CFLAGS="$(CROSS_COMPILE_NO_OS_FLAGS)" BOARD=$(BOARD) clean $(MAKEFLAGS)
+	make -C bootrom CROSS_COMPILE="$(CROSS_COMPILE_NO_OS_TOOLS)" CFLAGS="$(CROSS_COMPILE_NO_OS_FLAGS)" BOARD=$(BOARD) system.dtb $(MAKEFLAGS)
+	make -C bootrom CROSS_COMPILE="$(CROSS_COMPILE_NO_OS_TOOLS)" CFLAGS="$(CROSS_COMPILE_NO_OS_FLAGS)" BOARD=$(BOARD) bootrom.img $(MAKEFLAGS)
+	
 	mv bootrom/system.dts workspace/$(CONFIG)/system-$(BOARD).dts
 	mv bootrom/bootrom.img workspace/bootrom.img
 	$(SBT) "runMain freechips.rocketchip.diplomacy.Main --dir `realpath workspace/$(CONFIG)/system-$(BOARD)` --top Vivado.RocketSystem --config Vivado.$(CONFIG_SCALA)"
@@ -379,14 +392,25 @@ synthesis   = $(proj_path)/$(proj_name).runs/synth_$(PRJ_NUM)/riscv_wrapper.dcp
 bitstream   = $(proj_path)/$(proj_name).runs/impl_$(PRJ_NUM)/$(FPGA_FNM)
 cfgmem_file = workspace/$(CONFIG)/$(proj_name).$(CFG_FORMAT)
 prm_file    = workspace/$(CONFIG)/$(proj_name).prm
+vivado      = env XILINX_LOCAL_USER_DATA=no LD_PRELOAD=$(LD_PRELOAD) vivado -mode batch -nojournal -nolog -notrace -quiet
+dbg_xdc     = board/$(BOARD)/debug_constraints.xdc
+
 ifeq ($(shell hostname),xs)
     LD_PRELOAD ?= /lib/x86_64-linux-gnu/libudev.so.1:/lib/x86_64-linux-gnu/libselinux.so.1 
 else
     LD_PRELOAD ?= 
 endif
 
-vivado      = env XILINX_LOCAL_USER_DATA=no LD_PRELOAD=$(LD_PRELOAD) vivado -mode batch -nojournal -nolog -notrace -quiet
-dbg_xdc     = board/$(BOARD)/debug_constraints.xdc
+prj_path:
+	@echo "proj_path : ${proj_path}"
+	@echo "proj_file : ${proj_file}"
+	@echo "report_debug_core > $(CURDIR)/$(proj_path)/debug_core.log"
+	@echo "write_debug_probes -force $(CURDIR)/$(proj_path)/debug_nets.ltx"
+	@echo "write_checkpoint -force $(CURDIR)/$(proj_path)/synth_dbg.dcp"
+	@echo "set_property INCREMENTAL_CHECKPOINT $(CURDIR)/$(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]"
+	@echo "CFG_BOOT : ${CFG_BOOT}"
+	@echo "write_cfgmem -format $(CFG_FORMAT) -interface $(CFG_DEVICE) -loadbit {up 0x0 $(CURDIR)/$(bitstream)} $(CFG_BOOT) -file $(CURDIR)/$(cfgmem_file) -force"
+	
 
 workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspace/$(CONFIG)/system-$(BOARD).sv
 	@$(call print_log,vivado-tcl)
@@ -422,9 +446,6 @@ workspace/$(CONFIG)/system-$(BOARD).tcl: workspace/$(CONFIG)/rocket.vhdl workspa
 
 vivado-tcl: workspace/$(CONFIG)/system-$(BOARD).tcl
 
-
-
-# 创建 Vivado 工程（如果还没有的话），并生成一个时间戳文件作为标记
 $(proj_time): workspace/$(CONFIG)/system-$(BOARD).tcl
 	@$(call print_log,vivado-project)
 	if [ ! -e $(proj_path) ] ; then $(vivado) -source workspace/$(CONFIG)/system-$(BOARD).tcl || ( rm -rf $(proj_path) ; exit 1 ) ; fi
@@ -449,160 +470,71 @@ $(synthesis): $(proj_time)
 # 	echo "exit" >> $(proj_path)/make-synthesis.tcl
 	$(vivado) -source $(proj_path)/make-synthesis.tcl
 # check for errors
-	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi 
+	@if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi 
 
 synthesis-test: $(synthesis)
 bitstream-test: $(bitstream)
 
-# 		echo "if {[llength [get_debug_cores]] > 0} {write_xdc -force [file join [get_property DIRECTORY [current_project]] board/$(BOARD)/debug_constraints.xdc] -debug ;puts "INFO: Debug constraints written to debug_constraints.xdc" ;}"  >> $(proj_path)/make-insert-ila.tcl 
-insert-ila: $(synthesis)
-	@$(call print_log,insert-ila)
+define run-insert-ila
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+		cp board/insert_ila.tcl $(proj_path)/ ; \
 		echo "insert-ila" ; \
-		echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "open_project $(proj_file)"                  > $(proj_path)/make-insert-ila.tcl ; \
-		echo "open_run synth_$(PRJ_NUM)"                  >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "source board/insert_ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "open_run synth_$(PRJ_NUM)"                  > $(proj_path)/make-insert-ila.tcl ; \
+		echo "source  $(proj_path)/insert_ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints -force" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "implement_debug_core [get_debug_cores]" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "opt_design"                                >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints -force" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "report_debug_core             > $(proj_path)/debug_core.log" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "write_debug_probes   -force $(proj_path)/debug_nets.ltx" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "write_checkpoint     -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
-		$(vivado) -source $(proj_path)/make-insert-ila.tcl ; \
+		echo "save_constraints -force" >> $(proj_path)/make-insert-ila.tcl ; \
 	else \
 		echo "skip insert-ila" ; \
 	fi
-	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
-
+	@if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
+endef
+insert-ila: $(synthesis) 
+	@$(call print_log,insert-ila)
+	$(run-insert-ila)
 insert-ila-force:
 	@$(call print_log,insert-ila-force)
+	$(run-insert-ila)
+
+define run-bitstream
+	echo "set_param general.maxThreads $(MAX_THREADS)" > $(proj_path)/make-bitstream.tcl
+	echo "open_project $(proj_file)" >> $(proj_path)/make-bitstream.tcl
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
-		echo "insert-ila" ; \
-		echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "open_project $(proj_file)"                  > $(proj_path)/make-insert-ila.tcl ; \
-		echo "open_run synth_$(PRJ_NUM)"                  >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "source board/insert_ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "implement_debug_core [get_debug_cores]" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "opt_design"                                >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "report_debug_core             > $(proj_path)/debug_core.log" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "write_debug_probes   -force $(proj_path)/debug_nets.ltx" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "write_checkpoint     -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "save_constraints" >> $(proj_path)/make-insert-ila.tcl ; \
-		$(vivado) -source $(proj_path)/make-insert-ila.tcl ; \
-	else \
-		echo "skip insert-ila" ; \
+		echo "source $(proj_path)/make-insert-ila.tcl" >> $(proj_path)/make-bitstream.tcl ; \
 	fi
-	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
 
+	echo "reset_run impl_$(PRJ_NUM)" >> $(proj_path)/make-bitstream.tcl
 
-prj_path:
-	@echo "proj_path : ${proj_path}"
-	@echo "proj_file : ${proj_file}"
-	@echo "report_debug_core > /home/name/vivado_prj/vivado-risc-v/$(proj_path)/debug_core.log"
-	@echo "write_debug_probes -force /home/name/vivado_prj/vivado-risc-v/$(proj_path)/debug_nets.ltx"
-	@echo "write_checkpoint -force /home/name/vivado_prj/vivado-risc-v/$(proj_path)/synth_dbg.dcp"
-	@echo "set_property INCREMENTAL_CHECKPOINT /home/name/vivado_prj/vivado-risc-v/$(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]"
-	@echo "CFG_BOOT : ${CFG_BOOT}"
-	@echo "write_cfgmem -format $(CFG_FORMAT) -interface $(CFG_DEVICE) -loadbit {up 0x0 /home/name/vivado_prj/vivado-risc-v/$(bitstream)} $(CFG_BOOT) -file /home/name/vivado_prj/vivado-risc-v/$(cfgmem_file) -force"
+	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+		echo "if {[file exists $(proj_path)/synth_dbg.dcp]} {" >> $(proj_path)/make-bitstream.tcl ; \
+		echo "    add_files -fileset utils_1 -norecurse $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-bitstream.tcl ; \
+		echo "    set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl ; \
+		echo "} else {" >> $(proj_path)/make-bitstream.tcl ; \
+		echo "    puts "WARNING: no $(proj_path)/synth_dbg.dcp found."" >> $(proj_path)/make-bitstream.tcl ; \
+		echo "}" >> $(proj_path)/make-bitstream.tcl ; \
+	fi
+
+	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	
-
+	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
+	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
+	$(vivado) -source $(proj_path)/make-bitstream.tcl
+	@if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
+endef
 bitstream-force: 
 	@$(call print_log,bitstream-force)
-	echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-bitstream.tcl
-	echo "open_project $(proj_file)" > $(proj_path)/make-bitstream.tcl
-	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	
-# 	echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-bitstream.tcl
-# 	echo "report_debug_core             > debug_core.log" >> $(proj_path)/make-bitstream.tcl
-# 	echo "write_debug_probes            debug_nets.ltx" >> $(proj_path)/make-bitstream.tcl
-
-	echo "reset_run impl_$(PRJ_NUM)" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	
-	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
-	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
-# 	echo "exit"                                     >> $(proj_path)/make-bitstream.tcl
-	$(vivado) -source $(proj_path)/make-bitstream.tcl
-	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
-
-
+	@$(run-bitstream)
 $(bitstream): insert-ila
 	@$(call print_log,bitstream)
-	echo "set_param general.maxThreads $(MAX_THREADS)" >> $(proj_path)/make-bitstream.tcl
-	echo "open_project $(proj_file)" > $(proj_path)/make-bitstream.tcl
-	echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-
-#   @if echo "$(CONFIG)" | grep -q 'debug$$' ; then echo "set_property INCREMENTAL_CHECKPOINT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl ; fi
-	
-# 	echo "implement_debug_core [get_debug_cores u_ila_0]" >> $(proj_path)/make-bitstream.tcl
-# 	echo "report_debug_core             > debug_core.log" >> $(proj_path)/make-bitstream.tcl
-# 	echo "write_debug_probes            debug_nets.ltx" >> $(proj_path)/make-bitstream.tcl
-
-	echo "reset_run impl_$(PRJ_NUM)" >> $(proj_path)/make-bitstream.tcl
-
-	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "opt_design" >> $(proj_path)/make-bitstream.tcl
-
-	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
-	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
-# 	echo "exit"                                     >> $(proj_path)/make-bitstream.tcl
-	$(vivado) -source $(proj_path)/make-bitstream.tcl
-	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
-
-
-# $(bitstream): $(synthesis)
-# 	@$(call print_log,bitstream - 1)
-# 	echo "set_param general.maxThreads $(MAX_THREADS)" >$(proj_path)/make-bitstream.tcl
-# 	echo "open_project $(proj_file)" >>$(proj_path)/make-bitstream.tcl
-
-# # 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
-# # 		echo "open_run synth_$(PRJ_NUM)"     >> $(proj_path)/make-bitstream.tcl; \
-# # 		echo "source board/insert_ila.tcl"   >> $(proj_path)/make-bitstream.tcl; \
-# # 		echo "save_project"					 >> $(proj_path)/make-bitstream.tcl; \
-# # 		echo "implement_debug_core"          >> $(proj_path)/make-bitstream.tcl; \
-# # 		echo "close_design"                  >> $(proj_path)/make-bitstream.tcl; \
-# # 	fi
-# 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
-# 		echo "open_run synth_$(PRJ_NUM)"     >> $(proj_path)/make-bitstream.tcl; \
-# 		echo "source board/insert_ila.tcl"   >> $(proj_path)/make-bitstream.tcl; \
-# 		echo "write_checkpoint -force $(proj_path)/synth_ila.dcp" >> $(proj_path)/make-bitstream.tcl ; \
-# 		echo "close_design"                                  >> $(proj_path)/make-bitstream.tcl ; \
-# 		echo "open_checkpoint  $(proj_path)/synth_ila.dcp"   >> $(proj_path)/make-bitstream.tcl ; \
-# 		echo "implement_debug_core"                          >> $(proj_path)/make-bitstream.tcl ; \
-# 		echo "write_checkpoint -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-bitstream.tcl ; \
-# 		echo "close_design"                                  >> $(proj_path)/make-bitstream.tcl ; \
-# 	fi
-
-# 	echo "reset_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
-# ###
-# 	echo "set_property INIT_DESIGN_CKPT $(proj_path)/synth_dbg.dcp [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-# ###
-# 	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
-# 	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
-
-# 	@if echo "$(CONFIG)" | grep -q 'debug$$'; then \
-# 		echo "open_run impl_$(PRJ_NUM)"                               >> $(proj_path)/make-bitstream.tcl; \
-# 		echo "set hub [get_debug_cores dbg_hub]"                      >> $(proj_path)/make-bitstream.tcl; \
-# 		echo "set_property C_CLK_INPUT_FREQ_HZ 31250000 \$hub"        >> $(proj_path)/make-bitstream.tcl; \
-# 		echo "set_property C_ENABLE_CLK_DIVIDER false   \$hub"        >> $(proj_path)/make-bitstream.tcl; \
-# 		echo "write_debug_probes -force $(proj_path)/debug_nets.ltx"  >> $(proj_path)/make-bitstream.tcl; \
-# 		echo "close_design"                                           >> $(proj_path)/make-bitstream.tcl; \
-# 	fi
-
-# 	@$(call print_log,bitstream - 2)
-# 	$(vivado) -source $(proj_path)/make-bitstream.tcl
-# 	if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
+	@$(run-bitstream)
 
 ifeq ($(CFG_BOOT),)
   CFG_FILES=$(bitstream)
@@ -610,12 +542,18 @@ else
   CFG_FILES=$(bitstream) workspace/boot.elf
 endif
 
-$(cfgmem_file) $(prm_file): $(CFG_FILES)
-	@$(call print_log,cfgmem_file)
+define run-cfgmem 
 	echo "open_project $(proj_file)" >$(proj_path)/make-mcs.tcl
 	echo "write_cfgmem -format $(CFG_FORMAT) -interface $(CFG_DEVICE) -loadbit {up 0x0 $(bitstream)} $(CFG_BOOT) -file $(cfgmem_file) -force" >>$(proj_path)/make-mcs.tcl
 	$(vivado) -source $(proj_path)/make-mcs.tcl
-
+endef
+$(cfgmem_file) $(prm_file): $(CFG_FILES)
+	@$(call print_log,cfgmem_file)
+	@$(run-cfgmem)
+cfgmem-force: 
+	@$(call print_log,cfgmem_file-force)
+	@$(run-cfgmem)
+	
 bitstream: print-freq $(bitstream) $(cfgmem_file) 
 
 # --- program flash memory ---
@@ -627,23 +565,19 @@ reset:
 	env HW_SERVER_ADDR=$(HW_SERVER_ADDR) \
 	 $(vivado) -source board/reset-fpga.tcl
 
+define run-flash
+	env HW_SERVER_URL=tcp:$(HW_SERVER_ADDR) \
+	 xsdb -quiet board/jtag-freq.tcl
+	env HW_SERVER_ADDR=$(HW_SERVER_ADDR) \
+	env CFG_PART=$(CFG_PART) \
+	env mcs_file=$(cfgmem_file) \
+	env prm_file=$(prm_file) \
+	 $(vivado) -source board/program-flash.tcl
+endef
 flash: $(cfgmem_file) $(prm_file)
-	env HW_SERVER_URL=tcp:$(HW_SERVER_ADDR) \
-	 xsdb -quiet board/jtag-freq.tcl
-	env HW_SERVER_ADDR=$(HW_SERVER_ADDR) \
-	env CFG_PART=$(CFG_PART) \
-	env mcs_file=$(cfgmem_file) \
-	env prm_file=$(prm_file) \
-	 $(vivado) -source board/program-flash.tcl
-
+	@$(run-flash)
 flash-skip:
-	env HW_SERVER_URL=tcp:$(HW_SERVER_ADDR) \
-	 xsdb -quiet board/jtag-freq.tcl
-	env HW_SERVER_ADDR=$(HW_SERVER_ADDR) \
-	env CFG_PART=$(CFG_PART) \
-	env mcs_file=$(cfgmem_file) \
-	env prm_file=$(prm_file) \
-	 $(vivado) -source board/program-flash.tcl
+	@$(run-flash)
 
 # --- program FPGA and boot Linux ---
 

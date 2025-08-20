@@ -10,14 +10,21 @@ lazy val commonSettings = Seq(
   libraryDependencies ++= Seq("edu.berkeley.cs" %% "chisel3" % chiselVersion),
   libraryDependencies ++= Seq("org.json4s" %% "json4s-jackson" % "4.0.5"))
 
+lazy val debug = (project in file("debug"))
+  .dependsOn(rocketchip)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
+  .settings(commonSettings)
+
 lazy val vivado = (project in file("."))
   .dependsOn(cde)
   .dependsOn(boom)
   .dependsOn(rocketchip)
+  .dependsOn(debug)
   // .dependsOn(rocketchip_inclusive_cache)
   .dependsOn(sifive_cache)
   .dependsOn(gemmini)
-  .dependsOn(partitionacc)
+  // .dependsOn(partitionacc)
+  .dependsOn(partition)
   .settings(commonSettings)
   .settings(assemblyJarName in assembly := "system.jar")
   .settings(assemblyMergeStrategy in assembly := {
@@ -47,11 +54,18 @@ lazy val rocketLibDeps = (rocketchip / Keys.libraryDependencies)
 
 lazy val partitionacc = (project in file("generators/partition-acc"))
   .dependsOn(rocketchip, rocc_acc_utils, testchipip, targetutils)
+  .dependsOn(debug)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
+  .settings(commonSettings)
+
+lazy val partition = (project in file("generators/partition-acc-chisel"))
+  .dependsOn(rocketchip, rocc_acc_utils, testchipip, targetutils)
+  .dependsOn(debug)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 
 lazy val rocc_acc_utils = (project in file("generators/rocc-acc-utils"))
-  .dependsOn(rocketchip)
+  .dependsOn(rocketchip, debug)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 

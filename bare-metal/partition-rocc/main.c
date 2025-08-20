@@ -11,8 +11,8 @@
 #include "encoding.h"
 #include "rocc.h"
 
-// #include "partition_data_tiny.h"
-#include "partition_data_small.h"
+#include "partition_data_tiny.h"
+// #include "partition_data_small.h"
 // #include "partition_data_medium.h"
 // #include "partition_data_full.h"
 
@@ -49,6 +49,13 @@ int main(void) {
   //   ROCC_INSTRUCTION(0, 0);                   // fence
   //   for (int j = 0; j < 100; j++) {}
   // }
+
+  ROCC_INSTRUCTION(0, 0);         
+  for (int j = 0; j < 100; j++) {}
+  ROCC_INSTRUCTION(0, 0);         
+  for (int j = 0; j < 100; j++) {}
+  ROCC_INSTRUCTION(0, 0);         
+  for (int j = 0; j < 100; j++) {}
 
   
   ROCC_INSTRUCTION(0, 0); // fence

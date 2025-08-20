@@ -1,0 +1,4 @@
+[warn] /home/name/vivado_prj/vivado-risc-v/debug/debug.scala:6:8: Importing from firrtl is deprecated as of Chisel's 3.6.0 release.
+[warn] import firrtl.annotations.{SingleTargetAnnotation, Target}
+[warn]        ^
+[warn] one warning found

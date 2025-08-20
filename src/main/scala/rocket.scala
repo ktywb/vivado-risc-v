@@ -1,5 +1,5 @@
 package Vivado
-import partitionacc.{PartitionConsts}
+// import partitionacc.{PartitionConsts}
 
 import Chisel._
 import org.chipsalliance.cde.config._
@@ -10,7 +10,8 @@ import freechips.rocketchip.devices.tilelink._
 // import freechips.rocketchip.tile.{BuildRoCC, OpcodeSet}
 // import freechips.rocketchip.util.DontTouch
 import freechips.rocketchip.system._
-import partitionacc._
+// import partitionacc._
+import partition.fixedacc._
 
 
 import freechips.rocketchip.devices.debug._
@@ -152,18 +153,11 @@ class WithDebugPrintConfig extends Config((site, here, up) => {
 })
 
 class PartitionBaseConfig extends Config(
-  new WithPartitionAccel ++
-  // new WithDebugPrintConfig ++
-  new WithSystemBusWidth_My(PartitionConsts.InputWidth) ++ // 16字节 = 128位，匹配PartitionConsts.BUS_SZ_BYTES = 16
-  new WithInclusiveCache
-  // (
-  //   nWays = 2,
-  //   capacityKB = 32,
-  //   subBankingFactor = 2
-  // ) 
-  ++
+  // new WithPartitionAccel ++ // old
+  new WithPartitionFixedAccel ++ // new
+  new WithSystemBusWidth_My(256) ++ 
+  new WithInclusiveCache ++
   new WithNMemoryChannels(1) 
-  // ++ new WithClockGateModel                          // 时钟门控模型
   )
 
 class Rocket64b1_partition extends Config(
