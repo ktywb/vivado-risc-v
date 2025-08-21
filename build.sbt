@@ -11,8 +11,6 @@ lazy val commonSettings = Seq(
   libraryDependencies ++= Seq("org.json4s" %% "json4s-jackson" % "4.0.5"))
 
 lazy val debug = (project in file("debug"))
-  .dependsOn(rocketchip)
-  .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 
 lazy val vivado = (project in file("."))
@@ -20,8 +18,8 @@ lazy val vivado = (project in file("."))
   .dependsOn(boom)
   .dependsOn(rocketchip)
   .dependsOn(debug)
-  // .dependsOn(rocketchip_inclusive_cache)
-  .dependsOn(sifive_cache)
+  .dependsOn(rocketchip_inclusive_cache)
+  // .dependsOn(sifive_cache)
   .dependsOn(gemmini)
   // .dependsOn(partitionacc)
   .dependsOn(partition)
@@ -42,6 +40,7 @@ lazy val rocketchip = (project in file("rocket-chip"))
   .dependsOn(cde)
   .dependsOn(hardfloat)
   .dependsOn(rocket_macros)
+  .dependsOn(debug)
   .settings(commonSettings)
   .settings( // Settings for scalafix
     semanticdbEnabled := true,
@@ -82,12 +81,6 @@ lazy val boom = Project(id = "boom", base = file("generators/riscv-boom") / "src
   .settings(commonSettings)
   .settings(scalaSource in Compile := baseDirectory.value / "main/scala")
 
-lazy val sifive_cache = (project in file("generators/sifive-cache"))
-  .dependsOn(cde)
-  .dependsOn(rocketchip)
-  .settings(commonSettings)
-  .settings(scalaSource in Compile := baseDirectory.value / "design/craft")
-
 lazy val gemmini = (project in file("generators/gemmini"))
   .dependsOn(cde)
   .dependsOn(rocketchip)
@@ -105,9 +98,15 @@ lazy val cde = (project in file("rocket-chip/cde"))
   .settings(commonSettings)
   .settings(scalaSource in Compile := baseDirectory.value / "cde/src/chipsalliance/rocketchip")
 
-// lazy val rocketchip_inclusive_cache = (project in file("generators/rocket-chip-inclusive-cache"))
-//   .settings(
-//     commonSettings,
-//     Compile / scalaSource := baseDirectory.value / "design/craft")
-//   .dependsOn(rocketchip)
-//   .settings(libraryDependencies ++= rocketLibDeps.value)
+
+lazy val sifive_cache = (project in file("generators/sifive-cache"))
+  .dependsOn(cde)
+  .dependsOn(rocketchip)
+  .settings(commonSettings)
+  .settings(scalaSource in Compile := baseDirectory.value / "design/craft")
+
+lazy val rocketchip_inclusive_cache = (project in file("generators/rocket-chip-inclusive-cache"))
+  .dependsOn(cde)
+  .dependsOn(rocketchip)
+  .settings(commonSettings)
+  .settings(scalaSource in Compile := baseDirectory.value / "design/craft")

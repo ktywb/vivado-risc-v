@@ -1,3 +1,19 @@
-[1;34m[Make state] insert-ila-force [0m
-insert-ila
-if find workspace/rocket64b1_partition_debug/vivado-vc707-riscv -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi
+[1;34m[Make state] rocket-dts [0m
+rm -rf workspace/rocket64b1_partition_debug/tmp
+mkdir -p workspace/rocket64b1_partition_debug/tmp
+cp rocket-chip/bootrom/bootrom.img workspace/bootrom.img
+java -Xmx30G -Xss8M  -Dsbt.task.system=8 -Dsbt.task.cores=4 -Dsbt.io.virtual=false -Dsbt.server.autostart=false -jar /home/name/vivado_prj/vivado-risc-v/sbt-launch.jar "runMain freechips.rocketchip.diplomacy.Main --dir `realpath workspace/rocket64b1_partition_debug/tmp` --top Vivado.RocketSystem --config Vivado.Rocket64b1_partition_debug"
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by sbt.TrapExit$ (file:/home/name/.sbt/boot/scala-2.12.10/org.scala-sbt/sbt/1.3.13/run_2.12-1.3.13.jar)
+WARNING: Please consider reporting this to the maintainers of sbt.TrapExit$
+WARNING: System::setSecurityManager will be removed in a future release
+[info] welcome to sbt 1.3.13 (Oracle Corporation Java 17.0.12)
+[info] loading settings for project vivado-risc-v-build from plugins.sbt ...
+[info] loading project definition from /home/name/vivado_prj/vivado-risc-v/project
+/home/name/vivado_prj/vivado-risc-v/build.sbt:44: error: recursive lazy value debug needs type
+  .dependsOn(debug)
+             ^
+[error] sbt.compiler.EvalException: Type error in expression
+[error] Use 'last' for the full log.
+Project loading failed: (r)etry, (q)uit, (l)ast, or (i)gnore? q
+make: *** [Makefile:294：workspace/rocket64b1_partition_debug/system.dts] 错误 1

@@ -22,12 +22,14 @@ if {[llength $sys_clk_net] == 0} {
 }
 
 
-set debug_nets [get_nets -hier -filter {NAME =~ "*DebugTag_*_DebugTag*"}]
+# set debug_nets [get_nets -hier -filter {NAME =~ "*DebugTag_*_DebugTag*"}]
+set debug_nets [get_nets -hier -filter {NAME =~ "*DebugTag_*_DebugTag*" && MARK_DEBUG == 1}]
 if {[llength $debug_nets] == 0} {
     puts "WARNING: no DebugTag_* nets found; ILA will have 0 probes."
 } else {
 #======
-    set nets_raw [get_nets -hier -filter {NAME =~ "*DebugTag_*_DebugTag*"}]
+    # set nets_raw [get_nets -hier -filter {NAME =~ "*DebugTag_*_DebugTag*"}]
+    set nets_raw [get_nets -hier -filter {NAME =~ "*DebugTag_*_DebugTag*" && MARK_DEBUG == 1}]
 
     set filtered_nets {}
     foreach n $nets_raw {

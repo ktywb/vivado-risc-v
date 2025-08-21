@@ -213,6 +213,7 @@ opensbi-qemu:
 CONFIG_SCALA := $(subst rocket,Rocket,$(CONFIG))
 
 print-freq:
+	@$(call print_log, freqs)
 	@echo "ROCKET_FREQ_MHZ: $(ROCKET_FREQ_MHZ)"
 	@echo "ROCKET_CLOCK_FREQ: $(ROCKET_CLOCK_FREQ)"
 	@echo "ROCKET_TIMEBASE_FREQ: $(ROCKET_TIMEBASE_FREQ)"
@@ -477,10 +478,10 @@ bitstream-test: $(bitstream)
 
 define run-insert-ila
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
-		cp board/insert_ila.tcl $(proj_path)/ ; \
+		cp board/insert-ila.tcl $(proj_path)/ ; \
 		echo "insert-ila" ; \
 		echo "open_run synth_$(PRJ_NUM)"                  > $(proj_path)/make-insert-ila.tcl ; \
-		echo "source  $(proj_path)/insert_ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "source  $(proj_path)/insert-ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "save_constraints -force" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "implement_debug_core [get_debug_cores]" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "opt_design"                                >> $(proj_path)/make-insert-ila.tcl ; \
@@ -578,6 +579,30 @@ flash: $(cfgmem_file) $(prm_file)
 	@$(run-flash)
 flash-skip:
 	@$(run-flash)
+
+.PHONY: run-ila-func run-ila
+run-ila-func:
+	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+		ltx_file=$(proj_path)/debug_nets.ltx ; \
+		wcfg_file=board/ila_trigger.wcfg ; \
+	else \
+		ltx_file="" ; \
+		wcfg_file="" ; \
+	fi ; \
+	env HW_SERVER_URL=tcp:$(HW_SERVER_ADDR) \
+	 xsdb -quiet board/jtag-freq.tcl ; \
+	env HW_SERVER_ADDR=$(HW_SERVER_ADDR) \
+	env ltx_file=$$ltx_file \
+	env wcfg_file=$$wcfg_file \
+	env OUT_DIR=$(proj_path) \
+	 $(vivado) -source $(proj_path)/run-ila.tcl
+	
+run-ila:
+	@$(call print_log,hw-run-ila)
+	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+		cp board/run-ila.tcl $(proj_path)/ ; \
+		$(MAKE) hw-run-ila-func ; \
+	fi
 
 # --- program FPGA and boot Linux ---
 

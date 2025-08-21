@@ -33,12 +33,42 @@ object addAttribute {
 object markSig{              // signal, name
   def apply (debugSignals: Seq[(Data, String)]): Seq[Data] = {
     debugSignals.map { case (signal, name) =>
-      val debugReg = dontTouch(Wire(signal.cloneType))
-      debugReg := signal
-      debugReg.suggestName("DebugTag_" + name + "_DebugTag")
-      // addAttribute(debugReg, "DONT_TOUCH" -> "true", "mark_debug" -> "true")
-      addAttribute(debugReg, "DONT_TOUCH" -> "true")
-      debugReg
+      val debugWire = dontTouch(Wire(signal.cloneType))
+      val debugBuf = dontTouch(Wire(signal.cloneType))
+      debugBuf := signal
+      debugWire := debugBuf
+      debugWire.suggestName("DebugTag_" + name + "_DebugTag")
+      addAttribute(debugWire, "DONT_TOUCH" -> "true", "mark_debug" -> "true", "KEEP" -> "true")
+      debugWire
     }
   }
 }
+
+// object markSig{              // signal, name
+//   def apply (debugSignals: Seq[(Data, String)]): Seq[Data] = {
+//     debugSignals.map { case (signal, name) =>
+//       // 创建一个本地的调试副本，不返回给调用者
+//       val debugWire = dontTouch(Wire(signal.cloneType))
+//       debugWire := signal
+//       debugWire.suggestName(name)
+//       addAttribute(debugWire, "DONT_TOUCH", "true")
+//       addAttribute(debugWire, "KEEP", "true") 
+//       addAttribute(debugWire, "mark_debug", "true")
+      
+//       // 返回原始信号而不是调试信号，避免调试信号传播
+//       signal
+//     }
+//   }
+  
+//   // 不返回值的版本，推荐使用
+//   def mark(debugSignals: Seq[(Data, String)]): Unit = {
+//     debugSignals.foreach { case (signal, name) =>
+//       val debugWire = dontTouch(Wire(signal.cloneType))
+//       debugWire := signal
+//       debugWire.suggestName(name)
+//       addAttribute(debugWire, "DONT_TOUCH", "true")
+//       addAttribute(debugWire, "KEEP", "true") 
+//       addAttribute(debugWire, "mark_debug", "true")
+//     }
+//   }
+// }

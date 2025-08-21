@@ -57,7 +57,7 @@ class WithInclusiveCache(
   writeBytes: Int = 8
 ) extends Config((site, here, up) => {
   case InclusiveCacheKey => InclusiveCacheParams(
-      sets = (capacityKB * 1024)/(site(CacheBlockBytes) * nWays * up(SubsystemBankedCoherenceKey, site).nBanks),
+      sets = (capacityKB * 1024)/(site(CacheBlockBytes) * nWays * up(BankedL2Key/*SubsystemBankedCoherenceKey*/, site).nBanks),
       ways = nWays,
       memCycles = outerLatencyCycles,
       writeBytes = writeBytes,
@@ -65,7 +65,7 @@ class WithInclusiveCache(
       hintsSkipProbe = hintsSkipProbe,
       bankedControl = bankedControl,
       ctrlAddr = ctrlAddr)
-  case SubsystemBankedCoherenceKey => up(SubsystemBankedCoherenceKey, site).copy(coherenceManager = { context =>
+  case BankedL2Key/*SubsystemBankedCoherenceKey*/ => up(BankedL2Key/*SubsystemBankedCoherenceKey*/, site).copy(coherenceManager = { context =>
     implicit val p = context.p
     val sbus = context.tlBusWrapperLocationMap(SBUS)
     val cbus = context.tlBusWrapperLocationMap.lift(CBUS).getOrElse(sbus)
@@ -134,13 +134,15 @@ class WithInclusiveCache(
         val physicalFilter = LazyModule(new PhysicalFilter(fp.copy(controlBeatBytes = cbus.beatBytes)))
         lastLevelNode :*= physicalFilter.node :*= l2_outer_buffer.node
         physicalFilter.controlNode := cbus.coupleTo("physical_filter") {
-          TLBuffer(1) := TLFragmenter(cbus, Some("LLCPhysicalFilter")) := _
+          // TLBuffer(1) := TLFragmenter(cbus, Some("LLCPhysicalFilter")) := _
+          TLBuffer(1) := TLFragmenter(cbus.beatBytes, cbus.blockBytes) := _
         }
       }
     }
 
     l2.ctrls.foreach {
-      _.ctrlnode := cbus.coupleTo("l2_ctrl") { TLBuffer(1) := TLFragmenter(cbus, Some("LLCCtrl")) := _ }
+      // _.ctrlnode := cbus.coupleTo("l2_ctrl") { TLBuffer(1) := TLFragmenter(cbus, Some("LLCCtrl")) := _ }
+      _.ctrlnode := cbus.coupleTo("l2_ctrl") { TLBuffer(1) := TLFragmenter(cbus.beatBytes, cbus.blockBytes) := _ }
     }
 
     ElaborationArtefacts.add("l2.json", l2.module.json)

@@ -50,6 +50,9 @@ int main() {
   ROCC_INSTRUCTION(0, 0);  // Fence
   int check = -1;
   ROCC_INSTRUCTION_D(0, check, 6);  // check completition
+
+  printf("check : %d\n", check);
+  
   // --- Cycle Measurement End ---
   unsigned long long end_cycle = get_cycles();
   unsigned long long cycle_diff = end_cycle - start_cycle;

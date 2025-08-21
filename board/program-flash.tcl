@@ -14,6 +14,14 @@ set_property PROGRAM.VERIFY 1 [current_hw_cfgmem]
 set_property PROGRAM.CHECKSUM 0 [current_hw_cfgmem]
 set_property PROGRAM.ADDRESS_RANGE {use_file} [current_hw_cfgmem]
 set_property PROGRAM.UNUSED_PIN_TERMINATION {pull-none} [current_hw_cfgmem]
+
+# if {$usedebug == 1} {
+#     set LTX "$::env(ltx_file)"
+#     if {[file exists $LTX]}{
+#         set_property PROBES.FILE  "$LTX" current_hw_cfgmem
+#     }
+# }
+
 create_hw_bitstream -hw_device [current_hw_device] [get_property PROGRAM.HW_CFGMEM_BITFILE [current_hw_device]]
 program_hw_devices [current_hw_device]
 refresh_hw_device [current_hw_device]
