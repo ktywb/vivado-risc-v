@@ -1,53 +1,42 @@
-[1;34m[Make state] rocket-dts [0m
-rm -rf workspace/rocket64b1_partition_debug/tmp
-mkdir -p workspace/rocket64b1_partition_debug/tmp
-cp rocket-chip/bootrom/bootrom.img workspace/bootrom.img
-java -Xmx30G -Xss8M  -Dsbt.task.system=8 -Dsbt.task.cores=4 -Dsbt.io.virtual=false -Dsbt.server.autostart=false -jar /home/name/vivado_prj/vivado-risc-v/sbt-launch.jar "runMain freechips.rocketchip.diplomacy.Main --dir `realpath workspace/rocket64b1_partition_debug/tmp` --top Vivado.RocketSystem --config Vivado.Rocket64b1_partition_debug"
-WARNING: A terminally deprecated method in java.lang.System has been called
-WARNING: System::setSecurityManager has been called by sbt.TrapExit$ (file:/home/name/.sbt/boot/scala-2.12.10/org.scala-sbt/sbt/1.3.13/run_2.12-1.3.13.jar)
-WARNING: Please consider reporting this to the maintainers of sbt.TrapExit$
-WARNING: System::setSecurityManager will be removed in a future release
-[info] welcome to sbt 1.3.13 (Oracle Corporation Java 17.0.12)
-[info] loading settings for project vivado-risc-v-build from plugins.sbt ...
-[info] loading project definition from /home/name/vivado_prj/vivado-risc-v/project
-[info] loading settings for project vivado from build.sbt ...
-[info] loading settings for project targetutils2 from build.sbt ...
-[info] loading settings for project targetutils from build.sbt ...
-[info] loading settings for project gemmini from build.sbt ...
-[info] loading settings for project testchipip from build.sbt ...
-[info] loading settings for project hardfloat from build.sbt ...
-[info] resolving key references (14125 settings) ...
-[info] set current project to vivado (in build file:/home/name/vivado_prj/vivado-risc-v/)
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
-[warn] There may be incompatibilities among your library dependencies; run 'evicted' to see detailed eviction warnings.
-[info] Compiling 1 Scala source to /home/name/vivado_prj/vivado-risc-v/rocket-chip/target/scala-2.13/classes ...
-[error] /home/name/vivado_prj/vivado-risc-v/rocket-chip/src/main/scala/rocket/TLB.scala:310:79: type mismatch;
-[error]  found   : Boolean(false)
-[error]  required: chisel3.Bool
-[error] class TLB(instruction: Boolean, lgMaxSize: Int, cfg: TLBConfig, debug: Bool = false)(implicit edge: TLEdgeOut, p: Parameters) extends CoreModule()(p) {
-[error]                                                                               ^
-[error] /home/name/vivado_prj/vivado-risc-v/rocket-chip/src/main/scala/rocket/TLB.scala:367:6: type mismatch;
-[error]  found   : chisel3.Bool
-[error]  required: Boolean
-[error]   if(debug){
-[error]      ^
-[warn] /home/name/vivado_prj/vivado-risc-v/rocket-chip/src/main/scala/rocket/TLB.scala:368:9: local val debugRegs in value <local TLB> is never used
-[warn]     val debugRegs = markSig(
-[warn]         ^
-[warn] /home/name/vivado_prj/vivado-risc-v/rocket-chip/src/main/scala/rocket/TLB.scala:480:11: local val waddr in value <local TLB> is never used
-[warn]       val waddr = Mux(r_superpage_hit.valid && usingHypervisor.B, r_superpage_hit.bits, r_superpage_repl_addr)
-[warn]           ^
-[warn] /home/name/vivado_prj/vivado-risc-v/rocket-chip/src/main/scala/rocket/TLB.scala:310:65: parameter value debug in class TLB is never used
-[warn] class TLB(instruction: Boolean, lgMaxSize: Int, cfg: TLBConfig, debug: Bool = false)(implicit edge: TLEdgeOut, p: Parameters) extends CoreModule()(p) {
-[warn]                                                                 ^
-[warn] three warnings found
-[error] two errors found
-[error] (rocketchip / Compile / compileIncremental) Compilation failed
-[error] Total time: 12 s, completed 2025年8月21日 下午4:46:35
-make: *** [Makefile:294：workspace/rocket64b1_partition_debug/system.dts] 错误 1
+[1;34m[Make state] hw-run-ila [0m
+make[1]: 进入目录“/home/name/vivado_prj/vivado-risc-v”
+rlwrap: warning: your $TERM is 'xterm-256color' but rlwrap couldn't find it in the terminfo database. Expect some problems.: Inappropriate ioctl for device
+Connection refused
+    while executing
+"error $message"
+    (procedure "connect" line 143)
+    invoked from within
+"connect -url $::env(HW_SERVER_URL)"
+    (file "board/jtag-freq.tcl" line 1)
+INFO: [Common 17-1239] XILINX_LOCAL_USER_DATA is set to 'no'.
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2022.2
+  **** Build date : Oct 14 2022 at 05:10:28
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2022.2.0
+  ****** Build date   : Oct 05 2022-07:25:37
+    **** Build number : 2022.2.1664925937
+      ** Copyright 2017-2025 Xilinx, Inc. All Rights Reserved.
+
+
+
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210203824419A
+INFO: [Labtools 27-2302] Device xc7vx485t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+WARNING: wcfg_file not set or not found; probes mapping will be missing.
+INFO: set trigger ==1 on riscv_i/RocketChip/inst/rocket_system/tile_prci_domain/tile_reset_domain_tile/acc/cmd_router/DebugTag_FLAG_start_FLAG_DebugTag
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2025-Aug-25 08:10:32
+INFO: ILA armed and waiting for trigger.
+wait_on_hw_ila: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:45 . Memory (MB): peak = 3222.043 ; gain = 8.004 ; free physical = 14500 ; free virtual = 36158
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2025-Aug-25 08:11:17
+END
+make[1]: 离开目录“/home/name/vivado_prj/vivado-risc-v”

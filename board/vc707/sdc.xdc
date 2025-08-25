@@ -8,3 +8,12 @@ set_property -dict {PACKAGE_PIN AT30 IOSTANDARD LVCMOS18 IOB TRUE} [get_ports {s
 set_property -dict {PACKAGE_PIN AP32 IOSTANDARD LVCMOS18} [get_ports sdio_cd]
 # Note: card detect does not work on VC707 due to error in the VC707 schematics
 
+
+
+
+
+
+
+
+
+

@@ -479,7 +479,6 @@ bitstream-test: $(bitstream)
 define run-insert-ila
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
 		cp board/insert-ila.tcl $(proj_path)/ ; \
-		echo "insert-ila" ; \
 		echo "open_run synth_$(PRJ_NUM)"                  > $(proj_path)/make-insert-ila.tcl ; \
 		echo "source  $(proj_path)/insert-ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "save_constraints -force" >> $(proj_path)/make-insert-ila.tcl ; \
@@ -490,6 +489,7 @@ define run-insert-ila
 		echo "write_debug_probes   -force $(proj_path)/debug_nets.ltx" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "write_checkpoint     -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "save_constraints -force" >> $(proj_path)/make-insert-ila.tcl ; \
+		echo "make-insert-ila.tcl created, and will be run before impl_$(PRJ_NUM)" ; \
 	else \
 		echo "skip insert-ila" ; \
 	fi
@@ -601,7 +601,7 @@ run-ila:
 	@$(call print_log,hw-run-ila)
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
 		cp board/run-ila.tcl $(proj_path)/ ; \
-		$(MAKE) hw-run-ila-func ; \
+		$(MAKE) run-ila-func ; \
 	fi
 
 # --- program FPGA and boot Linux ---

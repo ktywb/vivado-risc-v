@@ -19,3 +19,12 @@ set_property -dict {PACKAGE_PIN AV40 IOSTANDARD LVCMOS18} [get_ports reset]
 set_property -dict {PACKAGE_PIN BA37 IOSTANDARD LVCMOS18} [get_ports fan_en]
 #set_property -dict { PACKAGE_PIN BB37 IOSTANDARD LVCMOS18 } [get_ports fan_tach]
 
+
+
+
+
+
+
+
+
+

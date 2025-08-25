@@ -17,3 +17,12 @@ set_property -dict {PACKAGE_PIN AK33 IOSTANDARD LVCMOS18} [get_ports eth_mdio_da
 set_property -dict {PACKAGE_PIN AJ33 IOSTANDARD LVCMOS18} [get_ports eth_mdio_reset]
 set_property -dict {PACKAGE_PIN AL31 IOSTANDARD LVCMOS18} [get_ports eth_mdio_int]
 
+
+
+
+
+
+
+
+
+

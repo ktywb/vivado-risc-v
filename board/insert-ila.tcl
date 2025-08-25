@@ -1,9 +1,9 @@
 create_debug_core u_ila_0 ila
-set_property C_DATA_DEPTH        1024  [get_debug_cores u_ila_0]
-set_property C_ADV_TRIGGER       true  [get_debug_cores u_ila_0]
-set_property C_EN_STRG_QUAL      true  [get_debug_cores u_ila_0]
-set_property ALL_PROBE_SAME_MU   true  [get_debug_cores u_ila_0]
-set_property ALL_PROBE_SAME_MU_CNT 4   [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH          4096  [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER         false [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL        false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU     true  [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1     [get_debug_cores u_ila_0]
 
 set ila_ [get_debug_cores u_ila_0]       ;
 set hub_ [get_debug_cores dbg_hub]       ;
@@ -75,17 +75,70 @@ if {[llength $debug_nets] == 0} {
         lappend debug_nets $obj  ;
     }
 
+    set trigger_net debug_nets
+
 #======
 
     set len [llength $debug_nets]
     puts "INFO: got $len debug_nets."
+    # foreach n $debug_nets {
+    #     set name [get_property NAME  $n]
+    #     set w [get_property WIDTH $n]
+    #     set p [create_debug_port u_ila_0 probe]       ;
+    #     if {$w eq ""} { set w 1 }                     ;
+    #     if {$w > 1} { set_property PORT_WIDTH $w $p } ;
+
+    #     connect_debug_port $p $n  ;
+
+    #     if {[regexp {DebugTag_FLAG_.*_FLAG_DebugTag} $name]} {
+    #         set_property PROBE_TYPE DATA_AND_TRIGGER $p
+    #         puts "INFO: trigger probe: $name"
+    #     } else {
+    #         set_property PROBE_TYPE DATA $p
+    #     }
+    # }
+    # === 替换原来的 foreach 循环，从这里开始 ===
+    # 把 bit 信号按“基名”分组；基名=去掉末尾 [idx] 后的名字
+    array unset bus_bits
     foreach n $debug_nets {
-        set w [get_property WIDTH $n]
-        set p [create_debug_port u_ila_0 probe]       ;
-        if {$w eq ""} { set w 1 }                     ;
-        if {$w > 1} { set_property PORT_WIDTH $w $p } ;
-        connect_debug_port $p $n  ;
+        set name [get_property NAME $n]
+        if {[regexp {^(.*)\[(\d+)\]$} $name -> base idx]} {
+            lappend bus_bits($base) [list $idx $n]
+        } else {
+            # 单比特（没有 [idx]）
+            lappend bus_bits($name) [list 0 $n]
+        }
     }
+
+    # 每个基名建一个 probe，按 idx 升序连接（列表第一个当作 LSB）
+    set total_probes 0
+    set trigger_cnt  0
+    foreach base [lsort [array names bus_bits]] {
+    set pairs $bus_bits($base)
+    set pairs [lsort -integer -index 0 $pairs]   ;# 如需 MSB..LSB 顺序，改成 -decreasing
+
+    set nets_ordered {}
+    foreach pair $pairs {
+        lappend nets_ordered [lindex $pair 1]
+    }
+    set width [llength $nets_ordered]
+
+    set p [create_debug_port u_ila_0 probe]
+    if {$width > 1} { set_property PORT_WIDTH $width $p }
+    connect_debug_port $p $nets_ordered
+
+    # 触发 or 只采样：按命名规则筛选
+    if {[regexp {DebugTag_FLAG_.*_FLAG_DebugTag} $base]} {
+        set_property PROBE_TYPE DATA_AND_TRIGGER $p
+        incr trigger_cnt
+        puts "INFO: trigger probe: $base (width=$width)"
+    } else {
+        set_property PROBE_TYPE DATA $p
+    }
+
+    incr total_probes
+    }
+    puts "INFO: created $total_probes probes; triggers: $trigger_cnt; data-only: [expr {$total_probes - $trigger_cnt}]"
 }
 delete_debug_port [get_debug_ports u_ila_0/probe0]
 

@@ -124,12 +124,17 @@ class L2MemHelperModule(outer: L2MemHelper, tlbConfig: TLBConfig, printInfo: Str
 
 
   if(debug){
+    val clk_wire = dontTouch(Wire(Clock()))
+    clk_wire := clock
     val debugRegs = markSig(
       Seq(
-        (tlb.io.req.bits.vaddr, "rocc_rd_tlb_vaddr"),
+        (tlb.io.req.bits.vaddr(31,16), "rocc_rd_tlb_vaddr_H"),
+        (tlb.io.req.bits.vaddr(15,0), "rocc_rd_tlb_vaddr_L"),
         (tlb.io.req.valid, "rocc_rd_tlb_valid"),
-        (tlb.io.resp.paddr, "rocc_rd_tlb_paddr"),
-        (io.ptw.ptbr.mode, "rocc_rd_ptw_ptbr")
+        (tlb.io.resp.paddr(31,16), "rocc_rd_tlb_paddr_H"),
+        (tlb.io.resp.paddr(15,0), "rocc_rd_tlb_paddr_L"),
+        (io.ptw.ptbr.mode, "rocc_rd_ptw_ptbr"),
+        (clk_wire, "clk")
       )
     )
   }
