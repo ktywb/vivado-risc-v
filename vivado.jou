@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Mon Aug 25 15:48:50 2025
+# Process ID: 2450641
+# Current directory: /home/name/vivado_prj/vivado-risc-v
+# Command line: vivado workspace/rocket64h1_partition_debug/vivado-vc707-riscv/vc707-riscv.xpr
+# Log file: /home/name/vivado_prj/vivado-risc-v/vivado.log
+# Journal file: /home/name/vivado_prj/vivado-risc-v/vivado.jou
+# Running On: cranberry, OS: Linux, CPU Frequency: 800.000 MHz, CPU Physical cores: 4, Host memory: 33576 MB
+#-----------------------------------------------------------
+start_gui
+open_project workspace/rocket64h1_partition_debug/vivado-vc707-riscv/vc707-riscv.xpr
+update_compile_order -fileset sources_1

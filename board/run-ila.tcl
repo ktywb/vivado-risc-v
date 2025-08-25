@@ -5,6 +5,7 @@ open_hw_target
 set dev [lindex [get_hw_devices] 0]
 current_hw_device $dev
 
+set trigger_position 512
 
 if {[info exists ::env(ltx_file)] && [file exists "$::env(ltx_file)"]} {
     set_property PROBES.FILE "$::env(ltx_file)" $dev
@@ -19,6 +20,8 @@ if {$ila eq ""} {
   puts "ERROR: No hw_ila cores found. Check that your design has ILA and LTX matches."
   return -code error
 }
+
+set_property CONTROL.TRIGGER_POSITION $trigger_position $ila
 
 
 if {[info exists ::env(wcfg_file)] && [file exists "$::env(wcfg_file)"]} {
@@ -65,8 +68,14 @@ file mkdir "$::env(OUT_DIR)"
 set ts [clock format [clock seconds] -format "%Y%m%d_%H%M%S"]
 
 set data_obj [upload_hw_ila_data $ila]
+
 write_hw_ila_data "$::env(OUT_DIR)/ila_$ts.ila" $data_obj -force
+puts "Write ila file to : "
+puts "        $::env(OUT_DIR)/ila_$ts.ila"
+
 write_hw_ila_data -vcd_file "$::env(OUT_DIR)/ila_$ts.vcd" $data_obj -force
+puts "Write vcd file to : "
+puts "        $::env(OUT_DIR)/ila_$ts.vcd"
 
 puts "END"
 # export_hw_ila_data -force -vcd_file "$::env(OUT_DIR)/ila_$ts.vcd" $ila 

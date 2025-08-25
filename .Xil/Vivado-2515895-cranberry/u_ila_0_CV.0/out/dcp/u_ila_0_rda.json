@@ -1,0 +1,30 @@
+{
+    "Report Information": {
+        "Copyright": "Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.",
+        "Tool Version": "Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022",
+        "Date": "Mon Aug 25 17:23:38 2025",
+        "Host": "cranberry running 64-bit Ubuntu 22.04.5 LTS",
+        "Command": "report_design_analysis -qor_summary -disable_device_warning -json /home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/.Xil/Vivado-2517553-cranberry/dcp1/u_ila_0_rda.json",
+        "Design": "u_ila_0",
+        "Device": "xc7vx485t",
+        "Design State": "Synthesized"
+    },
+    "Design QoR Summary": [{
+            "Task Name": "synth_design",
+            "Options": "-incremental_mode off",
+            "Directives": "",
+            "Runtime(mins)": "1",
+            "Wns(ns)": "",
+            "Tns(ns)": "",
+            "Whs(ns)": "",
+            "Ths(ns)": "",
+            "RQA": "",
+            "Global Cong Level N-E-S-W": "",
+            "Global Cong Tile% N-E-S-W": "",
+            "Long Cong Level N-E-S-W": "",
+            "Long Cong Tile% N-E-S-W": "",
+            "Short Cong Level N-E-S-W": "",
+            "Short Cong Tile% N-E-S-W": "",
+            "Number of threads": "4"
+        }]
+}

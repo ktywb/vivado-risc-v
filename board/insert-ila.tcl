@@ -1,5 +1,5 @@
 create_debug_core u_ila_0 ila
-set_property C_DATA_DEPTH          4096  [get_debug_cores u_ila_0]
+set_property C_DATA_DEPTH          8192  [get_debug_cores u_ila_0]
 set_property C_ADV_TRIGGER         false [get_debug_cores u_ila_0]
 set_property C_EN_STRG_QUAL        false [get_debug_cores u_ila_0]
 set_property ALL_PROBE_SAME_MU     true  [get_debug_cores u_ila_0]
@@ -97,25 +97,22 @@ if {[llength $debug_nets] == 0} {
     #         set_property PROBE_TYPE DATA $p
     #     }
     # }
-    # === 替换原来的 foreach 循环，从这里开始 ===
-    # 把 bit 信号按“基名”分组；基名=去掉末尾 [idx] 后的名字
+
     array unset bus_bits
     foreach n $debug_nets {
         set name [get_property NAME $n]
         if {[regexp {^(.*)\[(\d+)\]$} $name -> base idx]} {
             lappend bus_bits($base) [list $idx $n]
         } else {
-            # 单比特（没有 [idx]）
             lappend bus_bits($name) [list 0 $n]
         }
     }
 
-    # 每个基名建一个 probe，按 idx 升序连接（列表第一个当作 LSB）
     set total_probes 0
     set trigger_cnt  0
     foreach base [lsort [array names bus_bits]] {
     set pairs $bus_bits($base)
-    set pairs [lsort -integer -index 0 $pairs]   ;# 如需 MSB..LSB 顺序，改成 -decreasing
+    set pairs [lsort -integer -index 0 $pairs]   ;# -decreasing
 
     set nets_ordered {}
     foreach pair $pairs {
@@ -127,7 +124,6 @@ if {[llength $debug_nets] == 0} {
     if {$width > 1} { set_property PORT_WIDTH $width $p }
     connect_debug_port $p $nets_ordered
 
-    # 触发 or 只采样：按命名规则筛选
     if {[regexp {DebugTag_FLAG_.*_FLAG_DebugTag} $base]} {
         set_property PROBE_TYPE DATA_AND_TRIGGER $p
         incr trigger_cnt

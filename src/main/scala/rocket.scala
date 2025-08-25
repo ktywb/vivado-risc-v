@@ -156,7 +156,7 @@ class PartitionBaseConfig extends Config(
   // new WithPartitionAccel ++ // old
   new WithPartitionFixedAccel ++ // new
   new WithSystemBusWidth_My(256) ++ 
-  new WithInclusiveCache ++
+  new WithInclusiveCache(capacityKB=512) ++
   new WithNMemoryChannels(1) 
   )
 
@@ -174,8 +174,20 @@ class Rocket64b1_partition_e extends Config(
   )
 
 class Rocket64b1_partition_debug extends Config(
-  new Rocket64b1_partition
+  new PartitionBaseConfig ++
+  new Rocket64b1
   )
+class Rocket64h1_partition_debug extends Config(
+  new PartitionBaseConfig ++
+  new Rocket64h1
+  )
+
+class Rocket64h1 extends Config(
+  new WithNBreakpoints(8) ++
+  new WithNHugeCores(1)    ++
+  new RocketBaseConfig)
+
+
 /* ---------- Partition Config ---------- */
 
 

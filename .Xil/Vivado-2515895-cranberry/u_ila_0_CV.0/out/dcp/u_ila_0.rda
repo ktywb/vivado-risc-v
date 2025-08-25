@@ -1,0 +1,135 @@
+Data_For_RDAFlowver5.0
+	top levelæ_
+u_ila_0
+LinkDesign_BlackboxesÃJ
+synthFileNamesX
+10R/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/BRAM_SINGLE_MACRO.vhdU
+11O/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/BRAM_TDP_MACRO.vhdY
+12S/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/COUNTER_LOAD_MACRO.vhdW
+13Q/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/COUNTER_TC_MACRO.vhdW
+14Q/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/EQ_COMPARE_MACRO.vhdT
+20N/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/ADDSUB_MACRO.v[
+15U/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/FIFO_DUALCLOCK_MACRO.vhdV
+21P/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SDP_MACRO.vV
+16P/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/FIFO_SYNC_MACRO.vhdY
+22S/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.vQ
+17K/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/MACC_MACRO.vhdQ
+18K/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/MULT_MACRO.vhdV
+23P/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_TDP_MACRO.vU
+19O/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/ADDMACC_MACRO.vZ
+24T/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/COUNTER_LOAD_MACRO.vX
+25R/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/COUNTER_TC_MACRO.vR
+30L/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/MULT_MACRO.v
+NumFileNames80X
+26R/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/EQ_COMPARE_MACRO.vX
+31R/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unisims/retarget/MULT18X18.vhdK
+1F/home/name/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_VCOMP.vhd\
+27V/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/FIFO_DUALCLOCK_MACRO.vY
+32S/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unisims/retarget/MULT18X18S.vhdJ
+2E/home/name/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_VPKG.vhdW
+28Q/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/FIFO_SYNC_MACRO.vN
+33H/home/name/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.svH
+3C/home/name/tools/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.vR
+29L/home/name/tools/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/MACC_MACRO.vT
+34N/home/name/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.svK
+4F/home/name/tools/Xilinx/Vivado/2022.2/scripts/rt/data/internal_cells.vŒ
+35…/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/ltlib_v1_0_vl_rfs.v“
+40Œ/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbs_v1_0_2_in.vhA
+5</home/name/tools/Xilinx/Vivado/2022.2/scripts/rt/data/BUFT.v”
+36/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/ltlib_v1_0_0_ver.vhŒ
+41…/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/xsdbm_v3_0_vl_rfs.vT
+6O/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/unimacro_VCOMP.vhd—
+37/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/ltlib_v1_0_0_lib_fn.vh“
+42Œ/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_in.vhS
+7N/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/ADDMACC_MACRO.vhdŒ
+38…/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/xsdbs_v1_0_vl_rfs.v”
+43/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_i2x.vhR
+8M/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/ADDSUB_MACRO.vhd”
+39/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbs_v1_0_2_i2x.vh”
+44/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_icn.vh—
+50/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bs_ext.vhT
+9O/home/name/tools/Xilinx/Vivado/2022.2/data/vhdl/src/unimacro/BRAM_SDP_MACRO.vhd™
+45’/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bs_ports.vhŸ
+51˜/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bsid_vec_ports.vh›
+46”/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bsid_ports.vh—
+52/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bs_vec.vh“
+47Œ/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bs.vhœ
+53•/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bs_core_vec.vhœ
+48•/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bs_core_ext.vh›
+54”/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_sl_prt_map.vh˜
+49‘/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_bs_core.vh™
+60’/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/ila_v6_2_12_ila_param.vh—
+55/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_id_map.vh–
+61/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/ila_v6_2_12_ila_in.vh›
+56”/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/xsdbm_v3_0_0_id_vec_map.vhš
+62“/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/ila_v6_2_12_ila_lparam.vh‹
+57„/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/ila_v6_2_syn_rfs.vƒ
+63}/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/synth/u_ila_0.v—
+58/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/ila_v6_2_12_ila_ver.vhE
+64?/home/name/tools/Xilinx/Vivado/2022.2/data/ip/xpm/xpm_VCOMP.vhdš
+59“/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/verilog/ila_v6_2_12_ila_lib_fn.vh‰
+70‚/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/numeric_std.vhd—
+65/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/blk_mem_gen_v8_3_vhsyn_rfs.vhdƒ
+71}/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/textio.vhd›
+66”/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/fifo_generator_v13_1_vhsyn_rfs.vhd…
+72/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/timing_p.vhd—
+67/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.gen/sources_1/ip/u_ila_0/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd…
+73/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/timing_b.vhd…
+68/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/std_1164.vhd…
+74/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/prmtvs_p.vhd…
+69/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/standard.vhd…
+75/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/prmtvs_b.vhd…
+76/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/syn_arit.vhd…
+77/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/syn_unsi.vhd…
+78/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/syn_sign.vhd…
+79/home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/1993/src/syn_misc.vhdX
+
+synthStatsJ
+caseNotFullNoDefault	
+L1682
+Mnullname
+F35
+O
+next_stateê
+ElaboratedNamesForRQSÐ
+DSP_RAMD
+71024679 {inst/ila_core_inst/xsdb_memory_read_inst/read_addr1_i} 7
+14454785+ {inst/ila_core_inst/u_ila_regs/count00_i} <
+92160011 {inst/ila_core_inst/u_ila_regs/clk_lost_cnt0_i} 7
+8867841, {inst/ila_core_inst/u_ila_regs/adv_drdy_i} Ã
+798722¸ {inst/ila_core_inst/u_ila_regs/MU_SRL[8].mu_srl_reg/shift_en_i} {inst/ila_core_inst/u_ila_regs/TC_SRL[0].tc_srl_reg/shift_en_i} {inst/ila_core_inst/u_ila_regs/reg_srl_fff/shift_en_i} ó
+0í {inst/ila_core_inst/xsdb_memory_read_inst/curr_read_block0_i__0} {inst/ila_core_inst/xsdb_memory_read_inst/data_out_en0_i} {inst/ila_core_inst/xsdb_memory_read_inst/read_addr0_i__0} {inst/ila_core_inst/xsdb_memory_read_inst/read_en0_i} \
+4345857Q {inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_window_counter/iwcnt0_i} 7
+14716929+ {inst/ila_core_inst/u_ila_regs/count10_i} <
+88227851 {inst/ila_core_inst/u_ila_regs/drdy_mux_temp_i} Ï
+778242Ä {inst/ila_core_inst/u_ila_regs/MU_SRL[8].mu_srl_reg/data_out_sel_i} {inst/ila_core_inst/u_ila_regs/TC_SRL[0].tc_srl_reg/data_out_sel_i} {inst/ila_core_inst/u_ila_regs/reg_srl_fff/data_out_sel_i} 9
+8609793. {inst/ila_core_inst/u_ila_regs/drdyCount0_i} J
+7073795? {inst/ila_core_inst/xsdb_memory_read_inst/curr_read_block1_i} Ì
+757762Á {inst/ila_core_inst/u_ila_regs/MU_SRL[8].mu_srl_reg/shift_en_i__1} {inst/ila_core_inst/u_ila_regs/TC_SRL[0].tc_srl_reg/shift_en_i__1} {inst/ila_core_inst/u_ila_regs/reg_srl_fff/shift_en_i__1} ·
+876546¬ {inst/ila_core_inst/u_ila_regs/MU_SRL[8].mu_srl_reg/cnt0_i} {inst/ila_core_inst/u_ila_regs/TC_SRL[0].tc_srl_reg/cnt0_i} {inst/ila_core_inst/u_ila_regs/reg_srl_fff/cnt0_i} \
+3305473Q {inst/ila_core_inst/u_ila_cap_ctrl/u_cap_addrgen/u_cap_sample_counter/iscnt0_i} 
+blackBoxInfo›
+synth_designo
+argsg-verilog_define default::[not_specified] -top  u_ila_0 -part  xc7vx485tffg1761-2 -incremental_mode off 
+resynthPerc0.00
+Cputime1
+blackBoxPerc-nan
+	directive 
+isIncremental0
+Runtime1
+Threads used4œ
+synth_design_metrics
+	smallSrls-1
+srlsWithResetLogic-1
+shallowRAMWithAttribute-1
+hierMFO0
+bigRAMs-1
+NetsWithMixedFanouts-1
+DSPsWithKeep0$
+mismatchedAddSubOperatorWidths-1
+lowMaxFanout-1
+NumUnregisteredPorts0
+caseNotFullNoDefault1†
+report_design_analysisë
+cmdlineßreport_design_analysis -qor_summary -disable_device_warning -json /home/name/vivado_prj/vivado-risc-v/.Xil/Vivado-2515895-cranberry/dc_drv.0/dc/prj_ip.runs/u_ila_0_synth_1/.Xil/Vivado-2517553-cranberry/dcp0/u_ila_0_rda.json
+RQS_Results

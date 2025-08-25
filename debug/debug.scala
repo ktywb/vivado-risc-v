@@ -32,6 +32,13 @@ object addAttribute {
 
 object markSig{              // signal, name
   def apply (debugSignals: Seq[(Data, String)]): Seq[Data] = {
+
+    val stackTrace = Thread.currentThread().getStackTrace()
+    if (stackTrace.length > 2) {
+      val caller = stackTrace(2) 
+      println(s"[debug:markSig] Called from: ${caller.getFileName}:${caller.getLineNumber} in ${caller.getClassName}")
+    }
+    
     debugSignals.map { case (signal, name) =>
       val debugWire = dontTouch(Wire(signal.cloneType))
       val debugBuf = dontTouch(Wire(signal.cloneType))

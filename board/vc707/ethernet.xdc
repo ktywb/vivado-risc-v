@@ -26,3 +26,8 @@ set_property -dict {PACKAGE_PIN AL31 IOSTANDARD LVCMOS18} [get_ports eth_mdio_in
 
 
 
+
+
+
+
+

@@ -6,6 +6,7 @@ B=vc707
 # CFG=rocket64b1_partition_testwb
 # CFG=rocket64b1_partition_e
 CFG=rocket64b1_partition_debug
+# CFG=rocket64h1_partition_debug
 
 # vc707         Rocket.*parti.*   20
 # vc707         Rocket.*gem.*     31.25
