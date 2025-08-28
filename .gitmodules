@@ -31,3 +31,7 @@
 [submodule "bare-metal/dhrystone/benchmark-dhrystone"]
 	path = bare-metal/dhrystone/benchmark-dhrystone
 	url = https://github.com/sifive/benchmark-dhrystone.git
+[submodule "generators/partition-chisel"]
+	path = generators/partition-chisel
+	url = https://github.com/ktywb/partition-chisel.git
+	branch = chipyard
