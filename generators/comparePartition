@@ -1,0 +1,6 @@
+#!/bin/bash
+LocalFolder=
+RemoteFolder=./partition-chisel-REMOTE
+NeedComparePath=src/main/scala
+
+code --diff $LocalFolder/$NeedComparePath/$1.scala $RemoteFolder/$NeedComparePath/$1.scala
