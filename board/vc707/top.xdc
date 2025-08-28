@@ -33,3 +33,5 @@ set_property -dict {PACKAGE_PIN BA37 IOSTANDARD LVCMOS18} [get_ports fan_en]
 
 
 
+
+

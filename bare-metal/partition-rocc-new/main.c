@@ -43,7 +43,7 @@ int main(void) {
   
   ROCC_INSTRUCTION(0, 0);  // Fence
   int check = -1;
-  // ROCC_INSTRUCTION_D(0, check, 6);  // check completition
+  ROCC_INSTRUCTION_D(0, check, 6);  // check completition
 
   kprintf("check : %d\n", check);
   unsigned long long end_cycle = read_mcycle();

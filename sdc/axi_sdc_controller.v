@@ -123,7 +123,7 @@ module sdc_controller #(
     inout wire sdio_cmd,
     inout wire [3:0] sdio_dat,
     (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 sdio_clk CLK" *)
-    (* X_INTERFACE_PARAMETER = "FREQ_HZ 50000000" *)
+    (* X_INTERFACE_PARAMETER = "FREQ_HZ 100000000" *) // (* X_INTERFACE_PARAMETER = "FREQ_HZ 50000000" *)
     output reg sdio_clk,
     (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 sdio_reset RST" *)
     (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)

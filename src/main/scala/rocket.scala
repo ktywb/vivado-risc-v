@@ -177,9 +177,12 @@ class Rocket64b1_partition_debug extends Config(
   new PartitionBaseConfig ++
   new Rocket64b1
   )
-class Rocket64h1_partition_debug extends Config(
+class Rocket64h1_partition extends Config(
   new PartitionBaseConfig ++
   new Rocket64h1
+  )
+class Rocket64h1_partition_debug extends Config(
+  new Rocket64h1_partition
   )
 
 class Rocket64h1 extends Config(

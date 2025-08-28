@@ -130,6 +130,9 @@ linux: linux-stable/arch/riscv/boot/Image
 
 CROSS_COMPILE_LINUX = /usr/bin/riscv64-linux-gnu-
 
+config-linux:
+	cd linux-stable && make ARCH=riscv CROSS_COMPILE=${CROSS_COMPILE_LINUX} defconfig -j128
+
 workspace/patch-linux-done: patches/linux.patch patches/fpga-axi-sdc.c patches/fpga-axi-eth.c patches/linux.config
 	if [ -s patches/linux.patch ] ; then cd linux-stable && ( git apply -R --check ../patches/linux.patch 2>/dev/null || git apply ../patches/linux.patch ) ; fi
 	cp -p patches/fpga-axi-eth.c  linux-stable/drivers/net/ethernet
@@ -138,9 +141,65 @@ workspace/patch-linux-done: patches/linux.patch patches/fpga-axi-sdc.c patches/f
 	cp -p patches/linux.config linux-stable/.config
 	mkdir -p workspace && touch workspace/patch-linux-done
 
+# linux-stable/arch/riscv/boot/Image: workspace/patch-linux-done
+# 	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) oldconfig $(MAKEFLAGS)
+# 	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) all $(MAKEFLAGS) 
+
 linux-stable/arch/riscv/boot/Image: workspace/patch-linux-done
+	@$(call print_log, compile-linux-step 1)
+	cd linux-stable && scripts/config --disable MODULES
+	cd linux-stable && scripts/config --disable IPV6
+
+	cd linux-stable && scripts/config --disable USB_SUPPORT
+	cd linux-stable && scripts/config --disable USB_COMMON
+	cd linux-stable && scripts/config --disable USB
+
+# USB 存储/HID
+	cd linux-stable && scripts/config --disable USB_STORAGE
+	cd linux-stable && scripts/config --disable USB_UAS
+	cd linux-stable && scripts/config --disable USB_HID
+
+# # SCSI / SATA
+# 	cd linux-stable && scripts/config --disable SCSI
+# 	cd linux-stable && scripts/config --disable BLK_DEV_SD
+# 	cd linux-stable && scripts/config --disable ATA
+# 	cd linux-stable && scripts/config --disable SATA_AHCI
+	cd linux-stable && scripts/config --disable FW_LOADER_USER_HELPER
+	cd linux-stable && scripts/config --disable FW_LOADER_USER_HELPER_FALLBACK
+	cd linux-stable && scripts/config --enable CRYPTO_JITTERENTROPY
+
+# 声音
+	cd linux-stable && scripts/config --disable SOUND
+	cd linux-stable && scripts/config --disable SND
+	cd linux-stable && scripts/config --disable SND_HDA_INTEL
+
+# 图形/显示
+	cd linux-stable && scripts/config --disable DRM
+	cd linux-stable && scripts/config --disable FRAMEBUFFER_CONSOLE
+
+# 输入设备
+	cd linux-stable && scripts/config --disable INPUT
+	cd linux-stable && scripts/config --disable KEYBOARD_ATKBD
+	cd linux-stable && scripts/config --disable MOUSE_PS2
+
+# 蓝牙 / 无线
+	cd linux-stable && scripts/config --disable BT
+	cd linux-stable && scripts/config --disable WLAN
+	cd linux-stable && scripts/config --disable CFG80211
+	cd linux-stable && scripts/config --disable MAC80211
+
+# 其它没用的总线
+	cd linux-stable && scripts/config --disable PCMCIA
+	cd linux-stable && scripts/config --disable FIREWIRE
+	cd linux-stable && scripts/config --disable NEW_LEDS
+	cd linux-stable && scripts/config --disable GPIO_SYSFS
+	
+	@$(call print_log, compile-linux-step 2)
 	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) oldconfig $(MAKEFLAGS)
-	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) all $(MAKEFLAGS)
+
+	@$(call print_log, compile-linux-step 3)
+# 	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) all $(MAKEFLAGS) 
+	make -C linux-stable ARCH=riscv CROSS_COMPILE=$(CROSS_COMPILE_LINUX) Image dtbs $(MAKEFLAGS) 
 
 
 # --- build U-Boot ---
@@ -520,9 +579,9 @@ define run-bitstream
 		echo "}" >> $(proj_path)/make-bitstream.tcl ; \
 	fi
 
-	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           Default   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        Default    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Default              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	
 	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl

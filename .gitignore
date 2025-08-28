@@ -18,6 +18,7 @@
 /.sbt/
 /.Xilinx/
 /generators/partition-acc*/
+/generators/partition-chisel*/
 /*.v
 /.metals/
 /qemu/opensbi/
