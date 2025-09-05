@@ -24,3 +24,6 @@ set_property -dict {PACKAGE_PIN AP32 IOSTANDARD LVCMOS18} [get_ports sdio_cd]
 
 
 
+
+
+

@@ -7,7 +7,6 @@ B=vc707
 # CFG=rocket64b1_partition_test
 # CFG=rocket64b1_partition_debug
 CFG=rocket64b1_partition
-# CFG=rocket64b1_partition_latest_noWB
 
 # CFG=rocket64h1_partition
 # CFG=rocket64h1_partition_debug

@@ -20,3 +20,6 @@ set_property -dict {PACKAGE_PIN AR34 IOSTANDARD LVCMOS18} [get_ports rs232_uart_
 
 
 
+
+
+

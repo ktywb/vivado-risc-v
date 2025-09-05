@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 // #include <stdio.h>
 // #include <time.h>
 
@@ -11,53 +12,57 @@
 #include "encoding.h"
 #include "rocc.h"
 
-#include "input800.h"
+// #include "input800.h"
 // #include "input8000.h"
-// #include "input80000.h"
+#include "input80000.h"
 
 
 // #include "partition_data.h"
 
 
 int main(void) {
+  ROCC_INSTRUCTION(0, 0);
 
   int partition_num = 8;
+
+  // --- load the data from headers ---
   uint8_t *input_mem = (uint8_t *)input_bin;  // Pointer to input data
   size_t input_file_size = input_bin_len;
-  kprintf("new version -- : full chisel\n");
 
-  kprintf("\n\npartition_num = %d ::: \n", partition_num);
+  // --- result mem ---
+  uint8_t *output_mem = (uint8_t *)malloc(input_bin_len + 50);
+  memset(output_mem, 0, input_bin_len + 50);  // Clear the allocated memory
+  size_t output_file_size = input_file_size;
+
+  kprintf("new version --- : full chisel\n");
+
   kprintf("main() started - Using embedded data\n");
   kprintf("  Input File Size: %ld bytes\n", input_file_size);
 
-  ROCC_INSTRUCTION(0, 0);                                 // fence
-  ROCC_INSTRUCTION_S(0, partition_num, 1);                // set partition num
-  ROCC_INSTRUCTION_SS(0, input_bin, input_bin_len, 2);  // set input src info
-  // ROCC_INSTRUCTION_SS(0, input_mem, input_file_size, 2);  // set input src info
-  // ROCC_INSTRUCTION_SS(0, output_mem, output_file_size, 3);  // set output dst
+  ROCC_INSTRUCTION(0, 1);                                 // fence
+  ROCC_INSTRUCTION_S(0, partition_num, 5);                // set partition num
+  ROCC_INSTRUCTION_SS(0, input_mem, input_file_size, 6);         // ROCC_INSTRUCTION_SS(0, input_mem, input_file_size, 6); // set input src info addr：80001fe0      // ROCC_INSTRUCTION_SS(0, input_mem, input_file_size, 6); // set input src info addr：80001fe0
+  ROCC_INSTRUCTION_SS(0, output_mem, output_file_size, 7);  // set output dst
+  // info
 
-  for (int i = 0; i < 1000; i++) {}
-
-  ROCC_INSTRUCTION(0, 4);  // start processing
-  unsigned long long start_cycle = read_mcycle();
+  ROCC_INSTRUCTION(0, 2);  // start processing
   
-  ROCC_INSTRUCTION(0, 0);  // Fence
   int check = -1;
-  ROCC_INSTRUCTION_D(0, check, 6);  // check completition
+  while ((check & 1) != 0) {
+    ROCC_INSTRUCTION_D(0, check, 4);  // check completition
+    // kprintf(".");
+  }
+  ROCC_INSTRUCTION(0, 1);  // Fence
 
-  kprintf("check : %d\n", check);
-  unsigned long long end_cycle = read_mcycle();
-  unsigned long long cycle_diff = end_cycle - start_cycle;
-  unsigned int cycle_high = (unsigned int)(cycle_diff >> 32);
-  unsigned int cycle_low = (unsigned int)(cycle_diff & 0xFFFFFFFF);
+  kprintf("check : %d\n", check/2);
   kprintf("Accelerator likely finished.\n");
 
-
-  if (cycle_high > 0) {
-    kprintf("ROCC Execution Cycles: 0x%x%08x\n", cycle_high, cycle_low);
-  } else {
-    kprintf("ROCC Execution Cycles: 0x%x\n", cycle_low);
-  }
+  // kprintf("\n--- Dumping Output Memory (%zu bytes) ---\n", output_file_size);
+  // for (size_t i = 0; i < output_file_size; i++) {
+  //   kprintf("%x \n", output_mem[i]);
+  //   // if ((i + 1) % 16 == 0) {  kprintf("\n"); }
+  // }
+  // kprintf("\n--- End of Output Memory Dump ---\n\n");
 
   kprintf("main() finished\n");
   return EXIT_SUCCESS;

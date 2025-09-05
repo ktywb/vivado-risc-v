@@ -156,7 +156,7 @@ class PartitionBaseConfig extends Config(
   // new WithPartitionAccel ++ // old
   new WithPartitionFixedAccel ++ // new
   new WithSystemBusWidth_My(256) ++ 
-  new WithInclusiveCache(capacityKB=512) ++
+  new WithInclusiveCache ++
   new WithNMemoryChannels(1) 
   )
 

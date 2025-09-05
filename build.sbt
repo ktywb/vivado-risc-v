@@ -57,6 +57,7 @@ lazy val partitionacc = (project in file("generators/partition-acc"))
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(commonSettings)
 
+// lazy val partition = (project in file("generators/partition-chisel-bkup"))
 lazy val partition = (project in file("generators/partition-chisel"))
   .dependsOn(rocketchip, rocc_acc_utils, testchipip, targetutils)
   .dependsOn(debug)

@@ -15,6 +15,14 @@ case class AttributeAnnotation(target: Target, description: String)
 
 object addAttribute {
   def apply[T <: chisel3.InstanceId](inst: T, attribute: String, value: Any): T = {
+    val stackTrace = Thread.currentThread().getStackTrace()
+    if (stackTrace.length > 2) {
+      val caller = stackTrace(2) 
+      if(caller.getClassName != "debug.addAttribute$") {
+        println(s"[debug:addAttribute] Called from: ${caller.getFileName}:${caller.getLineNumber} in ${caller.getClassName}")
+      }
+    }
+
     chisel3.experimental.annotate(new chisel3.experimental.ChiselAnnotation {
       private val valueStr = value match {
         case s: String => s"\"$s\""
@@ -31,7 +39,9 @@ object addAttribute {
 }
 
 object markSig{              // signal, name
-  def apply (debugSignals: Seq[(Data, String)]): Seq[Data] = {
+  def apply (debugSignals: Seq[(Data, String)], leftTag: String= "DebugTag", rightTag: String= "DebugTag", markdebug:Boolean = true): Seq[Data] = {
+    val leftBar = if(leftTag.isEmpty) "" else "_"
+    val rightBar = if(rightTag.isEmpty) "" else "_"
 
     val stackTrace = Thread.currentThread().getStackTrace()
     if (stackTrace.length > 2) {
@@ -44,38 +54,14 @@ object markSig{              // signal, name
       val debugBuf = dontTouch(Wire(signal.cloneType))
       debugBuf := signal
       debugWire := debugBuf
-      debugWire.suggestName("DebugTag_" + name + "_DebugTag")
-      addAttribute(debugWire, "DONT_TOUCH" -> "true", "mark_debug" -> "true", "KEEP" -> "true")
+      debugWire.suggestName(leftTag + leftBar + name + rightBar + rightTag)
+      if(markdebug){
+        addAttribute(debugWire, "DONT_TOUCH" -> "true", "mark_debug" -> "true", "KEEP" -> "true")
+      } else {
+        addAttribute(debugWire, "DONT_TOUCH" -> "true", "KEEP" -> "true")
+      }
+      
       debugWire
     }
   }
 }
-
-// object markSig{              // signal, name
-//   def apply (debugSignals: Seq[(Data, String)]): Seq[Data] = {
-//     debugSignals.map { case (signal, name) =>
-//       // 创建一个本地的调试副本，不返回给调用者
-//       val debugWire = dontTouch(Wire(signal.cloneType))
-//       debugWire := signal
-//       debugWire.suggestName(name)
-//       addAttribute(debugWire, "DONT_TOUCH", "true")
-//       addAttribute(debugWire, "KEEP", "true") 
-//       addAttribute(debugWire, "mark_debug", "true")
-      
-//       // 返回原始信号而不是调试信号，避免调试信号传播
-//       signal
-//     }
-//   }
-  
-//   // 不返回值的版本，推荐使用
-//   def mark(debugSignals: Seq[(Data, String)]): Unit = {
-//     debugSignals.foreach { case (signal, name) =>
-//       val debugWire = dontTouch(Wire(signal.cloneType))
-//       debugWire := signal
-//       debugWire.suggestName(name)
-//       addAttribute(debugWire, "DONT_TOUCH", "true")
-//       addAttribute(debugWire, "KEEP", "true") 
-//       addAttribute(debugWire, "mark_debug", "true")
-//     }
-//   }
-// }

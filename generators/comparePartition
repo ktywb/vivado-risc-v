@@ -1,6 +1,7 @@
 #!/bin/bash
-LocalFolder=
-RemoteFolder=./partition-chisel-REMOTE
+LocalFolder=$HOME/vivado_prj/vivado-risc-v/generators/partition-chisel
+RemoteFolder=$HOME/partition-chipyard/generators/partition-chisel
+# RemoteFolder=$HOME/vivado_prj/vivado-risc-v/generators/partition-chisel-bkup
 NeedComparePath=src/main/scala
 
 code --diff $LocalFolder/$NeedComparePath/$1.scala $RemoteFolder/$NeedComparePath/$1.scala

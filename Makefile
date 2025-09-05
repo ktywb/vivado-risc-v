@@ -273,6 +273,7 @@ CONFIG_SCALA := $(subst rocket,Rocket,$(CONFIG))
 
 print-freq:
 	@$(call print_log, freqs)
+	@echo "CFG: $(CONFIG)"
 	@echo "ROCKET_FREQ_MHZ: $(ROCKET_FREQ_MHZ)"
 	@echo "ROCKET_CLOCK_FREQ: $(ROCKET_CLOCK_FREQ)"
 	@echo "ROCKET_TIMEBASE_FREQ: $(ROCKET_TIMEBASE_FREQ)"
@@ -383,6 +384,8 @@ workspace/$(CONFIG)/system-$(BOARD)/RocketSystem.fir: workspace/$(CONFIG)/system
 	$(SBT) assembly
 	rm workspace/bootrom.img
 	
+fir: workspace/$(CONFIG)/system-$(BOARD)/RocketSystem.fir
+	
 # Generate Rocket SoC HDL
 workspace/$(CONFIG)/system-$(BOARD).sv: workspace/$(CONFIG)/system-$(BOARD)/RocketSystem.fir
 	@$(call print_log,rocket-firrtl)
@@ -412,17 +415,7 @@ workspace/$(CONFIG)/rocket.vhdl: workspace/$(CONFIG)/system-$(BOARD).sv
 	  net.largest.riscv.vhdl.Main -m $(CONFIG_SCALA) \
 	  workspace/$(CONFIG)/system-$(BOARD).sv >$@
 
-vhdl:
-	@$(call print_log,rocket-vhdl)
-	mkdir -p vhdl-wrapper/bin
-	javac -g -nowarn \
-	  -sourcepath vhdl-wrapper/src -d vhdl-wrapper/bin \
-	  -classpath vhdl-wrapper/antlr-4.8-complete.jar \
-	  vhdl-wrapper/src/net/largest/riscv/vhdl/Main.java
-	java $(SBT_BUILD_ARGS) $(JAVA_OPTIONS) -cp \
-	  vhdl-wrapper/src:vhdl-wrapper/bin:vhdl-wrapper/antlr-4.8-complete.jar \
-	  net.largest.riscv.vhdl.Main -m $(CONFIG_SCALA) \
-	  workspace/$(CONFIG)/system-$(BOARD).sv >$@	
+vhdl: workspace/$(CONFIG)/rocket.vhdl
 
 # --- utility make targets to run SBT command line ---
 
@@ -532,8 +525,8 @@ $(synthesis): $(proj_time)
 # check for errors
 	@if find $(proj_path) -name "*.log" -exec cat {} \; | grep 'ERROR: ' ; then exit 1 ; fi 
 
-synthesis-test: $(synthesis)
-bitstream-test: $(bitstream)
+synth: $(synthesis)
+impl: $(bitstream)
 
 define run-insert-ila
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
@@ -579,9 +572,12 @@ define run-bitstream
 		echo "}" >> $(proj_path)/make-bitstream.tcl ; \
 	fi
 
-	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           Default   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        Default    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Default              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+# 	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           Default   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+# 	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        Default    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+# 	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Default              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	
 	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl

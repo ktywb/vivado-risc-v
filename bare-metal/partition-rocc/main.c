@@ -65,12 +65,9 @@ int main(void) {
   for (int i = 0; i < 1000; i++){}
   ROCC_INSTRUCTION_SS(0, key_info_data, key_info_data_size, 5); 
   
-  
-  ROCC_INSTRUCTION(0, 6); 
-  unsigned long long start_cycle = read_mcycle();
-  
-  ROCC_INSTRUCTION(0, 0); 
   int check = -1;
+  ROCC_INSTRUCTION(0, 6);  // Start
+  unsigned long long start_cycle = read_mcycle();
   ROCC_INSTRUCTION_D(0, check, 8);
 
   unsigned long long end_cycle = read_mcycle();
