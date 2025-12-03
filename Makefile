@@ -9,6 +9,7 @@ CONFIG ?= rocket64b1
 HW_SERVER_ADDR ?= localhost:3121
 JAVA_OPTIONS ?= 
 CFG_FORMAT ?= mcs
+ILA_CASCADE_NUM ?= 2
 
 ifeq ($(IDENTITY_NAME),orbstack_xs)
     JVM_XMX ?= 13G
@@ -87,14 +88,16 @@ clean-sbt:
 clean:
 	rm -rf workspace/patch-*-done
 	git submodule foreach --recursive git clean -xfdq
-# 	git rm --cached generators/testchipip2
-# 	git rm --cached qemu/opensbi
-# 	git rm --cached qemu/u-boot
+
 	sudo rm -rf target project/target project/project/target generators/targetutils/target generators/targetutils2/target vhdl-wrapper/bin
-# 	sudo rm -rf debian-riscv64 target project/target project/project/target generators/targetutils/target generators/targetutils2/target vhdl-wrapper/bin
 
 clean-all: clean
-	rm -rf workspace/rocket*
+# 	rm -rf workspace/rocket*
+	git rm --cached generators/testchipip2
+	git rm --cached qemu/opensbi
+	git rm --cached qemu/u-boot
+	sudo rm -rf debian-riscv64 target project/target project/project/target generators/targetutils/target generators/targetutils2/target vhdl-wrapper/bin
+
 
 # --- download gcc, initrd and rootfs from github.com ---
 
@@ -271,9 +274,10 @@ opensbi-qemu:
 
 CONFIG_SCALA := $(subst rocket,Rocket,$(CONFIG))
 
-print-freq:
+print-info:
 	@$(call print_log, freqs)
 	@echo "CFG: $(CONFIG)"
+	@echo "proj_path: $(proj_path)"
 	@echo "ROCKET_FREQ_MHZ: $(ROCKET_FREQ_MHZ)"
 	@echo "ROCKET_CLOCK_FREQ: $(ROCKET_CLOCK_FREQ)"
 	@echo "ROCKET_TIMEBASE_FREQ: $(ROCKET_TIMEBASE_FREQ)"
@@ -400,6 +404,11 @@ workspace/$(CONFIG)/system-$(BOARD).sv: workspace/$(CONFIG)/system-$(BOARD)/Rock
 			cp "$$vfile" workspace/$(CONFIG)/$$(basename $$vfile .v).sv; \
 		fi \
 	done
+	for svfile in workspace/$(CONFIG)/system-$(BOARD)/*.sv; do \
+		if [ -f "$$svfile" ]; then \
+			cp "$$svfile" workspace/$(CONFIG)/$$(basename $$svfile); \
+		fi \
+	done
 
 sv: workspace/$(CONFIG)/system-$(BOARD).sv
 
@@ -445,7 +454,8 @@ synthesis   = $(proj_path)/$(proj_name).runs/synth_$(PRJ_NUM)/riscv_wrapper.dcp
 bitstream   = $(proj_path)/$(proj_name).runs/impl_$(PRJ_NUM)/$(FPGA_FNM)
 cfgmem_file = workspace/$(CONFIG)/$(proj_name).$(CFG_FORMAT)
 prm_file    = workspace/$(CONFIG)/$(proj_name).prm
-vivado      = env XILINX_LOCAL_USER_DATA=no LD_PRELOAD=$(LD_PRELOAD) vivado -mode batch -nojournal -nolog -notrace -quiet
+VIVADO_SH   = ${HOME}/tools/Xilinx/Vivado/2022.2/bin/vivado
+vivado      = env XILINX_LOCAL_USER_DATA=no LD_PRELOAD=$(LD_PRELOAD) $(VIVADO_SH) -mode batch -nojournal -nolog -notrace -quiet
 dbg_xdc     = board/$(BOARD)/debug_constraints.xdc
 
 ifeq ($(shell hostname),xs)
@@ -529,9 +539,10 @@ synth: $(synthesis)
 impl: $(bitstream)
 
 define run-insert-ila
-	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
+	@if echo "$(CONFIG)" | grep -q 'debug' ; then \
 		cp board/insert-ila.tcl $(proj_path)/ ; \
 		echo "open_run synth_$(PRJ_NUM)"                  > $(proj_path)/make-insert-ila.tcl ; \
+		echo "set ::env(ILA_CASCADE_NUM) $(ILA_CASCADE_NUM)" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "source  $(proj_path)/insert-ila.tcl"                >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "save_constraints -force" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "implement_debug_core [get_debug_cores]" >> $(proj_path)/make-insert-ila.tcl ; \
@@ -541,7 +552,7 @@ define run-insert-ila
 		echo "write_debug_probes   -force $(proj_path)/debug_nets.ltx" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "write_checkpoint     -force $(proj_path)/synth_dbg.dcp" >> $(proj_path)/make-insert-ila.tcl ; \
 		echo "save_constraints -force" >> $(proj_path)/make-insert-ila.tcl ; \
-		echo "make-insert-ila.tcl created, and will be run before impl_$(PRJ_NUM)" ; \
+		echo "make-insert-ila.tcl created (ILA_CASCADE_NUM=$(ILA_CASCADE_NUM)), and will be run before impl_$(PRJ_NUM)" ; \
 	else \
 		echo "skip insert-ila" ; \
 	fi
@@ -572,13 +583,15 @@ define run-bitstream
 		echo "}" >> $(proj_path)/make-bitstream.tcl ; \
 	fi
 
-# 	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           Default   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-# 	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        Default    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
-# 	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Default              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	echo "set_property STEPS.PLACE_DESIGN.ARGS.DIRECTIVE           ExtraNetDelay_high   [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveExplore    [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	echo "set_property STEPS.ROUTE_DESIGN.ARGS.DIRECTIVE           Explore              [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
 	echo "set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	
+	echo "set_property STEPS.OPT_DESIGN.ARGS.DIRECTIVE             ExploreWithRemap     [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.POWER_OPT_DESIGN.IS_ENABLED           true                 [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	echo "set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE        AggressiveFanoutOpt  [get_runs impl_$(PRJ_NUM)]" >> $(proj_path)/make-bitstream.tcl
+	
 	
 	echo "launch_runs -to_step write_bitstream -jobs $(MAX_THREADS) impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
 	echo "wait_on_run impl_$(PRJ_NUM)" >>$(proj_path)/make-bitstream.tcl
@@ -610,7 +623,7 @@ cfgmem-force:
 	@$(call print_log,cfgmem_file-force)
 	@$(run-cfgmem)
 	
-bitstream: print-freq $(bitstream) $(cfgmem_file) 
+bitstream: print-info $(bitstream) $(cfgmem_file) 
 
 # --- program flash memory ---
 
@@ -622,6 +635,9 @@ reset:
 	 $(vivado) -source board/reset-fpga.tcl
 
 define run-flash
+	echo "CONFIG      : $(CONFIG)"
+	echo "cfgmem_file : $(cfgmem_file)"
+	echo "prm_file    : $(prm_file)"
 	env HW_SERVER_URL=tcp:$(HW_SERVER_ADDR) \
 	 xsdb -quiet board/jtag-freq.tcl
 	env HW_SERVER_ADDR=$(HW_SERVER_ADDR) \
@@ -630,13 +646,14 @@ define run-flash
 	env prm_file=$(prm_file) \
 	 $(vivado) -source board/program-flash.tcl
 endef
-flash: $(cfgmem_file) $(prm_file)
+flash: print-info $(cfgmem_file) $(prm_file)
 	@$(run-flash)
 flash-skip:
 	@$(run-flash)
 
 .PHONY: run-ila-func run-ila
 run-ila-func:
+	@echo "Running ILA..."
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
 		ltx_file=$(proj_path)/debug_nets.ltx ; \
 		wcfg_file=board/ila_trigger.wcfg ; \
@@ -650,9 +667,10 @@ run-ila-func:
 	env ltx_file=$$ltx_file \
 	env wcfg_file=$$wcfg_file \
 	env OUT_DIR=$(proj_path) \
+	env TRIGGER_NUM=$(TRIGGER_NUM) \
 	 $(vivado) -source $(proj_path)/run-ila.tcl
 	
-run-ila:
+run-ila: print-info
 	@$(call print_log,hw-run-ila)
 	@if echo "$(CONFIG)" | grep -q 'debug$$' ; then \
 		cp board/run-ila.tcl $(proj_path)/ ; \
@@ -682,4 +700,6 @@ jtag-boot: $(bitstream) linux-stable/arch/riscv/boot/Image debian-riscv64/ramdis
 # --- launch Vivado GUI ---
 
 vivado-gui: $(proj_time)
-	vivado $(proj_file)
+	$(VIVADO_SH) $(proj_file)
+open-vivado-gui:
+	$(VIVADO_SH)

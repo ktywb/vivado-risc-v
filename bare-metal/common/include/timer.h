@@ -28,4 +28,14 @@ static inline void usleep_cycles(uint64_t cycles) {
     while ((read_mcycle() - start) < cycles);
 }
 
+static inline uint64_t read_mcycle64() {
+    uint32_t hi1, lo, hi2;
+    do {
+        asm volatile ("csrr %0, mcycleh" : "=r"(hi1));
+        asm volatile ("csrr %0, mcycle"  : "=r"(lo));
+        asm volatile ("csrr %0, mcycleh" : "=r"(hi2));
+    } while (hi1 != hi2);
+    return ((uint64_t)hi1 << 32) | lo;
+}
+
 #endif

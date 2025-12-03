@@ -14,7 +14,7 @@ COMPILER_VERSION := $(shell $(CC) --version | head -n 1)
 COMPILER_FLAGS := $(CFLAGS) $(OPTIMIZATION) 
 
 CCFLAGS = $(COMPILER_FLAGS) -Wall $(TEST_SPECIFIC_FLAGS)
-CCFLAGS += -fno-pic -fno-common -g -I../common/include -I. -I$(INCLUDE_DIR)
+CCFLAGS += -fno-pic -fno-common -I../common/include -I. -I$(INCLUDE_DIR) # -g
 CCFLAGS += '-DCOMPILER_VERSION="$(COMPILER_VERSION)"' '-DCOMPILER_FLAGS="$(COMPILER_FLAGS)"' '-DFPGA_CPU_CLK_FREQ=$(FPGA_CPU_CLK_FREQ)'
 
 LFLAGS = -static -nostartfiles -T ../common/src/main.lds

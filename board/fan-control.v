@@ -1,5 +1,5 @@
 module fan_control #(
-    parameter real temperature = 40.0, // Celsius
+    parameter real temperature = 35.0, // Celsius
     parameter real fan_min  = 35.0, // Power %
     parameter real fan_norm = 55.0  // Power %
 ) (

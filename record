@@ -1,0 +1,17 @@
+#!/bin/bash
+TTYUSB_PORT=0
+
+TTYUSB_LOG_FILE_NAME=ttyUSB${TTYUSB_PORT}_$(date +%F_%H%M%S)
+# # 如果有参数 $1
+# if [ ! -z "$1" ]; then
+#     TTYUSB_LOG_FILE_NAME=debug
+# else
+#     TTYUSB_LOG_FILE_NAME=ttyUSB${TTYUSB_PORT}_$(date +%F_%H%M%S)
+# fi
+
+echo "Log File Name: ${HOME}/serial_logs/${TTYUSB_LOG_FILE_NAME}.log"
+echo "Use Ctrl+C to Exit."
+echo "Start Capture:"
+stty -F /dev/ttyUSB${TTYUSB_PORT} 115200 cs8 -cstopb -parenb -ixon -ixoff -crtscts -echo -icanon -opost -isig
+stdbuf -oL cat /dev/ttyUSB${TTYUSB_PORT} \
+| tee -a ${HOME}/serial_logs/${TTYUSB_LOG_FILE_NAME}.log

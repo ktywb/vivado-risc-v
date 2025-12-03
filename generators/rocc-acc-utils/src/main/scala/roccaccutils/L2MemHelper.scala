@@ -42,6 +42,9 @@ class L2RespInternal(implicit val hp: L2MemHelperParams) extends Bundle with Has
 class L2InternalTracking(implicit val hp: L2MemHelperParams) extends Bundle with HasL2MemHelperParams {
   val addrindex = UInt(BUS_SZ_BYTES_LG2UP.W)
   val tag = UInt()
+//! DEBUG
+  val paddr     = UInt( /* edge.bundle.addressBits */ 64.W) // 用 edge 地址宽度替代 64
+//! DEBUG
 }
 
 class L2MemHelperBundle(implicit val hp: L2MemHelperParams) extends Bundle with HasL2MemHelperParams {
@@ -123,21 +126,17 @@ class L2MemHelperModule(outer: L2MemHelper, tlbConfig: TLBConfig, printInfo: Str
   tlb.io.sfence.bits.hg := 0.U
 
 
-  // if(debug){
-  //   val clk_wire = dontTouch(Wire(Clock()))
-  //   clk_wire := clock
-  //   val debugRegs = markSig(
-  //     Seq(
-  //       (tlb.io.req.bits.vaddr(31,16), "rocc_rd_tlb_vaddr_H"),
-  //       (tlb.io.req.bits.vaddr(15,0), "rocc_rd_tlb_vaddr_L"),
-  //       (tlb.io.req.valid, "rocc_rd_tlb_valid"),
-  //       (tlb.io.resp.paddr(31,16), "rocc_rd_tlb_paddr_H"),
-  //       (tlb.io.resp.paddr(15,0), "rocc_rd_tlb_paddr_L"),
-  //       (io.ptw.ptbr.mode, "rocc_rd_ptw_ptbr"),
-  //       (clk_wire, "clk")
-  //     )
-  //   )
-  // }
+//   if(debug){
+//     val debugRegs = markSig(
+//       Seq(
+//         (tlb.io.req.bits.vaddr(31,0), "rocc_rd_tlb_vaddr"),
+//         (tlb.io.req.valid, "rocc_rd_tlb_valid"),
+//         (tlb.io.resp.paddr(31,0), "rocc_rd_tlb_paddr"),
+//         (tlb.io.resp.miss, "rocc_rd_tlb_miss"),
+//         (io.ptw.ptbr.mode, "rocc_rd_ptw_ptbr"),
+//       )
+//     )
+//   }
 
 
 
@@ -229,6 +228,9 @@ class L2MemHelperModule(outer: L2MemHelper, tlbConfig: TLBConfig, printInfo: Str
 
   outstanding_req_addr.io.enq.bits.addrindex := request_input.bits.addr & 0x1F.U
   outstanding_req_addr.io.enq.bits.tag := sendtag
+//! DEBUG
+  outstanding_req_addr.io.enq.bits.paddr := tlb.io.resp.paddr
+//! DEBUG
 
   dmem.a.valid := fire_req.fire(dmem.a.ready)
   request_input.ready := fire_req.fire(request_input.valid)
@@ -300,6 +302,36 @@ class L2MemHelperModule(outer: L2MemHelper, tlbConfig: TLBConfig, printInfo: Str
   val resultdata = currentQueue.deq.bits.data >> (outstanding_req_addr.io.deq.bits.addrindex << 3)
 
   response_output.bits.data := resultdata
+
+//! DEBUG
+    
+    // if(debug){
+    //     val track      = outstanding_req_addr.io.deq.bits
+    //     val resp_paddr_obs = RegNext(track.paddr)
+    //     val resp_addrindex_obs = RegNext(track.addrindex)
+    //     val resp_data_obs = RegNext(resultdata)
+    //     val resp_valid_obs = RegNext(fire_user_resp.fire(response_output.ready))
+    //     val debugRegs = markSig(
+    //         Seq(
+    //             (resp_paddr_obs(31,0), "l2memhelper_resp_paddr"),
+    //             (resp_addrindex_obs, "l2memhelper_resp_addrindex"),
+    //             (resp_data_obs(31,0), "l2memhelper_resp_data_low32"),
+    //             (resp_data_obs(255,256-32), "l2memhelper_resp_data_high32"), 
+    //             (resp_valid_obs, "l2memhelper_resp_valid"),
+
+    //             //TLB
+    //             (tlb.io.req.bits.vaddr(31,0), "l2memhelper_tlb_req_vaddr"),
+    //             (tlb.io.req.valid, "l2memhelper_tlb_req_valid"),
+    //             (tlb.io.resp.paddr(31,0), "l2memhelper_tlb_resp_paddr"),
+    //             (tlb.io.resp.miss, "l2memhelper_tlb_resp_miss"),
+
+    //             //PTW
+
+    //         )
+    //     )
+    // }
+    
+//! DEBUG
 
   response_output.valid := fire_user_resp.fire(response_output.ready)
   outstanding_req_addr.io.deq.ready := fire_user_resp.fire(outstanding_req_addr.io.deq.valid)

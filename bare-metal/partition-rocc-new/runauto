@@ -1,0 +1,119 @@
+#!/bin/bash
+
+cd /home/name/vivado_prj/vivado-risc-v/bare-metal/partition-rocc-new
+
+USE_ROCC=1
+
+if [ "$USE_ROCC" -eq 1 ]; then
+    OPTI_FLAG=0
+else
+    OPTI_FLAG=2
+fi
+
+gen_h_file(){
+    local dir=$1
+    local dest_dir=$2
+    local dataset=$3
+cat > ${dest_dir}/dataset.h << GENHFILE
+#include "${dir}/${dataset}.h"
+static const char DATASET_NAME[] =   "${dataset}";
+static const int USE_ROCC=${USE_ROCC};
+GENHFILE
+}
+
+gen_MK_file(){
+    local dest_dir=$1
+cat > ${dest_dir}/Makefile << GENMKFILE
+OPTIMIZATION = -O${OPTI_FLAG}
+
+SRCS = head.S main.c 
+
+run:
+	../scripts/*.sh
+
+include ../common.mk
+GENMKFILE
+}
+
+
+test_dataset() {
+    local dataset_name=$1
+    
+    # 设置参数
+    seed=42
+
+
+    BASE_DIR="$HOME/Desktop"
+    DATASETS_DIR="$BASE_DIR/datasets/padding"
+    TARGET_DIR="$HOME/vivado_prj/vivado-risc-v/bare-metal/partition-rocc-new"
+
+    # echo "Test #${TOTAL_TESTS} : ${test_name}_${DATA_SIZE}"
+    echo -e "\033[94mTest : ${dataset_name}\033[0m"
+    if [ "$USE_ROCC" -eq 1 ]; then
+        echo -e "\033[94mUsing ROCC Accelerator\033[0m"
+    else
+        echo -e "\033[94mNot Using ROCC Accelerator\033[0m"
+    fi
+
+
+    ls -lh ${DATASETS_DIR}/${dataset_name}.h > /dev/null 2>&1 || echo "Dataset not found."
+    # echo "${DATASETS_DIR}"
+    # echo -e "${dataset_name}\n\n" >> ${DATASETS_DIR}/dataset_list.txt
+
+    gen_MK_file "${TARGET_DIR}"
+    gen_h_file "${DATASETS_DIR}" "${TARGET_DIR}" "${dataset_name}"
+
+    make clean all
+    /home/name/vivado_prj/vivado-risc-v/bare-metal/scripts/debugger_download_run_program.sh
+    
+    # if [ "$USE_ROCC" -eq 1 ]; then
+    #     echo -e "\033[94mWaiting for program to complete...(20 Sec)\033[0m"
+    #     sleep 20
+    # else
+    #     echo -e "\033[94mWaiting for program to complete...(4 Min)\033[0m"
+    #     sleep 250
+    # fi
+
+
+}
+
+
+size=20480
+datasets=(
+    # # k4v4
+    # # TupleWidth: Int = 64,
+    # # KeyWidth: Int = 32,
+    # "FIX_U_FO_K4_V4_T8_${size}"
+
+    # # k16v16
+    # # TupleWidth: Int = 256,
+    # # KeyWidth: Int = 128,
+    # "FIX_U_FO_K12_V12_T32P8_${size}"
+    # "FIX_U_FO_K16_V16_T32_${size}"
+    # "FIX_U_FO_K4_V16_T32P12_${size}"
+    # "FIX_U_FO_K8_V16_T32P8_${size}"
+    # "VAR_U_FO_K4to12_V4to16_T32P4_${size}"
+    # "VAR_U_FO_K4to16_V4to16_T32_${size}"
+    # "VAR_U_FO_K4to8_V4to16_T32P8_${size}"
+    # "VAR_U_FO_K8to16_V8to16_T32_${size}"
+
+    # # k8v8
+    # # TupleWidth: Int = 128,
+    # # KeyWidth: Int = 64,
+    # "FIX_U_FO_K6_V6_T16P4_${size}"
+    # "FIX_U_FO_K8_V8_T16_${size}"
+    # "FIX_U_FO_K4_V8_T16P4_${size}"
+    # "VAR_U_FO_K4to8_V4to8_T16_${size}"
+
+    # # k8v24
+    # # TupleWidth: Int = 256,
+    # # KeyWidth: Int = 64,
+    # "VAR_U_FO_K4to8_V4to24_T32_${size}"
+)
+
+for dataset in "${datasets[@]}"; do
+    test_dataset "${dataset}"
+    echo ""
+done
+
+/home/name/tools/meow_push/meow_push.sh le VivadoRiscV-BareMetal-FixVer Runned || true

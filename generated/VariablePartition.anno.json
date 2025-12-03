@@ -1,0 +1,2108 @@
+[
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.VariablePartition.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumDefAnnotation",
+    "typeName":"partition.variable.VPState",
+    "definition":{
+      "sBuild":3,
+      "sIdle":0,
+      "sWork":4,
+      "sPre":2,
+      "sInit":1,
+      "sDrain":5
+    }
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.VariablePartition.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.VariablePartition.nextState",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumDefAnnotation",
+    "typeName":"partition.variable.TupleSplicer$State",
+    "definition":{
+      "sIdle":0,
+      "sAccumulating":1,
+      "sOutput":2
+    }
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_1.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_1.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_1.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_1>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_1.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_2.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_2.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_2.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_2>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_2.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_3.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_3.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_3.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_3>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_3.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_4.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_4.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_4.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_4>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_4.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_5.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_5.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_5.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_5>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_5.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_6.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_6.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_6.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_6>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_6.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_7.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_7.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_7.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_7>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_7.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_8.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_8.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_8.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_8>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_8.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_9.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_9.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_9.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_9>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_9.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_10.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_10.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_10.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_10>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_10.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_11.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_11.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_11.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_11>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_11.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_12.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_12.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_12.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_12>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_12.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_13.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_13.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_13.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_13>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_13.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_14.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_14.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_14.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_14>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_14.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.ProcessEngine_15.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.TupleSplicer_15.state",
+    "enumTypeName":"partition.variable.TupleSplicer$State"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_15.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>numBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>numBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>numBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>fillRateBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>fillRateBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>fillRateBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>dataBRAM",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>dataBRAM",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>dataBRAM",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_0",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_0",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_0",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_1",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_1",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_1",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_2",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_2",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_2",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_3",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_3",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|WriteComb_15>infoBRAMS_3",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.WriteComb_15.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.HistogramToOffset.io.state",
+    "enumTypeName":"partition.variable.VPState"
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>histBram",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>histBram",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>histBram",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>cntBram",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>cntBram",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>cntBram",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>histBramInfos",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>histBramInfos",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>histBramInfos",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>cntBramInfos",
+    "description":"ram_style = \"block\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>cntBramInfos",
+    "description":"DONT_TOUCH = \"true\""
+  },
+  {
+    "class":"firrtl.AttributeAnnotation",
+    "target":"~VariablePartition|HistogramToOffset>cntBramInfos",
+    "description":"KEEP = \"true\""
+  },
+  {
+    "class":"chisel3.experimental.EnumAnnotations$EnumComponentAnnotation",
+    "target":"VariablePartition.HistogramToOffset.state_1d",
+    "enumTypeName":"partition.variable.VPState"
+  }
+]

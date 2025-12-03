@@ -1,0 +1,3 @@
+为什么`/home/name/vivado_prj/vivado-risc-v/generators/partition-chisel/src/main/scala/fixed-partition/WriteComb.scala`里面的SyncReadMem都可以被推断为bram，但是`/home/name/vivado_prj/vivado-risc-v/generators/partition-chisel/src/main/scala/variable-partition/WriteComb.scala`里面的SyncReadMem不能被推断为bram？
+我使用的是vc707的fpga。
+先进行分析，不要修改源代码。

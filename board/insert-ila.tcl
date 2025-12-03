@@ -124,7 +124,7 @@ if {[llength $debug_nets] == 0} {
     if {$width > 1} { set_property PORT_WIDTH $width $p }
     connect_debug_port $p $nets_ordered
 
-    if {[regexp {DebugTag_FLAG_.*_FLAG_DebugTag} $base]} {
+    if {[regexp {DebugTag_.*FLAG.*_.*FLAG.*_DebugTag} $base]} {
         set_property PROBE_TYPE DATA_AND_TRIGGER $p
         incr trigger_cnt
         puts "INFO: trigger probe: $base (width=$width)"

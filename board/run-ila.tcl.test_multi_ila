@@ -1,0 +1,190 @@
+open_hw_manager
+connect_hw_server -url "$::env(HW_SERVER_ADDR)"
+open_hw_target
+
+set dev [lindex [get_hw_devices] 0]
+current_hw_device $dev
+
+set trigger_position 1024
+
+if {[info exists ::env(ltx_file)] && [file exists "$::env(ltx_file)"]} {
+    set_property PROBES.FILE "$::env(ltx_file)" $dev
+    set_property FULL_PROBES.FILE "$::env(ltx_file)" $dev
+    refresh_hw_device -update_hw_probes true $dev
+} else {
+    puts "WARNING: ltx_file not set or not found; probes mapping will be missing."
+}
+
+# Get all ILA cores (for cascade support)
+set all_ilas [get_hw_ilas]
+set ila_count [llength $all_ilas]
+
+if {$ila_count == 0} {
+  puts "ERROR: No hw_ila cores found. Check that your design has ILA and LTX matches."
+  return -code error
+}
+
+puts "INFO: Found $ila_count ILA core(s)"
+
+# Set trigger position for all ILAs
+foreach ila $all_ilas {
+    set_property CONTROL.TRIGGER_POSITION $trigger_position $ila
+    puts "INFO: Set trigger position to $trigger_position for [get_property NAME $ila]"
+}
+
+# Use first ILA for trigger configuration
+set ila_primary [lindex $all_ilas 0]
+
+
+if {[info exists ::env(wcfg_file)] && [file exists "$::env(wcfg_file)"]} {
+    open_wave_config "$::env(wcfg_file)"
+} else {
+    puts "WARNING: wcfg_file not set or not found; probes mapping will be missing."
+}
+
+# 从环境变量读取触发信号编号，默认为1
+if {[info exists ::env(TRIGGER_NUM)]} {
+    set trigger_num $::env(TRIGGER_NUM)
+} else {
+    set trigger_num "1"
+}
+puts "INFO: Using trigger pattern: *DebugTag_${trigger_num}FLAG_*_FLAG${trigger_num}_DebugTag*"
+
+# Configure trigger on PRIMARY ILA only (cascade will auto-trigger others)
+set trigger_probes [get_hw_probes -of_objects $ila_primary -filter "NAME =~ \"*DebugTag_${trigger_num}FLAG_*_FLAG${trigger_num}_DebugTag*\""]
+if {[llength $trigger_probes] == 0} {
+    puts "WARNING: no trigger probes matched pattern for TRIGGER_NUM=$trigger_num"
+}
+
+proc get_probe_width {p} {
+  foreach prop {WIDTH DATA_WIDTH PROBE_PORT_WIDTH} {
+    set v [get_property $prop $p]
+    if {$v ne ""} { return $v }
+  }
+  return 1
+}
+
+foreach p $trigger_probes {
+    # set w [get_property PROBE_WIDTH $p]
+    # if {$w eq ""} { set w [get_property WIDTH $p] }
+    # if {$w eq ""} { set w 1 }
+    set w [get_probe_width $p]
+
+    if {$w == 1} {
+        set_property TRIGGER_COMPARE_VALUE eq1'b1 $p
+        puts "INFO: set trigger ==1 on [get_property NAME $p]"
+    } else {
+        puts "INFO: skip non-1bit trigger probe [get_property NAME $p] (width=$w)"
+    }
+}
+
+# Arm and run ALL ILAs
+foreach ila $all_ilas {
+    run_hw_ila $ila
+    puts "INFO: Armed [get_property NAME $ila]"
+}
+
+puts "INFO: All ILAs armed and waiting for trigger..."
+
+# Wait for primary ILA to complete (others will cascade automatically)
+wait_on_hw_ila $ila_primary
+puts "INFO: Primary ILA triggered and completed"
+
+# Wait for all cascaded ILAs to complete
+foreach ila $all_ilas {
+    wait_on_hw_ila $ila
+    puts "INFO: [get_property NAME $ila] completed"
+}
+
+file mkdir "$::env(OUT_DIR)"
+set ts [clock format [clock seconds] -format "%Y%m%d_%H%M%S"]
+
+# Upload and save data from ALL ILAs
+set ila_index 0
+set all_vcd_files {}
+
+foreach ila $all_ilas {
+    set ila_name [get_property NAME $ila]
+    puts "INFO: Uploading data from $ila_name..."
+    
+    set data_obj [upload_hw_ila_data $ila]
+    
+    # Save individual ILA data
+    set ila_file "$::env(OUT_DIR)/ila_${ila_index}_$ts.ila"
+    write_hw_ila_data $ila_file $data_obj -force
+    puts "INFO: Wrote ILA file: $ila_file"
+    
+    # Save individual VCD
+    set vcd_file "$::env(OUT_DIR)/ila_${ila_index}_$ts.vcd"
+    write_hw_ila_data -vcd_file $vcd_file $data_obj -force
+    puts "INFO: Wrote VCD file: $vcd_file"
+    
+    lappend all_vcd_files $vcd_file
+    incr ila_index
+}
+
+# Merge VCDs (simple concatenation for cascaded samples)
+set merged_vcd "$::env(OUT_DIR)/ila_merged_$ts.vcd"
+puts "INFO: Merging $ila_count VCD files into $merged_vcd..."
+
+# Open output file
+set out_fp [open $merged_vcd w]
+
+# Process each VCD file
+for {set i 0} {$i < [llength $all_vcd_files]} {incr i} {
+    set vcd_file [lindex $all_vcd_files $i]
+    set in_fp [open $vcd_file r]
+    set content [read $in_fp]
+    close $in_fp
+    
+    if {$i == 0} {
+        # First VCD: write header and data
+        puts $out_fp $content
+    } else {
+        # Subsequent VCDs: skip header, only append data section
+        # Find where data starts (after $dumpvars)
+        set data_start [string first "\$dumpvars" $content]
+        if {$data_start >= 0} {
+            set data_start [string first "\n" $content $data_start]
+            incr data_start
+            set data_section [string range $content $data_start end]
+            puts $out_fp $data_section
+        }
+    }
+}
+
+close $out_fp
+puts "INFO: Merged VCD file created: $merged_vcd"
+puts "INFO: Total sampling depth: [expr {$ila_count * 8192}] samples"
+puts "INFO: Merged VCD file created: $merged_vcd"
+puts "INFO: Total sampling depth: [expr {$ila_count * 8192}] samples"
+
+# Post-process merged VCD to remove debug tags and long paths
+puts "INFO: Post-processing merged VCD file..."
+
+set fp [open $merged_vcd r]
+set content [read $fp]
+close $fp
+
+# Clean up signal names
+set content [string map {
+    "_DebugTag" ""
+    "DebugTag_" ""
+    "riscv_i/RocketChip/inst/rocket_system/tile_prci_domain/tile_reset_domain_tile/" ""
+} $content]
+
+set fp [open $merged_vcd w]
+puts -nonewline $fp $content
+close $fp
+
+puts "INFO: VCD file cleaned: removed debug tags and simplified paths"
+puts ""
+puts "======================================================================"
+puts "SUMMARY:"
+puts "  ILA cores captured: $ila_count"
+puts "  Individual VCD files: $all_vcd_files"
+puts "  Merged VCD file: $merged_vcd"
+puts "  Total samples: [expr {$ila_count * 8192}] continuous cycles"
+puts "======================================================================"
+
+puts "END"

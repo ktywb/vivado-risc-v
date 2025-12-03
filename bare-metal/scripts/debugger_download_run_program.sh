@@ -7,7 +7,7 @@ sleep 5
 PIDS=$(pgrep -x hw_server)
 if [ -z "$PIDS" ]; then
     echo "[INFO] No hw_server process running."
-    exit 0
+    exit $XSDB_EXIT_CODE
 fi
 
 echo -e "[INFO] Found hw_server PIDs: \n$PIDS"

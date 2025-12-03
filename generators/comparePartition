@@ -4,4 +4,8 @@ RemoteFolder=$HOME/partition-chipyard/generators/partition-chisel
 # RemoteFolder=$HOME/vivado_prj/vivado-risc-v/generators/partition-chisel-bkup
 NeedComparePath=src/main/scala
 
+# echo "${LocalFolder}/${NeedComparePath}/$1.scala"
+# echo "${RemoteFolder}/${NeedComparePath}/$1.scala"
+
 code --diff $LocalFolder/$NeedComparePath/$1.scala $RemoteFolder/$NeedComparePath/$1.scala
+

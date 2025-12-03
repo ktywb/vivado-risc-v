@@ -40,6 +40,15 @@ object addAttribute {
 
 object markSig{              // signal, name
   def apply (debugSignals: Seq[(Data, String)], leftTag: String= "DebugTag", rightTag: String= "DebugTag", markdebug:Boolean = true): Seq[Data] = {
+    // // 从环境变量读取 DEBUG 设置
+    // val debugEnabled = sys.env.get("DEBUG").contains("true")
+    
+    // if (!debugEnabled) {
+    //   println(s"[debug:markSig] DEBUG=false, skipping mark_debug generation")
+    //   // 返回空序列，不生成任何 debug 信号
+    //   return Seq.empty
+    // }
+    
     val leftBar = if(leftTag.isEmpty) "" else "_"
     val rightBar = if(rightTag.isEmpty) "" else "_"
 

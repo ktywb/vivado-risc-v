@@ -1,0 +1,6 @@
+#!/bin/bash
+
+gcc -o partition-rocc partition-rocc.c
+echo "Compile Complete\n"
+./partition-rocc
+

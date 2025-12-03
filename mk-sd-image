@@ -3,7 +3,8 @@
 set -e
 cd -P `dirname $0`
 
-SD_SIZE=1500
+# SD_SIZE=3000
+SD_SIZE=1000
 # SD_SIZE=5000
 SD_BOOT_SIZE=64
 SD_SWAP_SIZE=

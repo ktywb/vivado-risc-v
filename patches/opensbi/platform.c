@@ -100,6 +100,28 @@ static int early_init(bool cold_boot) {
     return 0;
 }
 
+
+static inline void enable_counters_for_smode(void)
+{
+    const unsigned long MCOUNTEREN_CY = 1UL << 0;
+    const unsigned long MCOUNTEREN_TM = 1UL << 1;
+    const unsigned long MCOUNTEREN_IR = 1UL << 2;
+
+    const unsigned long MCOUNTINHIBIT_CY = 1UL << 0;
+    const unsigned long MCOUNTINHIBIT_IR = 1UL << 2;
+
+    csr_set(CSR_MCOUNTEREN, MCOUNTEREN_CY | MCOUNTEREN_TM | MCOUNTEREN_IR);
+
+    csr_clear(CSR_MCOUNTINHIBIT, MCOUNTINHIBIT_CY | MCOUNTINHIBIT_IR);
+
+    sbi_printf("MCOUNTEREN=0x%lx MCOUNTINHIBIT=0x%lx\n",
+           csr_read(CSR_MCOUNTEREN),
+           csr_read(CSR_MCOUNTINHIBIT));
+    sbi_printf("MCYCLE=%lx MINSTRET=%lx\n",
+            csr_read(CSR_MCYCLE),
+            csr_read(CSR_MINSTRET));
+}
+
 static int final_init(bool cold_boot) {
 #if 0
     void * fdt = fdt_get_address_rw();
@@ -108,6 +130,9 @@ static int final_init(bool cold_boot) {
     fdt_fixups(fdt);
     fdt_domain_fixup(fdt);
 #endif
+    if (cold_boot) {
+        enable_counters_for_smode();
+    }
     return 0;
 }
 

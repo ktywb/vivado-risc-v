@@ -1,0 +1,244 @@
+#!/bin/bash
+
+cd /home/name/vivado_prj/vivado-risc-v/bare-metal/partition-rocc-var
+
+# 导入Gen函数
+# source gendata
+
+# echo "=========================================="
+# echo "Dataset Generation and Validation Test"
+# echo "=========================================="
+# echo ""
+
+# 清理旧数据集
+# rm -f src/main/resources/VariablePartition/data/datasets/*.bin
+# rm -f src/main/resources/VariablePartition/data/datasets/*.h
+
+key_value_pairs=(
+    "4 4"      # K4V4, total=8
+    "6 6"      # K6V6, total=12
+    "8 8"      # K8V8, total=16
+    "12 12"    # K12V12, total=24
+    "16 16"    # K16V16, total=32 (edge)
+    "4 8"      # K4V8, total=12
+    "4 16"     # K4V16, total=20
+    "8 16"     # K8V16, total=24
+)
+# Var
+key_value_ranges=(
+    "4 8 4 8"       # K[4,8]  V[4,8]
+    "4 16 4 16"     # K[4,16] V[4,16]
+    "8 16 8 16"     # K[8,16] V[8,16]
+    "4 8 4 16"      # K[4,8]  V[4,16]
+    "4 8 4 24"      # K[4,8]  V[4,24]
+    "4 12 4 16"     # K[4,12] V[4,16]
+)
+
+DISTRIBUTIONS="0" # 1
+OFFSET_MODES="false" # true
+DATASET_SIZE=20480
+USE_ROCC=1
+
+# 测试计数器
+TOTAL_TESTS=0
+PASSED_TESTS=0
+FAILED_TESTS=0
+
+# 测试结果记录
+# declare -a TEST_RESULTS
+gen_h_file(){
+    local dir=$1
+    local dest_dir=$2
+    local dataset=$3
+cat > ${dest_dir}/dataset.h << GENHFILE
+#include "${dir}/${dataset}_Data.h"
+#include "${dir}/${dataset}_Info.h"
+static const char DATASET_NAME[] =   "${dataset}";
+static const int USE_ROCC=${USE_ROCC};
+static const int is_variable = ${IS_VAR};
+static const int tuple_len_fixed = ${FIXED_TUPLE_LEN};
+static const int key_len_fixed = ${FIXED_KEY_LEN};
+GENHFILE
+}
+
+if [ "$USE_ROCC" -eq 1 ]; then
+    OPTI_FLAG=0
+else
+    OPTI_FLAG=2
+fi
+
+gen_MK_file(){
+    local dest_dir=$1
+cat > ${dest_dir}/Makefile << GENMKFILE
+OPTIMIZATION = -O${OPTI_FLAG}
+
+SRCS = head.S main.c 
+
+run:
+	../scripts/*.sh
+
+include ../common.mk
+GENMKFILE
+}
+
+# 测试函数
+test_dataset() {
+    local test_name=$1
+    local use_var=$2
+    local random_offset=$3
+    local key_len=$4
+    local value_len=$5
+    local min_key=$6
+    local max_key=$7
+    local min_val=$8
+    local max_val=$9
+    local distribution=${10}
+    
+    TOTAL_TESTS=$((TOTAL_TESTS + 1))
+    
+    # 设置参数
+    seed=42
+    USE_VAR_LEN=$use_var
+    RANDOM_OFFSET=$random_offset
+    KEY_LEN=$key_len
+    VALUE_LEN=$value_len
+    MIN_KEY_LEN=$min_key
+    MAX_KEY_LEN=$max_key
+    MIN_VALUE_LEN=$min_val
+    MAX_VALUE_LEN=$max_val
+    MIN_TUPLE_LEN=8
+    MAX_TUPLE_LEN=32
+    DATA_SIZE=$DATASET_SIZE
+    DATA_DISTRIBUTION=$distribution
+    BASE_DIR="$HOME/Desktop"
+    DATASETS_DIR="$BASE_DIR/datasets"
+    TARGET_DIR="$HOME/vivado_prj/vivado-risc-v/bare-metal/partition-rocc-var"
+    
+    # 根据 USE_VAR_LEN 设置 IS_VAR
+    if [ "$USE_VAR_LEN" = true ]; then
+        IS_VAR=1
+    else
+        IS_VAR=0
+    fi
+    
+    # 设置 FIXED_KEY_LEN 和 FIXED_TUPLE_LEN
+    FIXED_KEY_LEN=$KEY_LEN
+    FIXED_TUPLE_LEN=$((KEY_LEN + VALUE_LEN))
+
+    # echo "Test #${TOTAL_TESTS} : ${test_name}_${DATA_SIZE}"
+    echo -e "\033[94mTest #${TOTAL_TESTS} : ${test_name}_${DATA_SIZE}\033[0m"
+    if [ "$USE_ROCC" -eq 1 ]; then
+        echo -e "\033[94mUsing ROCC Accelerator\033[0m"
+    else
+        echo -e "\033[94mNot Using ROCC Accelerator\033[0m"
+    fi
+
+
+    ls -lh ${DATASETS_DIR}/${test_name}_${DATA_SIZE}_Data.h > /dev/null 2>&1 || echo "Dataset not found."
+    ls -lh ${DATASETS_DIR}/${test_name}_${DATA_SIZE}_Info.h > /dev/null 2>&1 || echo "Dataset not found."
+    # echo "${DATASETS_DIR}"
+    # echo -e "${test_name}_${DATA_SIZE}\n\n" >> ${DATASETS_DIR}/dataset_list.txt
+    gen_MK_file "${TARGET_DIR}"
+    gen_h_file "${DATASETS_DIR}" "${TARGET_DIR}" "${test_name}_${DATA_SIZE}"
+    make clean all
+    /home/name/vivado_prj/vivado-risc-v/bare-metal/scripts/debugger_download_run_program.sh
+    
+    if [ "$USE_ROCC" -eq 1 ]; then
+        echo -e "\033[94mWaiting for program to complete...(20 Sec)\033[0m"
+        sleep 20
+    else
+        echo -e "\033[94mWaiting for program to complete...(1 Min)\033[0m"
+        sleep 60
+    fi
+
+
+}
+
+echo ""
+echo "=========================================="
+echo "Part 1: FixTupleLength Tests"
+echo ""
+
+# # Fix
+# key_value_pairs=(
+#     "4 4"      # K4V4, total=8
+#     "8 8"      # K8V8, total=16
+#     "16 16"    # K16V16, total=32 (edge)
+#     "4 16"     # K8V16, total=24
+#     "16 4"     # K16V8, total=24
+# )
+# # Var
+# key_value_ranges=(
+#     "4 8 4 8"       # K[4,8] V[4,8]
+#     "4 16 4 16"     # K[4,16] V[4,16]
+#     "4 28 4 28"     # K[4,28] V[4,28] (edge?)
+#     "4 4 4 28"       # K[4,4] V[4,28]
+#     "4 28 4 4"       # K[4,28] V[4,4]
+# )
+# SEED=42, Can not run these:
+# VAR_U_FO_K4to16_V4to16_256 run at 21
+# VAR_U_FO_K4to28_V4to28_256 run at 21
+
+# VAR_U_FO_K4to8_V4to8_512 run at 11
+# VAR_U_FO_K4to4_V4to28_512 run at 11
+# VAR_U_RO_K4to16_V4to16_512 run at 5
+
+# SEED=21, Can not run these:
+# VAR_L_FO_K4to16_V4to16_256 run at 11
+# VAR_L_FO_K4to4_V4to28_256 run at 42
+# VAR_L_RO_K4to4_V4to28_256 run at 11
+# VAR_L_RO_K4to28_V4to4_256 run at 11
+
+
+for distribution in $DISTRIBUTIONS; do
+    for offset_mode in $OFFSET_MODES; do
+        if [ "$offset_mode" = "false" ]; then
+            offset_tag="FO"
+        else
+            offset_tag="RO"
+        fi
+        if [ "$distribution" -eq 0 ]; then
+            dist_tag="U"
+        else
+            dist_tag="L"
+        fi
+        
+        for pair in "${key_value_pairs[@]}"; do
+            read -r k v <<< "$pair"
+            test_name="FIX_${dist_tag}_${offset_tag}_K${k}_V${v}"
+            test_dataset "$test_name" false "$offset_mode" "$k" "$v" 4 28 4 28 "$distribution"
+        done
+    done
+done
+echo "=========================================="
+echo ""
+
+echo ""
+echo "=========================================="
+echo "Part 2: RandomTupleLength Tests"
+echo ""
+
+sleep 5
+
+for distribution in $DISTRIBUTIONS; do
+    for offset_mode in $OFFSET_MODES; do
+        if [ "$offset_mode" = "false" ]; then
+            offset_tag="FO"
+        else
+            offset_tag="RO"
+        fi
+        if [ "$distribution" -eq 0 ]; then
+            dist_tag="U"
+        else
+            dist_tag="L"
+        fi
+        
+        for range in "${key_value_ranges[@]}"; do
+            read -r min_k max_k min_v max_v <<< "$range"
+            test_name="VAR_${dist_tag}_${offset_tag}_K${min_k}to${max_k}_V${min_v}to${max_v}"
+            test_dataset "$test_name" true "$offset_mode" 4 4 "$min_k" "$max_k" "$min_v" "$max_v" "$distribution"
+        done
+    done
+done
+
+/home/name/tools/meow_push/meow_push.sh le VivadoRiscV-BareMetal Runned || true

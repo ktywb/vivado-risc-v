@@ -5,7 +5,7 @@ open_hw_target
 set dev [lindex [get_hw_devices] 0]
 current_hw_device $dev
 
-set trigger_position 512
+set trigger_position 7168
 
 if {[info exists ::env(ltx_file)] && [file exists "$::env(ltx_file)"]} {
     set_property PROBES.FILE "$::env(ltx_file)" $dev
@@ -30,12 +30,18 @@ if {[info exists ::env(wcfg_file)] && [file exists "$::env(wcfg_file)"]} {
     puts "WARNING: wcfg_file not set or not found; probes mapping will be missing."
 }
 
-set trigger_probes [get_hw_probes -of_objects $ila -filter {NAME =~ "*DebugTag_FLAG_*_FLAG_DebugTag*"}]
-# if {[llength $trigger_probes] == 0} {
-#     puts "WARNING: no trigger probes matched pattern"
-# } else {
-#     set_property TRIGGER_COMPARE_VALUE eq1'b1 [get_hw_probes riscv_i/RocketChip/inst/rocket_system/tile_prci_domain/tile_reset_domain_tile/acc/cmd_router/DebugTag_FLAG_start_FLAG_DebugTag -of_objects [get_hw_ilas -of_objects $dev -filter {CELL_NAME=~"u_ila_0"}]]
-# }
+# 从环境变量读取触发信号编号，默认为1
+if {[info exists ::env(TRIGGER_NUM)]} {
+    set trigger_num $::env(TRIGGER_NUM)
+} else {
+    set trigger_num "1"
+}
+puts "INFO: Using trigger pattern: *DebugTag_${trigger_num}FLAG_*_FLAG${trigger_num}_DebugTag*"
+
+set trigger_probes [get_hw_probes -of_objects $ila -filter "NAME =~ \"*DebugTag_${trigger_num}FLAG_*_FLAG${trigger_num}_DebugTag*\""]
+if {[llength $trigger_probes] == 0} {
+    puts "WARNING: no trigger probes matched pattern for TRIGGER_NUM=$trigger_num"
+}
 
 proc get_probe_width {p} {
   foreach prop {WIDTH DATA_WIDTH PROBE_PORT_WIDTH} {
@@ -80,3 +86,25 @@ puts "        $::env(OUT_DIR)/ila_$ts.vcd"
 puts "END"
 # export_hw_ila_data -force -vcd_file "$::env(OUT_DIR)/ila_$ts.vcd" $ila 
 # export_hw_ila_data -csv_file "$::env(OUT_DIR)/ila_$ts.csv" $ila
+# 在生成 VCD 文件后进行后处理
+set vcd_file "$::env(OUT_DIR)/ila_$ts.vcd"
+puts "INFO: Post-processing VCD file to remove debug tags and long paths..."
+
+# 读取 VCD 文件内容
+set fp [open $vcd_file r]
+set content [read $fp]
+close $fp
+
+# 使用 string map 删除指定字符串
+set content [string map {
+    "_DebugTag" ""
+    "DebugTag_" ""
+    "riscv_i/RocketChip/inst/rocket_system/tile_prci_domain/tile_reset_domain_tile/" ""
+} $content]
+
+# 将处理后的内容写回文件
+set fp [open $vcd_file w]
+puts -nonewline $fp $content
+close $fp
+
+puts "INFO: VCD file cleaned: removed debug tags and simplified paths"

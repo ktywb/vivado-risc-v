@@ -12,6 +12,7 @@ import freechips.rocketchip.devices.tilelink._
 import freechips.rocketchip.system._
 // import partitionacc._
 import partition.fixedacc._
+import partition.variableacc._
 
 
 import freechips.rocketchip.devices.debug._
@@ -134,72 +135,13 @@ class RocketWideBusConfig extends Config(
   new BaseConfig)
 
 
-/* ---------- Partition Config ---------- */
-class WithSystemBusWidth_My(val bits: Int) extends Config((site, here, up) => {
-  case SystemBusKey => up(SystemBusKey).copy(beatBytes = bits / 8)
-})
-
-class WithDebugPrintConfig extends Config((site, here, up) => {
-  case PgLevels => {
-    val pgLevels = up(PgLevels, site)
-    val xLen = site(XLen)
-    println(s"=== CONFIG DEBUG ===")
-    println(s"XLen: $xLen")
-    println(s"PgLevels: $pgLevels")
-    println(s"Virtual Memory: ${if (xLen == 64) "Sv39" else "Sv32"}")
-    println(s"==================")
-    pgLevels
-  }
-})
-
-class PartitionBaseConfig extends Config(
-  // new WithPartitionAccel ++ // old
-  new WithPartitionFixedAccel ++ // new
-  new WithSystemBusWidth_My(256) ++ 
-  new WithInclusiveCache ++
-  new WithNMemoryChannels(1) 
-  )
-
-class Rocket64b1_partition extends Config(
-  new PartitionBaseConfig ++
-  new Rocket64b1
-  )
-
-class Rocket64b1_partition_test extends Config(
-  new Rocket64b1_partition
-  )
-
-class Rocket64b1_partition_e extends Config(
-  new Rocket64b1_partition
-  )
-
-class Rocket64b1_partition_debug extends Config(
-  new PartitionBaseConfig ++
-  new Rocket64b1
-  )
-class Rocket64h1_partition extends Config(
-  new PartitionBaseConfig ++
-  new Rocket64h1
-  )
-class Rocket64h1_partition_debug extends Config(
-  new Rocket64h1_partition
-  )
-
-class Rocket64h1 extends Config(
-  new WithNBreakpoints(8) ++
-  new WithNHugeCores(1)    ++
-  new RocketBaseConfig)
-
-
-/* ---------- Partition Config ---------- */
-
-
 class Rocket64m1 extends Config(
   new WithNBreakpoints(8) ++
   new WithNMedCores(1)  ++
   new RocketBaseConfig)
 
 class Rocket64b1 extends Config(
+//   new WithPerfCounters() ++
   new WithNBreakpoints(8) ++
   new WithNBigCores(1)    ++
   new RocketBaseConfig)
@@ -417,7 +359,9 @@ class Rocket64x1 extends Config(
   new WithInclusiveCache  ++
   new WithNBreakpoints(8) ++
   new boom.common.WithNMediumBooms(1) ++
-  new RocketWideBusConfig)
+  new RocketWideBusConfig ++
+  new ExptCoreConfig
+  )
 
 /* Note: multi-core BOOM appears unstable */
 class Rocket64x2 extends Config(
@@ -478,3 +422,161 @@ class Rocket64z2m extends Config(
   new boom.common.WithNMegaBooms(2) ++
   new WithExtMemSize(0x3f80000000L) ++
   new RocketWideBusConfig)
+
+
+/* ---------- Partition Config ---------- */
+class WithSystemBusWidth_My(val bits: Int) extends Config((site, here, up) => {
+  case SystemBusKey => up(SystemBusKey).copy(beatBytes = bits / 8)
+})
+
+
+class WithDebugPrintConfig extends Config((site, here, up) => {
+  case PgLevels => {
+    val pgLevels = up(PgLevels, site)
+    val xLen = site(XLen)
+    println(s"=== CONFIG DEBUG ===")
+    println(s"XLen: $xLen")
+    println(s"PgLevels: $pgLevels")
+    println(s"Virtual Memory: ${if (xLen == 64) "Sv39" else "Sv32"}")
+    println(s"==================")
+    pgLevels
+  }
+})
+class PartitionAccelConfig extends Config(
+    // new WithPartitionAccel ++ // old
+    // new WithPartitionFixedAccel// new Fixed
+    new WithVariablePartitionAccel
+)
+
+
+class ExptCoreConfig extends Config(
+    new WithSystemBusWidth_My(256) ++ 
+    new WithInclusiveCache(
+        // Defalt L2 cache WithInclusiveCache parameters   
+        nWays = 8,
+        capacityKB = 1024, // 128, 256, 512, 1024, 1536, 2048?
+        outerLatencyCycles = 40,
+        subBankingFactor = 4,
+        hintsSkipProbe = false
+    ) ++ 
+    new WithNMemoryChannels(1)
+)
+
+class ExptCoreConfigBig extends Config(
+    new WithSystemBusWidth_My(256) ++ 
+    new WithInclusiveCache(
+        // Defalt L2 cache WithInclusiveCache parameters   
+        nWays = 8,
+        capacityKB = 512,
+        outerLatencyCycles = 40,
+        subBankingFactor = 2,
+        hintsSkipProbe = false
+    ) ++ 
+    // new WithNBanks(2) ++ 
+    new WithNMemoryChannels(1)
+)
+
+class ExptCoreConfigSmall /*For Fast Synthesis & Implement */ extends Config(
+    new WithSystemBusWidth_My(256) ++ 
+    new WithInclusiveCache(
+        nWays = 2,             
+        capacityKB = 8,        
+        outerLatencyCycles = 1,
+        subBankingFactor = 2,  
+        hintsSkipProbe = true  
+    ) ++ 
+    new WithNMemoryChannels(1)
+)
+
+
+class ExptCoreConfigDebug extends Config(
+    new WithSystemBusWidth_My(256) ++ 
+    new WithInclusiveCache(nWays = 2, capacityKB=128, subBankingFactor=2) ++ 
+    new WithNMemoryChannels(1)
+)
+
+
+class PartitionDebugConfig extends Config(
+    new PartitionAccelConfig ++ 
+    new ExptCoreConfigDebug
+)
+
+class PartitionBaseConfig extends Config(
+    new PartitionAccelConfig ++ 
+    new ExptCoreConfig
+)
+
+class PartitionBaseConfigBigL2 extends Config(
+    new PartitionAccelConfig ++ 
+    new ExptCoreConfigBig
+)
+
+class Rocket64b1_testWB extends Config(
+//   new WithPerfCounters() ++
+  new WithNBreakpoints(8) ++
+  new WithNBigCores(1)    ++
+  new RocketWideBusConfig)
+
+class Rocket64b1_partition extends Config(
+  new PartitionBaseConfig ++
+//   new Rocket64b1
+  new Rocket64b1_testWB
+  )
+
+class Rocket64b1_reference extends Config(
+    // new ExptCoreConfig ++
+    new WithSystemBusWidth_My(256) ++ 
+    new WithInclusiveCache(
+        // Defalt L2 cache WithInclusiveCache parameters   
+        nWays = 8,
+        capacityKB = 1024, // 128, 256, 512, 1024, 1536, 2048?
+        outerLatencyCycles = 40,
+        subBankingFactor = 4,
+        hintsSkipProbe = false
+    ) ++ 
+    new WithNMemoryChannels(1) ++ 
+    new Rocket64b1
+    
+    
+)
+
+class Rocket64b1_partition_test extends Config(
+  new PartitionAccelConfig ++ 
+  new ExptCoreConfig ++
+  new Rocket64b1
+  )
+
+class Rocket64b1_partition_e extends Config(
+  new Rocket64b1_partition
+  )
+
+class Rocket64b1_partition_debug extends Config(
+//   new PartitionBaseConfig ++
+    new PartitionDebugConfig ++ 
+    new Rocket64b1
+  )
+
+
+class Rocket64h1 extends Config(
+  new WithNBreakpoints(8) ++
+  new WithNHugeCores(1)    ++
+  new RocketBaseConfig)
+
+
+class Rocket64x1_reference extends Config(
+    new ExptCoreConfigBig ++
+    new WithNBreakpoints(8) ++
+    new boom.common.WithNMediumBooms(1) ++
+    new RocketWideBusConfig
+)
+
+
+class Rocket64x1_partition extends Config(
+    new PartitionBaseConfigBigL2 ++
+    new WithNBreakpoints(8) ++
+    new boom.common.WithNMediumBooms(1) ++
+    new RocketWideBusConfig
+    // new RocketBaseConfig
+  )
+
+/* ---------- Partition Config ---------- */
